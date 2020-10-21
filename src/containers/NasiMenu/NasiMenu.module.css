@@ -1,0 +1,72 @@
+.BlockTitle {
+    text-align : center;
+    border : 1px solid;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    width: 60%;
+    height:auto;
+    position:fixed;
+    top:10%;
+    left:20%;
+}
+
+.BlockImage {
+    width: 38%;
+    height:50%;
+    text-align:center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:100px;
+}
+
+.BlockSidebar{
+    border: 1px solid;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    position:fixed;
+    width:20%;
+    text-align:center;
+    left:60%;
+    top:25%;
+    height: 70%;
+}
+
+.BlockSelector{
+    border: 1px solid;
+    width:38%;
+    text-align: center;
+    margin-top:20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    margin-bottom:10px;
+}
+
+
+
+.BlockSubselector{
+    border: 1px solid;
+    margin-top:20px;
+    max-width:80%;
+    margin-left:10%;
+    height:100px;
+}
+
+.nasi_lemak_sample {
+    max-width: 75%;
+    max-height: 75%;
+    padding-top:30px;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .Blocktitle {
+      width: 500px;
+    }
+    .nasi_lemak_sample {
+        width: 150px;
+        padding-top:120px;
+    }
+}
+
+

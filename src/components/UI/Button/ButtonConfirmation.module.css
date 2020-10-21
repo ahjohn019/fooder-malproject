@@ -1,0 +1,16 @@
+.ButtonConfirmation {
+    border:0;
+    border-radius: 5%;
+    background-color: #87CEFA;
+    width:15%;
+    margin:10px;
+    padding:15px;
+    color:white;
+    margin-left:43%;
+    font-size:24px;
+}
+
+.ButtonConfirmation:hover{
+    background-color: #93d2fa;
+    cursor: pointer;
+}
