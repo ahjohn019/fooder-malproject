@@ -1,11 +1,21 @@
 .checkboxOne input[type=checkbox]{
     width:15px;
     height:15px;
-    
+    margin-left:15px;
+    cursor: pointer;
 }
 
 .checkboxOne label {
-    font-size:  22px;
-    /* position: absolute; */
-    /* margin-left:5px; */
+    font-size:  20px;
+    margin-left:10px;
+}
+
+.checkboxOne {
+    padding-top:5px;
+    padding-bottom:10px;
+    
+}
+
+.addontitle {
+    padding-left: 12px;
 }

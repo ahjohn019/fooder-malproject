@@ -9,7 +9,6 @@ const controls = [
     {label: 'Rice', type: 'rice'},
 ];
 
-
 const nasiController = (props) => {
     // const listLabel = controls.map((ctrl)=>
     //     <li>{ctrl.label}</li>
@@ -17,11 +16,12 @@ const nasiController = (props) => {
 
     return(
         <div>
-            <h3>Add-On Sides</h3>
+            <h3 className={classes.addontitle}>Add-On Sides</h3>
             {controls.map(ctrl =>
                 <div className={classes.checkboxOne}>
                     <span><input type="checkbox" value={ctrl.type} onClick={e=> console.log(e.target.value)}/></span>
-                    <label for="checkboxOneInput">{ctrl.label}</label>
+                    <label>{ctrl.label}</label>
+                    
                 </div>
             )}
         </div>

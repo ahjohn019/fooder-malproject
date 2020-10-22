@@ -13,7 +13,20 @@ class NasiBuilder extends Component {
                 fried_chicken:2,
                 salty_egg:1.5,
                 rice:2
-            }
+            },
+            baseprice: 4,
+            quantity: 0,
+            showquantity: true
+        }
+    }
+
+    handlequantityIncrement = () => {
+        this.setState({quantity: this.state.quantity + 1});
+    }
+
+    handlequantityDecrement = () => {
+        if(this.state.quantity > 0){
+            this.setState({quantity: this.state.quantity - 1});
         }
     }
 
@@ -35,12 +48,31 @@ class NasiBuilder extends Component {
                 </div>
                 <div className={classes.BlockSelector}>
                     <h3>Nasi Lemak</h3>
-                    <p>Base Price</p>
-                    <p>RM 4.00</p>
+                    <p>Base Price : RM {this.state.baseprice}</p>
+                    
                 </div>
                 <div className={classes.BlockSelector}>
                     <NasiController ingredients={this.state.ingredients} />
                 </div>
+
+                <div className={classes.BlockSelector}>
+                    <h3>Special Instructions</h3>
+                    <input className={classes.SpecialInstructions} type="text" placeholder="Exp: No Vegetables..." ></input>
+                </div>
+                
+                <div className={classes.BlockSelector}>
+                    <h3>Quantity</h3>
+                    <div className={classes.ButtonQuantityLeft}>
+                        <button onClick={this.handlequantityDecrement}>Less</button>
+                    </div>
+                    <div className={classes.ButtonQuantity}>
+                    {this.state.showquantity ? <h2>{this.state.quantity}</h2> : ""}
+                    </div>
+                    <div className={classes.ButtonQuantity}>
+                        <button onClick={this.handlequantityIncrement}>More</button>
+                    </div>
+                </div>
+
                 
                 <Button>Submit</Button>
             </div>
