@@ -1,0 +1,11 @@
+.checkboxOne input[type=checkbox]{
+    width:15px;
+    height:15px;
+    
+}
+
+.checkboxOne label {
+    font-size:  22px;
+    /* position: absolute; */
+    /* margin-left:5px; */
+}
