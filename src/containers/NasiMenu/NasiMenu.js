@@ -8,37 +8,49 @@ class NasiBuilder extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ingredients: {
-                peanut:1,
-                fried_chicken:2,
-                salty_egg:1.5,
-                rice:2
-            },
-            baseprice: 4,
-            quantity: 0,
-            showquantity: true
-        }
+            quantity: 1,
+            showquantity: true,
+            purchasable:true,
+            baseprice:4
+        };
+    }
+    //get base price + addon price(by users)
+    //if tick => add into base price else remove addon prices
+    checkboxIncrement = (event) => {
+        const value = event.target.value;
+        const isChecked = event.target.checked;
+        let {baseprice} = this.state; 
+        if(isChecked){
+            baseprice += parseFloat(value) ;     
+        } else {
+            baseprice -= parseFloat(value) ;     
+        } 
+        this.setState({baseprice});
     }
 
-    handlequantityIncrement = () => {
-        this.setState({quantity: this.state.quantity + 1});
+
+    handlequantityIncrement = (event) => {
+        //1. pass value(checkboxincrement)
+        //2. add quantity value on food checkbox
+        const value = event.target.value;
+        let plus = this.state.quantity + 1;
+
+        this.setState({quantity: plus});
     }
 
     handlequantityDecrement = () => {
-        if(this.state.quantity > 0){
+        if(this.state.quantity > 1){
             this.setState({quantity: this.state.quantity - 1});
         }
     }
 
     render() {
-        //1. Navigation Bar [DONE]
-        //2. Addon Bar [DONE]
-        //3. Footer Bar
-
-        // const test = Object.keys(this.state.ingredients)
-        //             .map(key => {
-        //                 return this.state.ingredients[key]
-        //             });
+        var totalPrice;
+        if(this.handlequantityDecrement){
+            let basePrice = this.state.baseprice;
+            let quantity = this.state.quantity;
+            totalPrice = basePrice * quantity;
+        }
        
         return (
             <div>
@@ -48,11 +60,11 @@ class NasiBuilder extends Component {
                 </div>
                 <div className={classes.BlockSelector}>
                     <h3>Nasi Lemak</h3>
-                    <p>Base Price : RM {this.state.baseprice}</p>
-                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non cursus libero. Sed eleifend, lacus in aliquet facilisis, mi felis lobortis massa, ac varius augue enim ac nibh. Aliquam tincidunt imperdiet erat, in consequat orci tempor in. Nullam ut elementum nibh. Morbi risus magna, interdum nec sem congue, mollis tempus nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum in vehicula massa. Maecenas non risus ac ex ultrices volutpat.</p>
                 </div>
+
                 <div className={classes.BlockSelector}>
-                    <NasiController ingredients={this.state.ingredients} />
+                    <NasiController ingredients_price={this.state.ingredients_price} changed={this.checkboxIncrement} value={this.state.isChecked} />
                 </div>
 
                 <div className={classes.BlockSelector}>
@@ -72,9 +84,8 @@ class NasiBuilder extends Component {
                         <button onClick={this.handlequantityIncrement}>More</button>
                     </div>
                 </div>
-
                 
-                <Button>Submit</Button>
+                <Button>Add To Basket - RM{totalPrice}</Button>
             </div>
         );
     }

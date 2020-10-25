@@ -1,4 +1,6 @@
-1. Food Quantity
+1. Food Quantity [done]
 2. Add Food In Cart
-3. Food Add On List
-4. Get Value From Checkbox List
+3. Food Add On Checkout
+4. Get Value From Checkbox List [done]
+5. Price Calculation For Addon. [done]
+6. Add Footer
