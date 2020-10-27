@@ -67,13 +67,15 @@ class NasiBuilder extends Component {
 
                 <div className={classes.BlockSelector}>
                     <h3>Special Instructions</h3>
-                    <input className={classes.SpecialInstructions} type="text" placeholder="Exp: No Vegetables..." ></input>
+                    <textarea className={classes.SpecialInstructions} type="text" placeholder="Exp: No Vegetables..." ></textarea>
                 </div>
                 
                 <div className={classes.BlockSelector}>
                     <h3>Quantity</h3>
                     <div className={classes.ButtonQuantityLeft}>
-                        <button onClick={this.handlequantityDecrement}>Less</button>
+                        <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
+                            Less
+                        </button>
                     </div>
                     <div className={classes.ButtonQuantity}>
                     {this.state.showquantity ? <h2>{this.state.quantity}</h2> : ""}
@@ -83,7 +85,7 @@ class NasiBuilder extends Component {
                     </div>
                 </div>
                 
-                <Footer><Button>Add To Basket - RM{totalPrice}</Button></Footer>
+                <Footer><Button>Your Item - RM{totalPrice}</Button></Footer>
             </div>
         );
     }

@@ -2,15 +2,38 @@
     border:0;
     border-radius: 5%;
     background-color: #87CEFA;
-    width:15%;
-    margin:10px;
-    padding:15px;
+    width:25%;
+    margin:0 auto;
     color:white;
-    margin-left:43%;
-    font-size:24px;
+    display: block;
+    height:90%;
+    margin-top:5px;
+}
+
+.ButtonConfirmation p {
+    font-size: 16px;
 }
 
 .ButtonConfirmation:hover{
     background-color: #93d2fa;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .ButtonConfirmation{
+        width:15%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .ButtonConfirmation{
+        width:15%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ButtonConfirmation{
+        width:20%;
+    }
+}
+
