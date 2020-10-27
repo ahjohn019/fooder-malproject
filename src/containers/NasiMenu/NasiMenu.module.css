@@ -1,3 +1,8 @@
+.BlockContent{
+    height:100%;
+    margin-bottom : 90px;
+}
+
 .BlockTitle {
     text-align : center;
     border : 1px solid;

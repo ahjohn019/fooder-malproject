@@ -3,6 +3,7 @@ import classes from './NasiMenu.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Button from '../../components/UI/Button/ButtonConfirmation';
 import NasiController from '../../components/NasiController/NasiController';
+import Footer from '../../components/Footer/Footer';
 
 class NasiBuilder extends Component {
     constructor(props) {
@@ -29,13 +30,10 @@ class NasiBuilder extends Component {
     }
 
 
-    handlequantityIncrement = (event) => {
+    handlequantityIncrement = () => {
         //1. pass value(checkboxincrement)
         //2. add quantity value on food checkbox
-        const value = event.target.value;
-        let plus = this.state.quantity + 1;
-
-        this.setState({quantity: plus});
+        this.setState({quantity: this.state.quantity + 1});
     }
 
     handlequantityDecrement = () => {
@@ -53,7 +51,7 @@ class NasiBuilder extends Component {
         }
        
         return (
-            <div>
+            <div className={classes.BlockContent}>
                 <NavBar/>  
                 <div>
                     <img src="img/nasi_lemak_sample.jpg" alt="NasiLemak" className={classes.BlockImage}/>
@@ -85,7 +83,7 @@ class NasiBuilder extends Component {
                     </div>
                 </div>
                 
-                <Button>Add To Basket - RM{totalPrice}</Button>
+                <Footer><Button>Add To Basket - RM{totalPrice}</Button></Footer>
             </div>
         );
     }
