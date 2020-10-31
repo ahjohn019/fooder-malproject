@@ -7,11 +7,12 @@
     color:white;
     display: block;
     height:90%;
+    padding-top: 7px;
     margin-top:5px;
 }
 
 .ButtonConfirmation p {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .ButtonConfirmation:hover{
@@ -21,6 +22,7 @@
 
 @media only screen and (max-width: 600px) {
     .ButtonConfirmation{
+        padding-top: 5px;
         width:15%;
     }
 }

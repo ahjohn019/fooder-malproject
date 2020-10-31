@@ -8,3 +8,7 @@
 8. Checkout Page
 9. Customer Details
 10. CSS Responsive
+
+Problem:
+1) Checkout Incomplete List [done for label]
+- List Out Each Label & Price

@@ -14,8 +14,8 @@ const nasiController = (props) => {
         <div>
             <h3 className={classes.addontitle}>Add-On Sides</h3>
             {controls.map(ctrl =>
-                <div className={classes.checkboxOne}>
-                    <span><input type="checkbox" name="choice" value={ctrl.price} onChange={props.changed} /></span>
+                <div key={ctrl.label} className={classes.checkboxOne}>
+                    <span><input id={ctrl.label} type="checkbox" name="choice" value={ctrl.price} onClick={props.changed} /></span>
                     <label>{ctrl.label}</label>         
                 </div>
             )}
