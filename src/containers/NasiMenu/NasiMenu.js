@@ -16,7 +16,7 @@ class NasiBuilder extends Component {
             basePrice:4,
             modalshow: false,
             checkoutLabel: [],
-            checkoutPrice : []
+            checkoutPrice : [],
         };
     }
 
@@ -58,6 +58,7 @@ class NasiBuilder extends Component {
         var totalPrice;
         let checkoutLabel = this.state.checkoutLabel;
         let checkoutPrice = this.state.checkoutPrice;
+
         let basePrice = this.state.basePrice;
         let quantity = this.state.quantity;
 
@@ -66,17 +67,20 @@ class NasiBuilder extends Component {
 
         //list of checkout label multiply quantity
         const listCheckoutPrice = checkoutPrice.map((chkprice) => 
-            <p>{chkprice * quantity}</p>
+            chkprice * quantity
         );
-    
-        console.log(listCheckoutPrice);
 
         //list of checkout items
         const listCheckoutLabel = checkoutLabel.map((chklabel) =>
-            <div>
-                <span key={chklabel}>{chklabel}</span>
-            </div>
+            chklabel   
         );
+
+        //dict list of checkout items
+        var listCheckoutDict = listCheckoutLabel.map(function(key,index){
+            return {label:key, price:listCheckoutPrice[index]}
+        });
+
+        console.log(listCheckoutDict);
         
         return (
             <div className={classes.BlockContent}>
@@ -99,7 +103,16 @@ class NasiBuilder extends Component {
                 <div className={classes.BlockSelector}>
                     <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>
                 </div>
-                {listCheckoutPrice}
+                
+                <div>
+                    {listCheckoutDict.map(list =>
+                        <div>
+                            <span>{list.label}</span>
+                            <p>{list.price}</p>
+                        </div>
+                    )}
+                </div>  
+
                 <div className={classes.BlockSelector}>
                     <h3>Special Instructions</h3>
                     <textarea className={classes.SpecialInstructions} type="text" placeholder="Exp: No Vegetables..." ></textarea>
