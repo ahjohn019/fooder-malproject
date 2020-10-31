@@ -10,5 +10,5 @@
 10. CSS Responsive
 
 Problem:
-1) Checkout Incomplete List [done for label]
+1) Checkout Incomplete List [done for label & price]
 - List Out Each Label & Price

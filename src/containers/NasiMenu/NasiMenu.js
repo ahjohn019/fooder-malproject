@@ -11,11 +11,12 @@ class NasiBuilder extends Component {
         super(props);
         this.state = {
             quantity: 1,
-            showquantity: true,
+            showQuantity: true,
             purchasable:true,
-            baseprice:4,
+            basePrice:4,
             modalshow: false,
-            checkoutLabel: []
+            checkoutLabel: [],
+            checkoutPrice : []
         };
     }
 
@@ -26,16 +27,18 @@ class NasiBuilder extends Component {
         const pricevalue = event.target.value;
         const isChecked = event.target.checked;
         let checkoutLabel = [...this.state.checkoutLabel, pricelabel];
-        let {baseprice} = this.state; 
+        let checkoutPrice = [...this.state.checkoutPrice, pricevalue];
+        let {basePrice} = this.state; 
 
         if(isChecked){
-            baseprice += parseFloat(pricevalue) ; 
+            basePrice += parseFloat(pricevalue) ; 
         } else {
-            baseprice -= parseFloat(pricevalue) ;   
+            basePrice -= parseFloat(pricevalue) ;   
             checkoutLabel = checkoutLabel.filter(checklist => checklist !== pricelabel);    
+            checkoutPrice = checkoutPrice.filter(checkprice => checkprice !== pricevalue);
         } 
 
-        this.setState({baseprice, pricelabel: pricelabel, checkoutLabel: checkoutLabel});
+        this.setState({basePrice, pricelabel: pricelabel, checkoutLabel: checkoutLabel, checkoutPrice: checkoutPrice});
     }
 
 
@@ -54,18 +57,27 @@ class NasiBuilder extends Component {
         //quantity of food base on normal price
         var totalPrice;
         let checkoutLabel = this.state.checkoutLabel;
-        let basePrice = this.state.baseprice;
+        let checkoutPrice = this.state.checkoutPrice;
+        let basePrice = this.state.basePrice;
         let quantity = this.state.quantity;
-
-        //list of checkout items
-        const listCheckout = checkoutLabel.map((chklabel) =>
-            <li>{chklabel}</li>
-        );
 
         //total price of ingredients
         totalPrice = basePrice * quantity;
-        
 
+        //list of checkout label multiply quantity
+        const listCheckoutPrice = checkoutPrice.map((chkprice) => 
+            <p>{chkprice * quantity}</p>
+        );
+    
+        console.log(listCheckoutPrice);
+
+        //list of checkout items
+        const listCheckoutLabel = checkoutLabel.map((chklabel) =>
+            <div>
+                <span key={chklabel}>{chklabel}</span>
+            </div>
+        );
+        
         return (
             <div className={classes.BlockContent}>
                 <NavBar/>  
@@ -74,13 +86,20 @@ class NasiBuilder extends Component {
                 </div>
                 <div className={classes.BlockSelector}>
                     <h3>Nasi Lemak</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non cursus libero. Sed eleifend, lacus in aliquet facilisis, mi felis lobortis massa, ac varius augue enim ac nibh. Aliquam tincidunt imperdiet erat, in consequat orci tempor in. Nullam ut elementum nibh. Morbi risus magna, interdum nec sem congue, mollis tempus nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum in vehicula massa. Maecenas non risus ac ex ultrices volutpat.</p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non cursus libero. 
+                        Sed eleifend, lacus in aliquet facilisis, mi felis lobortis massa, ac varius augue enim ac nibh. 
+                        Aliquam tincidunt imperdiet erat, in consequat orci tempor in. Nullam ut elementum nibh. 
+                        Morbi risus magna, interdum nec sem congue, mollis tempus nunc. 
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+                        Vestibulum in vehicula massa. Maecenas non risus ac ex ultrices volutpat.
+                    </p>
                 </div>
                 
                 <div className={classes.BlockSelector}>
-                    <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} />
+                    <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>
                 </div>
-        
+                {listCheckoutPrice}
                 <div className={classes.BlockSelector}>
                     <h3>Special Instructions</h3>
                     <textarea className={classes.SpecialInstructions} type="text" placeholder="Exp: No Vegetables..." ></textarea>
@@ -94,7 +113,7 @@ class NasiBuilder extends Component {
                         </button>
                     </div>
                     <div className={classes.ButtonQuantity}>
-                    {this.state.showquantity ? <h2>{this.state.quantity}</h2> : ""}
+                    {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
                     </div>
                     <div className={classes.ButtonQuantity}>
                         <button onClick={this.handlequantityIncrement}>More</button>
@@ -105,9 +124,10 @@ class NasiBuilder extends Component {
                     <Button 
                     totalPrice={totalPrice} 
                     quantity={quantity}  
-                    basePrice={basePrice}
-                    listCheckout={listCheckout}
-                    >Your Item - RM {totalPrice} </Button>
+                    listCheckoutLabel={listCheckoutLabel}
+                    >
+                        Your Item - RM {totalPrice} 
+                    </Button>
                 </Footer>
             </div>
         );

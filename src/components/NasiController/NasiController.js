@@ -16,7 +16,8 @@ const nasiController = (props) => {
             {controls.map(ctrl =>
                 <div key={ctrl.label} className={classes.checkboxOne}>
                     <span><input id={ctrl.label} type="checkbox" name="choice" value={ctrl.price} onClick={props.changed} /></span>
-                    <label>{ctrl.label}</label>         
+                    <label>{ctrl.label}</label>
+                    <p>+ {ctrl.price}</p>         
                 </div>
             )}
         </div>

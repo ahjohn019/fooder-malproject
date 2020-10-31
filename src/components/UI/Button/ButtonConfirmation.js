@@ -20,11 +20,11 @@ const ButtonConfirmation = (props) => {
                     aria-labelledby="contained-modal-title-vcenter"
                     centered >
                     <Modal.Header closeButton>
-                        <Modal.Title>Checkout Confirmation</Modal.Title>
+                        <Modal.Title>Here Is Your Order</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <h4>Here Is Your Order</h4>
-                        <p>Ingredients : {props.listCheckout}</p>
+                        <br />
+                        <p>Your Add-On : {props.listCheckoutLabel}</p>
                         <p>Quantity : {props.quantity}</p>
                         <p>Total Price: RM {props.totalPrice}</p>
                         <p>Confirmed Order ?</p>
