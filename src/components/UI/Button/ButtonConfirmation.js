@@ -24,31 +24,43 @@ const ButtonConfirmation = (props) => {
                     onHide={handleClose} 
                     aria-labelledby="contained-modal-title-vcenter"
                     centered >
-                    <Modal.Header closeButton>
-                        <Modal.Title>Here Is Your Order</Modal.Title>
-                    </Modal.Header>
+
+                    <div className={classes.ModalHeader}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                <h3 className={classes.ModalTitle}>Here Is Your Order</h3>  
+                            </Modal.Title>
+                        </Modal.Header>
+                    </div>
+
+                    
                     <Modal.Body>
-                        <p>Your Add-On : </p>
-                        <div>
-                            {listCheckoutDict.map(list =>
-                                <div key={list.label}>
-                                    <span>{list.label} : </span>
-                                    <p className={classes.PriceList}>+ {list.price}</p>
-                                </div>
-                            )}
+                        <div className={classes.ModalContent}>
+                            <p>Your Add-On : </p>
+                            <div>
+                                {listCheckoutDict.map(list =>
+                                    <div key={list.label}>
+                                        <li>{list.label} <p className={classes.PriceList}>+ {list.price}</p> </li>                                     
+                                    </div>
+                                )}
+                            </div>
+                            <br />
+                            <p>Quantity : {props.quantity}</p>
+                            <p>Total Price: RM {props.totalPrice}</p>
+                            <p>Confirmed Order ?</p>
                         </div>
-                        <p>Quantity : {props.quantity}</p>
-                        <p>Total Price: RM {props.totalPrice}</p>
-                        <p>Confirmed Order ?</p>
-                    </Modal.Body>
-                    <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={purchaseSuccess}>
-                        Confirm
-                    </Button>
-                    </Modal.Footer>
+                    </Modal.Body>                 
+
+                    <div className={classes.ModalFooter}>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Close
+                            </Button>
+                            <Button variant="primary" onClick={purchaseSuccess}>
+                                Confirm
+                            </Button>
+                        </Modal.Footer>
+                    </div>                      
                 </Modal>
             </>
         );

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 .ButtonConfirmation {
     border:0;
     border-radius: 5%;
@@ -23,6 +25,32 @@
 .PriceList {
     display: inline;
     font-weight: bold;
+}
+
+.ModalHeader {
+    background-color: lightseagreen;
+}
+
+.ModalContent p{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Itim', cursive;
+}
+
+.ModalContent li{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Itim', cursive;
+}
+
+.ModalFooter {
+    background-color: lightseagreen;
+}
+
+.ModalTitle {
+    font-size: xx-large;
+    color:white;
+    font-family: 'Itim', cursive;
 }
 
 @media only screen and (max-width: 600px) {
