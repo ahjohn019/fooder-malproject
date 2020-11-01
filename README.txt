@@ -9,7 +9,7 @@
 9. Customer Details
 10. CSS Responsive [done]
 11. Design Modal Checkout [done]
-12. Special Instructions
+12. Special Instructions [done]
 
 Problem:
 

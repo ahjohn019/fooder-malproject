@@ -103,6 +103,7 @@ class NasiBuilder extends Component {
 
                 <div className={classes.BlockSelector}>
                     <h3>Special Instructions</h3>
+                    <br />
                     <textarea 
                     className={classes.SpecialInstructions} 
                     type="text" 
