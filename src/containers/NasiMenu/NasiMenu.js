@@ -61,26 +61,14 @@ class NasiBuilder extends Component {
 
         let basePrice = this.state.basePrice;
         let quantity = this.state.quantity;
-
+        
         //total price of ingredients
         totalPrice = basePrice * quantity;
 
-        //list of checkout label multiply quantity
-        const listCheckoutPrice = checkoutPrice.map((chkprice) => 
-            chkprice * quantity
-        );
-
-        //list of checkout items
-        const listCheckoutLabel = checkoutLabel.map((chklabel) =>
-            chklabel   
-        );
-
         //dict list of checkout items
-        var listCheckoutDict = listCheckoutLabel.map(function(key,index){
-            return {label:key, price:listCheckoutPrice[index]}
+        var listCheckoutDict = checkoutLabel.map(function(key,index){
+            return {label:key, price:checkoutPrice[index]}
         });
-
-        console.log(listCheckoutDict);
         
         return (
             <div className={classes.BlockContent}>
@@ -104,15 +92,6 @@ class NasiBuilder extends Component {
                     <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>
                 </div>
                 
-                <div>
-                    {listCheckoutDict.map(list =>
-                        <div>
-                            <span>{list.label}</span>
-                            <p>{list.price}</p>
-                        </div>
-                    )}
-                </div>  
-
                 <div className={classes.BlockSelector}>
                     <h3>Special Instructions</h3>
                     <textarea className={classes.SpecialInstructions} type="text" placeholder="Exp: No Vegetables..." ></textarea>
@@ -126,7 +105,7 @@ class NasiBuilder extends Component {
                         </button>
                     </div>
                     <div className={classes.ButtonQuantity}>
-                    {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
+                        {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
                     </div>
                     <div className={classes.ButtonQuantity}>
                         <button onClick={this.handlequantityIncrement}>More</button>
@@ -135,9 +114,9 @@ class NasiBuilder extends Component {
             
                 <Footer>
                     <Button 
-                    totalPrice={totalPrice} 
-                    quantity={quantity}  
-                    listCheckoutLabel={listCheckoutLabel}
+                        totalPrice={totalPrice} 
+                        quantity={quantity}  
+                        listCheckoutDict={listCheckoutDict}
                     >
                         Your Item - RM {totalPrice} 
                     </Button>

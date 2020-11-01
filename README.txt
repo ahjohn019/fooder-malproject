@@ -12,3 +12,8 @@
 Problem:
 1) Checkout Incomplete List [done for label & price]
 - List Out Each Label & Price
+
+2) - base price(exp) = 4
+   - addon(must have purchase one exclude quantity) - only 1(exp) =  1+2+3+4 = (10)
+   - quantity = 1
+   - total = 14

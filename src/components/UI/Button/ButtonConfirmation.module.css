@@ -20,6 +20,11 @@
     cursor: pointer;
 }
 
+.PriceList {
+    display: inline;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 600px) {
     .ButtonConfirmation{
         padding-top: 5px;

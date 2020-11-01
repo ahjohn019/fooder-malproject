@@ -8,7 +8,8 @@ const ButtonConfirmation = (props) => {
 
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
-  
+        const listCheckoutDict = props.listCheckoutDict;
+
         return(
             <>
                 <button className={classes.ButtonConfirmation} type="submit" value="Submit" onClick={handleShow}>
@@ -23,8 +24,15 @@ const ButtonConfirmation = (props) => {
                         <Modal.Title>Here Is Your Order</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <br />
-                        <p>Your Add-On : {props.listCheckoutLabel}</p>
+                        <p>Your Add-On : </p>
+                        <div>
+                            {listCheckoutDict.map(list =>
+                                <div key={list.label}>
+                                    <span>{list.label} : </span>
+                                    <p className={classes.PriceList}>+ {list.price}</p>
+                                </div>
+                            )}
+                        </div>
                         <p>Quantity : {props.quantity}</p>
                         <p>Total Price: RM {props.totalPrice}</p>
                         <p>Confirmed Order ?</p>
