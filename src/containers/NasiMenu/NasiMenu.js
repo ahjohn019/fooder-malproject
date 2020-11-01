@@ -16,7 +16,10 @@ class NasiBuilder extends Component {
             basePrice:4,
             modalshow: false,
             checkoutLabel: [],
-            checkoutPrice : []
+            checkoutPrice : [],
+            specialInstruction : "",
+            charLeft: 50,
+            maxChar: 50
         };
     }
 
@@ -52,12 +55,20 @@ class NasiBuilder extends Component {
         }
     }
 
+    textareaValueEvent = (event) => {
+        let specialInstruction = event.target.value;
+        let charCount = specialInstruction.length;
+        let maxChar = this.state.maxChar;
+        let charLeft = maxChar - charCount;
+
+        this.setState({specialInstruction: specialInstruction, charLeft: charLeft});
+    }
+
     render() {
         //quantity of food base on normal price
         var totalPrice;
         let checkoutLabel = this.state.checkoutLabel;
         let checkoutPrice = this.state.checkoutPrice;
-
         let basePrice = this.state.basePrice;
         let quantity = this.state.quantity;
         
@@ -68,7 +79,9 @@ class NasiBuilder extends Component {
         var listCheckoutDict = checkoutLabel.map(function(key,index){
             return {label:key, price:checkoutPrice[index]}
         });
+
         
+
         return (
             <div className={classes.BlockContent}>
                 <NavBar/>  
@@ -88,10 +101,18 @@ class NasiBuilder extends Component {
                     <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>
                 </div>
 
-
                 <div className={classes.BlockSelector}>
                     <h3>Special Instructions</h3>
-                    <textarea className={classes.SpecialInstructions} type="text" placeholder="Exp: No Vegetables..." ></textarea>
+                    <textarea 
+                    className={classes.SpecialInstructions} 
+                    type="text" 
+                    placeholder="Exp: No Vegetables..." 
+                    value={this.state.specialInstruction} 
+                    onChange={this.textareaValueEvent}
+                    maxLength={this.state.maxChar}
+                    />
+                    <br/>
+                    <p class={classes.CharLeft}> {this.state.charLeft} words remaining</p>
                 </div>
                 
                 <div className={classes.BlockSelector}>

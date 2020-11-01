@@ -7,9 +7,9 @@
 7. Build Database
 8. Checkout Page 
 9. Customer Details
-10. CSS Responsive
+10. CSS Responsive [done]
 11. Design Modal Checkout [done]
-
+12. Special Instructions
 
 Problem:
 
