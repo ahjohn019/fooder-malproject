@@ -46,6 +46,8 @@ const ButtonConfirmation = (props) => {
                             </div>
                             <br />
                             <p>Quantity : {props.quantity}</p>
+                            <p>Special Instructions :</p>
+                            <p>{props.specialInstruction}</p>
                             <p>Total Price: RM {props.totalPrice}</p>
                             <p>Confirmed Order ?</p>
                         </div>

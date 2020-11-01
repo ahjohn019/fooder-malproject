@@ -61,6 +61,8 @@ class NasiBuilder extends Component {
         let maxChar = this.state.maxChar;
         let charLeft = maxChar - charCount;
 
+        
+
         this.setState({specialInstruction: specialInstruction, charLeft: charLeft});
     }
 
@@ -71,6 +73,8 @@ class NasiBuilder extends Component {
         let checkoutPrice = this.state.checkoutPrice;
         let basePrice = this.state.basePrice;
         let quantity = this.state.quantity;
+        let specialInstruction = this.state.specialInstruction;
+        const maxChar = this.state.maxChar;
         
         //total price of ingredients
         totalPrice = basePrice * quantity;
@@ -79,8 +83,6 @@ class NasiBuilder extends Component {
         var listCheckoutDict = checkoutLabel.map(function(key,index){
             return {label:key, price:checkoutPrice[index]}
         });
-
-        
 
         return (
             <div className={classes.BlockContent}>
@@ -108,12 +110,12 @@ class NasiBuilder extends Component {
                     className={classes.SpecialInstructions} 
                     type="text" 
                     placeholder="Exp: No Vegetables..." 
-                    value={this.state.specialInstruction} 
+                    value={specialInstruction} 
                     onChange={this.textareaValueEvent}
-                    maxLength={this.state.maxChar}
+                    maxLength={maxChar}
                     />
                     <br/>
-                    <p class={classes.CharLeft}> {this.state.charLeft} words remaining</p>
+                    <p className={classes.CharLeft}> {this.state.charLeft} words remaining</p>
                 </div>
                 
                 <div className={classes.BlockSelector}>
@@ -136,6 +138,7 @@ class NasiBuilder extends Component {
                         totalPrice={totalPrice} 
                         quantity={quantity}  
                         listCheckoutDict={listCheckoutDict}
+                        specialInstruction={specialInstruction}
                     >
                         Your Item - RM {totalPrice} 
                     </Button>
