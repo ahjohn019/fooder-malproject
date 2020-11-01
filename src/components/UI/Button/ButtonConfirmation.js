@@ -8,6 +8,10 @@ const ButtonConfirmation = (props) => {
 
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
+
+        const purchaseSuccess = () => {
+            alert("Purchase Success!!");
+        }
         const listCheckoutDict = props.listCheckoutDict;
 
         return(
@@ -41,7 +45,7 @@ const ButtonConfirmation = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={purchaseSuccess}>
                         Confirm
                     </Button>
                     </Modal.Footer>

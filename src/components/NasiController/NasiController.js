@@ -6,7 +6,7 @@ const controls = [
     {label: 'Peanut', type:'peanut', price:1},
     {label: 'Fried Chicken', type: 'fried_chicken', price:2},
     {label: 'Salty Egg', type: 'salty_egg', price:3},
-    {label: 'Rice', type: 'rice', price:4},
+    {label: 'Rice', type: 'rice', price:1},
 ];
 
 const nasiController = (props) => {

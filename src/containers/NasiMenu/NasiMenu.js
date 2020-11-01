@@ -16,7 +16,7 @@ class NasiBuilder extends Component {
             basePrice:4,
             modalshow: false,
             checkoutLabel: [],
-            checkoutPrice : [],
+            checkoutPrice : []
         };
     }
 
@@ -35,7 +35,6 @@ class NasiBuilder extends Component {
         } else {
             basePrice -= parseFloat(pricevalue) ;   
             checkoutLabel = checkoutLabel.filter(checklist => checklist !== pricelabel);    
-            checkoutPrice = checkoutPrice.filter(checkprice => checkprice !== pricevalue);
         } 
 
         this.setState({basePrice, pricelabel: pricelabel, checkoutLabel: checkoutLabel, checkoutPrice: checkoutPrice});
@@ -81,17 +80,15 @@ class NasiBuilder extends Component {
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non cursus libero. 
                         Sed eleifend, lacus in aliquet facilisis, mi felis lobortis massa, ac varius augue enim ac nibh. 
-                        Aliquam tincidunt imperdiet erat, in consequat orci tempor in. Nullam ut elementum nibh. 
-                        Morbi risus magna, interdum nec sem congue, mollis tempus nunc. 
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                        Vestibulum in vehicula massa. Maecenas non risus ac ex ultrices volutpat.
+                        Aliquam tincidunt imperdiet erat, in consequat orci tempor in. 
                     </p>
                 </div>
                 
                 <div className={classes.BlockSelector}>
                     <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>
                 </div>
-                
+
+
                 <div className={classes.BlockSelector}>
                     <h3>Special Instructions</h3>
                     <textarea className={classes.SpecialInstructions} type="text" placeholder="Exp: No Vegetables..." ></textarea>
