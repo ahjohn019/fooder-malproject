@@ -1,27 +1,43 @@
 //Control The Add On Food & Quantity
-import React from 'react';
+import React, { Component } from 'react';
 import classes from './NasiController.module.css';
+import axios from "axios";
 
-const controls = [
-    {label: 'Peanut', type:'peanut', price:1},
-    {label: 'Fried Chicken', type: 'fried_chicken', price:2},
-    {label: 'Salty Egg', type: 'salty_egg', price:3},
-    {label: 'Rice', type: 'rice', price:1},
-];
 
-const nasiController = (props) => {
-    return(
-        <div>
-            <h3 className={classes.addontitle}>Add-On Sides</h3>
-            {controls.map(ctrl =>
-                <div key={ctrl.label} className={classes.checkboxOne}>
-                    <span><input id={ctrl.label} type="checkbox" name="choice" value={ctrl.price} onClick={props.changed} /></span>
-                    <label>{ctrl.label}</label>
-                    <p>+ {ctrl.price}</p>         
-                </div>
-            )}
-        </div>
-    );
+class NasiController extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            foodmenu: []
+        }
+    }
+
+    componentDidMount(){
+        console.log(this.props);
+        axios.get('/api/foodmenu')
+            .then(response => {
+                this.setState({foodmenu:response.data});
+            }).catch(error=> {
+                this.setState({error:true})
+            });
+    }
+
+
+    render() {
+        return (
+            <div>
+                <h3 className={classes.addontitle}>Add-On Sides</h3>
+                {
+                    this.state.foodmenu.map(fmenu =>
+                    <div key={fmenu.label} className={classes.checkboxOne}>
+                        <span><input id={fmenu.label} type="checkbox" name="choice" value={fmenu.price} onClick={this.props.changed} /></span>
+                        <label>{fmenu.label}</label>
+                        <p>+ {fmenu.price}</p>         
+                    </div>
+                )}
+            </div>
+        );
+    }
 }
 
-export default nasiController;
+export default NasiController;

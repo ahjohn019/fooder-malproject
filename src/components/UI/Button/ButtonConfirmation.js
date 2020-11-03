@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import classes from './ButtonConfirmation.module.css';
 import {Modal, Button} from 'react-bootstrap';
-
+import { useHistory } from 'react-router-dom';
 
 const ButtonConfirmation = (props) => {
         const [show, setShow] = useState(false);
@@ -9,9 +9,12 @@ const ButtonConfirmation = (props) => {
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
 
-        const purchaseSuccess = () => {
-            alert("Purchase Success!!");
+        let history = useHistory(); 
+
+        const checkOut = () => {
+            history.push('/checkout');
         }
+
         const listCheckoutDict = props.listCheckoutDict;
 
         return(
@@ -58,9 +61,9 @@ const ButtonConfirmation = (props) => {
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button variant="primary" onClick={purchaseSuccess}>
+                            <Button variant="primary" onClick={checkOut} >
                                 Confirm
-                            </Button>
+                            </Button>         
                         </Modal.Footer>
                     </div>                      
                 </Modal>

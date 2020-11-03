@@ -33,6 +33,8 @@ class NasiBuilder extends Component {
         let checkoutPrice = [...this.state.checkoutPrice, pricevalue];
         let {basePrice} = this.state; 
 
+        console.log(pricelabel);
+
         if(isChecked){
             basePrice += parseFloat(pricevalue) ; 
         } else {
@@ -60,8 +62,6 @@ class NasiBuilder extends Component {
         let charCount = specialInstruction.length;
         let maxChar = this.state.maxChar;
         let charLeft = maxChar - charCount;
-
-        
 
         this.setState({specialInstruction: specialInstruction, charLeft: charLeft});
     }
