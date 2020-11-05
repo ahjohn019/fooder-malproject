@@ -13,7 +13,6 @@ class NasiController extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props);
         axios.get('/api/foodmenu')
             .then(response => {
                 this.setState({foodmenu:response.data});

@@ -4,9 +4,9 @@
 4. Get Value From Checkbox List [done]
 5. Price Calculation For Addon. [done]
 6. Add Footer[done]
-7. Build Database
-8. Checkout Page 
-9. Customer Details
+7. Build Database - Mongo DB 
+8. Checkout Page [done]
+9. Customer Details Page 
 10. CSS Responsive [done]
 11. Design Modal Checkout [done]
 12. Special Instructions [done]
