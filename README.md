@@ -1,6 +1,19 @@
 ## Fooder Project
 - Is An Food App which is using React JS Framework to build.
 
+## Installation
+1) Install Express API
+- npm install express --save
+
+2) Run npm start dev
+
+## Tools Used
+1) React JS
+2) Express API
+3) Mongo DB
+4) Node JS
+5) Bootstrap
+
 ## Available Scripts
 
 In the project directory, you can run:
