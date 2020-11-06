@@ -1,50 +1,58 @@
-const router = require('express').Router();
-let FoodMenu = require('../models/fooder_menu.model');
+const fooder_menurouter = require('express').Router();
+const FooderMenu = require('../models/fooder_menu.model');
 
-router.route('/').get((req,res)=>{
-    FoodMenu.find()
-        .then(foodmenu => res.json(foodmenu))
+
+fooder_menurouter.route('/').get((req,res)=>{
+    FooderMenu.find()
+        .then(FooderMenu => res.json(FooderMenu))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
+fooder_menurouter.route('/add').post((req,res) => {
     const maindish = req.body.maindish;
     const type = req.body.type;
-    const addon = req.body.addon;
-    const quantity = req.body.quantity;
-    const totalprice = req.body.totalprice;
+    const description = req.body.description;
     const baseprice = req.body.baseprice;
+    const addon = req.body.addon;
+    const price_addon = req.body.price_addon;
 
-    const newFoodMenu = new FoodMenu({maindish,type,addon, quantity,totalprice, baseprice});
-    
-    newFoodMenu.save()
-      .then(() => res.json('Food Menu added!'))
-      .catch(err => res.status(400).json('Error: ' + err));
+    const newFooderMenu = new FooderMenu({
+        maindish,
+        type,
+        description,
+        baseprice,
+        addon,
+        price_addon
+    });
+
+    newFooderMenu.save()
+    .then(() => res.json('Food Menu added!'))
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((req,res)=>{
-    FoodMenu.findById(req.params.id)
-        .then(foodmenu => res.json(foodmenu))
+fooder_menurouter.route('/:id').get((req,res)=>{
+    FooderMenu.findById(req.params.id)
+        .then(FooderMenu => res.json(FooderMenu))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').delete((req,res) => {
-    FoodMenu.findByIdAndDelete(req.params.id)
+fooder_menurouter.route('/:id').delete((req,res) => {
+    FooderMenu.findByIdAndDelete(req.params.id)
         .then(() => res.json('Food Menu Deleted'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/update/:id').post((req,res) => {
-    FoodMenu.findById(req.params.id)
-        .then(foodmenu => {
-            foodmenu.maindish = req.body.maindish;
-            foodmenu.type = req.body.type;
-            foodmenu.addon = req.body.addon;
-            foodmenu.quantity = req.body.quantity;
-            foodmenu.totalprice = req.body.totalprice;
-            foodmenu.baseprice = req.body.baseprice;
+fooder_menurouter.route('/update/:id').post((req,res) => {
+    FooderMenu.findById(req.params.id)
+        .then(FooderMenu => {
+            FooderMenu.maindish = req.body.maindish;
+            FooderMenu.type = req.body.type;
+            FooderMenu.description = req.body.description;
+            FooderMenu.baseprice = req.body.baseprice;
+            FooderMenu.addon = req.body.addon;
+            FooderMenu.price_addon = req.body.price_addon;
             
-            foodmenu.save()
+            FooderCheckout.save()
                 .then(() => res.json('Food Menu Updated'))
                 .catch(err => res.status(400).json('Error: ' + err));
         })
@@ -53,6 +61,4 @@ router.route('/update/:id').post((req,res) => {
 
 
 
-
-
-module.exports = router;
+module.exports = fooder_menurouter;
