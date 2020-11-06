@@ -8,7 +8,8 @@ let foodcheckoutSchema = new Schema({
     addon: { type: [String] },
     quantity:{type: Number, required:true}, //auto
     totalprice: { type: Number }, //auto
-    baseprice: { type: Number} //auto
+    baseprice: { type: Number}, //auto
+    remarks: {type: String},
 });
 
 foodcheckoutSchema.set('timestamps', true);

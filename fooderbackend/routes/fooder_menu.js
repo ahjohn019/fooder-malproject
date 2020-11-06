@@ -48,9 +48,9 @@ fooder_menurouter.route('/update/:id').post((req,res) => {
             FooderMenu.maindish = req.body.maindish;
             FooderMenu.type = req.body.type;
             FooderMenu.description = req.body.description;
-            FooderMenu.baseprice = req.body.baseprice;
-            FooderMenu.addon = req.body.addon;
-            FooderMenu.price_addon = req.body.price_addon;
+            FooderMenu.baseprice = req.body.baseprice; //base price
+            FooderMenu.addon = req.body.addon; //label
+            FooderMenu.price_addon = req.body.price_addon; //price addon
             
             FooderCheckout.save()
                 .then(() => res.json('Food Menu Updated'))

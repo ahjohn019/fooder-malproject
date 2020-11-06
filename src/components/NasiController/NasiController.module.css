@@ -25,3 +25,33 @@
 .addontitle {
     padding-left: 12px;
 }
+
+.BlockSelector{
+    border: 0;
+    width:38%;
+    margin-top:40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    padding-bottom:10px;  
+}
+
+.BlockSelector h3 {
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.BlockSelector p {
+    padding-left: 10px;
+}
+
+.BlockImage {
+    width: 38%;
+    height:50%;
+    text-align:center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:100px;
+}

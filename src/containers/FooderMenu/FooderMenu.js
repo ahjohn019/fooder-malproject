@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import classes from './NasiMenu.module.css';
+import classes from './FooderMenu.module.css';
 import NavBar from '../../components/NavBar/NavBar';
-import Button from '../../components/UI/Button/ButtonConfirmation';
+import Button from '../../components/UI/Button/ButtonCheckout';
 import NasiController from '../../components/NasiController/NasiController';
 import Footer from '../../components/Footer/Footer';
+
 
 class NasiBuilder extends Component {
     
@@ -22,6 +23,7 @@ class NasiBuilder extends Component {
             maxChar: 50
         };
     }
+
 
     //get base price + addon price(by users)
     //if tick => add into base price else remove addon prices
@@ -87,24 +89,12 @@ class NasiBuilder extends Component {
         return (
             <div className={classes.BlockContent}>
                 <NavBar/>  
-                <div>
-                    <img src="img/nasi_lemak_sample.jpg" alt="NasiLemak" className={classes.BlockImage}/>
-                </div>
-                <div className={classes.BlockSelector}>
-                    <h3>Nasi Lemak</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non cursus libero. 
-                        Sed eleifend, lacus in aliquet facilisis, mi felis lobortis massa, ac varius augue enim ac nibh. 
-                        Aliquam tincidunt imperdiet erat, in consequat orci tempor in. 
-                    </p>
-                </div>
-                
-                <div className={classes.BlockSelector}>
-                    <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>
-                </div>
 
+                <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>      
+
+                {/* Reusable Component */}
                 <div className={classes.BlockSelector}>
-                    <h3>Special Instructions</h3>
+                    <h3>Remarks</h3>
                     <br />
                     <textarea 
                     className={classes.SpecialInstructions} 
