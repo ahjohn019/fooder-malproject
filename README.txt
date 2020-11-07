@@ -1,15 +1,20 @@
 1. Food Quantity [done]
-2. Add Food In Cart
-3. Modal Checkout [done]
-4. Get Value From Checkbox List [done]
-5. Price Calculation For Addon. [done]
-6. Add Footer[done]
-7. Build Database - Mongo DB 
-8. Checkout Page [done]
-9. Customer Details Page 
-10. CSS Responsive [done]
-11. Design Modal Checkout [done]
-12. Special Instructions [done]
+2. Modal Checkout [done]
+3. Get Value From Checkbox List [done]
+4. Price Calculation For Addon. [done]
+5. Add Footer[done]
+6. Build Database - Mongo DB [done]
+7. Checkout Page [done]
+8. Customer Details Page 
+9. CSS Responsive [done]
+10. Design Modal Checkout [done]
+11. Special Instructions [done]
+12. Post Data To Checkout Page
+13. Payment Details
+14. Customer Details
+15. Restructure DB (Food Menu)
+16. Food Selection
+
 
 Problem:
 

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import classes from './ButtonCheckout.module.css';
 import {Modal, Button} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const ButtonConfirmation = (props) => {
         const [show, setShow] = useState(false);
@@ -9,15 +10,33 @@ const ButtonConfirmation = (props) => {
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
 
-        let history = useHistory(); 
-
-        const checkOut = () => {
-            // history.push('/checkout');
-            alert('Checckout Success');
-        }
-
         const listCheckoutDict = props.listCheckoutDict;
 
+        const handlecheckout = () => {
+            // let history = useHistory(); 
+            // history.push('/checkout');
+            // alert("Success Checkout");
+
+            var _addon = listCheckoutDict.map(list => list.label);
+
+            const foodCheckoutList = ({
+                maindish:"Nasi Lemak",
+                type:"Local Food",
+                addon: _addon,
+                quantity: props.quantity,
+                totalprice:props.totalPrice,
+                baseprice:4,
+                remarks: props.specialInstruction
+            });
+
+            axios.post('/fooder_checkout/add', foodCheckoutList).then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+        }
+        
         return(
             <>
                 <button className={classes.ButtonConfirmation} type="submit" value="Submit" onClick={handleShow}>
@@ -37,7 +56,7 @@ const ButtonConfirmation = (props) => {
                         </Modal.Header>
                     </div>
 
-                    <form>
+                    <form onSubmit={handlecheckout}>
                         <div className={classes.ModalContent}>
                             <Modal.Body>
                                     <p>Your Add-On : </p>
@@ -62,7 +81,7 @@ const ButtonConfirmation = (props) => {
                                 <Button variant="secondary" onClick={handleClose}>
                                     Close
                                 </Button>
-                                <Button variant="primary" onClick={checkOut} >
+                                <Button variant="primary" type="submit">
                                     Confirm
                                 </Button>         
                             </Modal.Footer>
