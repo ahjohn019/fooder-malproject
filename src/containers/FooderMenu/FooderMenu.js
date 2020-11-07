@@ -86,6 +86,7 @@ class NasiBuilder extends Component {
             return {label:key, price:checkoutPrice[index]}
         });
 
+
         return (
             <div className={classes.BlockContent}>
                 <NavBar/>  
@@ -96,14 +97,16 @@ class NasiBuilder extends Component {
                 <div className={classes.BlockSelector}>
                     <h3>Remarks</h3>
                     <br />
-                    <textarea 
-                    className={classes.SpecialInstructions} 
-                    type="text" 
-                    placeholder="Exp: No Vegetables..." 
-                    value={specialInstruction} 
-                    onChange={this.textareaValueEvent}
-                    maxLength={maxChar}
-                    />
+                    
+                        <textarea 
+                        className={classes.SpecialInstructions} 
+                        type="text" 
+                        placeholder="Exp: No Vegetables..." 
+                        value={specialInstruction} 
+                        onChange={this.textareaValueEvent}
+                        maxLength={maxChar}
+                        />
+                    
                     <br/>
                     <p className={classes.CharLeft}> {this.state.charLeft} words remaining</p>
                 </div>
