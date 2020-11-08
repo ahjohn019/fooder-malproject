@@ -15,6 +15,7 @@ const navBar = (props) => (
         <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
         <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>         
         <NavItem><ShoppingCartIcon style={{ fontSize: 30 }}/></NavItem> 
+        <SearchBar />
     </div>
 );
 

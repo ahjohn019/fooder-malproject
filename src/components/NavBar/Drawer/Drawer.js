@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { Drawer, Button, List, ListItem,ListItemText} from '@material-ui/core';
+import { Drawer, List, ListItem,ListItemText,IconButton} from '@material-ui/core';
 import classes from '../../NavBar/Drawer/Drawer.module.css';
 import Logo from '../../Logo/Logo';
-
+import { Menu } from "@material-ui/icons";
 
 const DrawerIcon = (props) => {
     const [state, setState] = useState({
@@ -34,16 +34,20 @@ const DrawerIcon = (props) => {
     );
 
     return(
-        <div>
-            {['left'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                    <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-                    <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                        {list(anchor)}
-                    </Drawer>
-                </React.Fragment>
-            ))}
-        </div>
+        <React.Fragment key="left">
+            <IconButton
+                edge="start"
+                aria-label="menu"
+                onClick={toggleDrawer("left", true)}
+            >
+                <Menu style={{ color: `white`, fontSize:65 }} />
+            </IconButton>
+            
+            <Drawer anchor="left" open={state.left} onClose={toggleDrawer("left", false)}>
+                {list("left")}
+            </Drawer>
+        </React.Fragment>    
+        
     );
 };
 
