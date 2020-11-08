@@ -4,6 +4,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import Button from '../../components/UI/Button/ButtonCheckout';
 import NasiController from '../../components/NasiController/NasiController';
 import Footer from '../../components/Footer/Footer';
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 
 class NasiBuilder extends Component {
@@ -115,14 +116,14 @@ class NasiBuilder extends Component {
                     <h3>Quantity</h3>
                     <div className={classes.ButtonQuantityLeft}>
                         <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
-                            Less
+                            <FaMinus size={24}/>
                         </button>
                     </div>
                     <div className={classes.ButtonQuantity}>
                         {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
                     </div>
                     <div className={classes.ButtonQuantity}>
-                        <button onClick={this.handlequantityIncrement}>More</button>
+                        <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
                     </div>
                 </div>
             

@@ -6,15 +6,16 @@ import HelpIcon from '@material-ui/icons/Help';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchBar from './SearchBar/SearchBar';
 import Logo from '../Logo/Logo';
+import DrawerIcon from '../NavBar/Drawer/Drawer';
 
 const navBar = (props) => (
-    <header className={classes.NavBar}>
+    <div className={classes.NavBar}>
         <Logo />
-        <SearchBar />
-        <NavItem><ShoppingCartIcon /></NavItem> 
-        <NavItem><HelpIcon /></NavItem>
-        <NavItem><NotificationsIcon /></NavItem>
-    </header>
+        <DrawerIcon />
+        <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
+        <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>         
+        <NavItem><ShoppingCartIcon style={{ fontSize: 30 }}/></NavItem> 
+    </div>
 );
 
 export default navBar;

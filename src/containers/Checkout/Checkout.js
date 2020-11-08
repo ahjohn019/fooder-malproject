@@ -6,6 +6,11 @@ import { BsListTask } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
 
 class Checkout extends Component {
+
+
+    
+
+
     render() {
         return (
             <div className={classes.CheckoutContent}>

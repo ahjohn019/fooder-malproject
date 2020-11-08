@@ -12,11 +12,8 @@ const ButtonConfirmation = (props) => {
 
         const listCheckoutDict = props.listCheckoutDict;
 
+        let history = useHistory(); 
         const handlecheckout = () => {
-            // let history = useHistory(); 
-            // history.push('/checkout');
-            // alert("Success Checkout");
-
             var _addon = listCheckoutDict.map(list => list.label);
 
             const foodCheckoutList = ({
@@ -35,6 +32,8 @@ const ButtonConfirmation = (props) => {
               .catch(function (error) {
                 console.log(error);
               });
+
+            history.push('/checkout');
         }
         
         return(

@@ -1,9 +1,10 @@
 .Logo {
-    margin-right:65%;
-    padding-top:10px;
+    /* margin-right:65%; */
+    float:left;
+    padding: 14px 16px;
 }
 
 .Logo img {
-    height:50px;
+    height:70px;
 }
 

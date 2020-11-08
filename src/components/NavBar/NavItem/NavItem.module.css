@@ -1,15 +1,14 @@
 .NavItem {
-    /* flex-basis: 50px; */
+    float: right;
+    margin-right: 30px;
+    display: inline-block;
+    transition: 0.3s ease;
+    opacity: 0.7;
     color:white;
-    border-radius :20%;
-    font-size: 1.3rem;
-    text-align:center;
-    padding:10px;
-    margin-right: 10px;
-    border-bottom: 1px lightgray;
 }
 
 .NavItem:hover {
-    background-color: #4DC1BB;
     cursor:pointer;
+    transform: scale(1.5, 1.5);
+    opacity: 1;
 }
