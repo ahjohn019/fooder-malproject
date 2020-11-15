@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+.PaymentContent{
+    height:100%;
+    margin-bottom : 90px;
+}
+
+
+.CustomerDetailsBlockSelector {
+    border:0;
+    position: absolute;
+    top:13%;
+    left:25%;
+    width:55%;
+    height:50%;
+    display:block;
+}
+
+.CustomerDetailsBlockSelector p {
+    font-size:24px;
+    padding: 14px 10px;
+}
+
+.CustomerDetailsBlockSelector .formDetails {
+    display:block;
+    width:'25ch';
+    margin-top:40px;
+}

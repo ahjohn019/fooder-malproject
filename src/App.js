@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router';
 import './App.css';
 import FooderMenu from './containers/FooderMenu/FooderMenu';
 import Checkout from './containers/Checkout/Checkout';
+import Payment from './containers/Payment/Payment';
 
 class App extends Component {
   render (){
@@ -10,6 +11,7 @@ class App extends Component {
         <Switch>
             <Route exact path="/" component={FooderMenu} />
             <Route path="/checkout" component={Checkout}/>
+            <Route path="/payment" component={Payment}/>
         </Switch>   
     );
   }; 

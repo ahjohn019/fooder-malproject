@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import classes from './ButtonCheckout.module.css';
 import {Modal, Button} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import { FaTimes, FaCheck, FaPlus } from "react-icons/fa";
 import axios from 'axios';
 
 const ButtonConfirmation = (props) => {
@@ -13,9 +14,12 @@ const ButtonConfirmation = (props) => {
         const listCheckoutDict = props.listCheckoutDict;
 
         let history = useHistory(); 
-        const handlecheckout = () => {
+
+        const handlecheckout = (event) => {
             var _addon = listCheckoutDict.map(list => list.label);
 
+            const btnValue = event.currentTarget.value;
+            console.log(btnValue)
             const foodCheckoutList = ({
                 maindish:"Nasi Lemak",
                 type:"Local Food",
@@ -32,8 +36,14 @@ const ButtonConfirmation = (props) => {
               .catch(function (error) {
                 console.log(error);
               });
+            
+            if(btnValue === "btnCheckout"){
+                history.push('/checkout');
+            }
 
-            history.push('/checkout');
+            if(btnValue === "btnGoBack"){
+                history.push('/');
+            }
         }
         
         return(
@@ -76,13 +86,16 @@ const ButtonConfirmation = (props) => {
                         </div>              
 
                         <div className={classes.ModalFooter}>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                </Button>
-                                <Button variant="primary" type="submit">
-                                    Confirm
-                                </Button>         
+                            <Modal.Footer>           
+                                <Button variant="primary" type="submit" value="btnGoBack" onClick={handlecheckout}>
+                                    <FaPlus size={24} />
+                                </Button>             
+                                <Button variant="success" type="submit" value="btnCheckout" onClick={handlecheckout}>
+                                    <FaCheck size={24} />
+                                </Button>    
+                                <Button variant="danger" onClick={handleClose}>
+                                    <FaTimes size={24} />
+                                </Button>     
                             </Modal.Footer>
                         </div>    
                     </form>
