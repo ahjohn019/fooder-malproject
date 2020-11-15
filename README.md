@@ -5,7 +5,10 @@
 1) Install Express API
 - npm install express --save
 
-2) Run npm start dev
+2) Install React Icons
+- npm install react-icons --save
+
+3) Run npm start dev
 
 ## Tools Used
 1) React JS
