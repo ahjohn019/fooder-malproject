@@ -1,10 +1,10 @@
 //Control The Add On Food & Quantity
 import React, { Component } from 'react';
-import classes from './NasiController.module.css';
+import classes from './FoodController.module.css';
 import axios from "axios";
 
 
-class NasiController extends Component {
+class FoodController extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -51,7 +51,7 @@ class NasiController extends Component {
     }
 }
 
-export default NasiController;
+export default FoodController;
 
 
 // componentDidMount(){

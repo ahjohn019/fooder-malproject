@@ -9,14 +9,17 @@
 9. CSS Responsive [done]
 10. Design Modal Checkout [done]
 11. Special Instructions [done]
-12. Post Data To Checkout Page
+12. Post Data To Checkout Page [done]
 13. Payment Details
 14. Customer Details
 15. Restructure DB (Food Menu)
 16. Food Selection
-
+17. Food Menu By Id
+18. Button Improvement [done]
+19. Delete AddOn Menu Function [on hold]
 
 Problem:
+1) Cannot Delete Addon Menu List
 
 Fixed:
 1) Checkout Incomplete List [done for label & price]

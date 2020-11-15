@@ -53,15 +53,8 @@
     height:100px;
 }
 
-.BlockSelector .ButtonQuantity {
-    display: inline-block;
-    margin-left:10px;
-}
 
-.BlockSelector .ButtonQuantityLeft {
-    display: inline-block;
-    margin-left:30%;
-}
+
 
 .BlockSelector button {
     background-color:lightseagreen;
@@ -71,6 +64,21 @@
     padding:15px;
     color: white;
     cursor: pointer;
+    box-shadow: 0 6px lightgray;
+}
+
+.BlockSelector button:hover{
+    background-color: #1ca099 ;
+}
+
+.BlockSelector button:active{
+    background-color: #1ca099 ;
+    box-shadow: 0 3px gray;
+    transform: translateY(4px);
+}
+
+.BlockSelector button:focus{
+    outline:none;
 }
 
 .BlockSelector .SpecialInstructions{
@@ -100,19 +108,56 @@
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
 /* Styles */
+.BlockSelector .ButtonQuantityText {
+    padding-left:10px;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityLeft {
+    margin-left:35%;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityRight {
+    
+    margin-left:10px;
+}/*adjust on mobile*/
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen 
 and (min-width : 321px) {
 /* Styles */
+.BlockSelector .ButtonQuantityText {
+    padding-left:10px;
+}/*adjust on mobile*/
 
+.BlockSelector .ButtonQuantityLeft {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityRight {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-width : 320px) {
 /* Styles */
+.BlockSelector .ButtonQuantityText {
+    padding-left:10px;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityLeft {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityRight {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
 }
 
 /* iPads (portrait and landscape) ----------- */
@@ -120,6 +165,20 @@ and (max-width : 320px) {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) {
 /* Styles */
+.BlockSelector .ButtonQuantityText {
+    display: inline-block;
+    padding-left:10px;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityLeft {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityRight {
+    display: inline-block;
+    margin-left:10px;
+}/*adjust on mobile*/
 }
 
 /* iPads (landscape) ----------- */
@@ -128,6 +187,20 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) 
 and (orientation : landscape) {
 /* Styles */
+.BlockSelector .ButtonQuantityText {
+    display: inline-block;
+    padding-left:10px;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityLeft {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityRight {
+    display: inline-block;
+    margin-left:10px;
+}/*adjust on mobile*/
 }
 
 /* iPads (portrait) ----------- */
@@ -136,20 +209,60 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) 
 and (orientation : portrait) {
 /* Styles */
+.BlockSelector .ButtonQuantityText {
+    display: inline-block;
+    padding-left:10px;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityLeft {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityRight {
+    display: inline-block;
+    margin-left:10px;
+}/*adjust on mobile*/
 }
 
 /* Desktops and laptops ----------- */
 @media only screen 
 and (min-width : 1224px) {
 /* Styles */
+.BlockSelector .ButtonQuantityText {
+    display: inline-block;
+    padding-left:10px;
+}/*adjust on mobile*/
 
+.BlockSelector .ButtonQuantityLeft {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityRight {
+    display: inline-block;
+    margin-left:10px;
+}/*adjust on mobile*/
 }
 
 /* Large screens ----------- */
 @media only screen 
 and (min-width : 1824px) {
 /* Styles */
+.BlockSelector .ButtonQuantityText {
+    display: inline-block;
+    padding-left:10px;
+}/*adjust on mobile*/
 
+.BlockSelector .ButtonQuantityLeft {
+    display: inline-block;
+    margin-left:35%;
+}/*adjust on mobile*/
+
+.BlockSelector .ButtonQuantityRight {
+    display: inline-block;
+    margin-left:10px;
+}/*adjust on mobile*/
 }
 
 /* iPhone 4 ----------- */

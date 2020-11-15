@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classes from './FooderMenu.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Button from '../../components/UI/Button/ButtonCheckout';
-import NasiController from '../../components/NasiController/NasiController';
+import FoodController from '../../components/FoodController/FoodController';
 import Footer from '../../components/Footer/Footer';
 import { FaMinus, FaPlus } from "react-icons/fa";
 
@@ -14,9 +14,7 @@ class NasiBuilder extends Component {
         this.state = {
             quantity: 1,
             showQuantity: true,
-            purchasable:true,
             basePrice:4,
-            modalshow: false,
             checkoutLabel: [],
             checkoutPrice : [],
             specialInstruction : "",
@@ -35,12 +33,13 @@ class NasiBuilder extends Component {
         let checkoutLabel = [...this.state.checkoutLabel, pricelabel];
         let checkoutPrice = [...this.state.checkoutPrice, pricevalue];
         let {basePrice} = this.state; 
+        console.log(...this.state.checkoutLabel)
 
         if(isChecked){
             basePrice += parseFloat(pricevalue) ; 
         } else {
             basePrice -= parseFloat(pricevalue) ;   
-            checkoutLabel = checkoutLabel.filter(checklist => checklist !== pricelabel);    
+            checkoutLabel = checkoutLabel.filter(checklist => checklist !== pricelabel);  
         } 
 
         this.setState({basePrice, pricelabel: pricelabel, checkoutLabel: checkoutLabel, checkoutPrice: checkoutPrice});
@@ -67,6 +66,9 @@ class NasiBuilder extends Component {
         this.setState({specialInstruction: specialInstruction, charLeft: charLeft});
     }
 
+    
+
+
     render() {
         //quantity of food base on normal price
         var totalPrice;
@@ -90,13 +92,12 @@ class NasiBuilder extends Component {
             <div className={classes.BlockContent}>
                 <NavBar/>  
 
-                <NasiController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>      
+                <FoodController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>      
 
                 {/* Reusable Component */}
                 <div className={classes.BlockSelector}>
                     <h3>Remarks</h3>
                     <br />
-                    
                         <textarea 
                         className={classes.SpecialInstructions} 
                         type="text" 
@@ -117,10 +118,10 @@ class NasiBuilder extends Component {
                             <FaMinus size={24}/>
                         </button>
                     </div>
-                    <div className={classes.ButtonQuantity}>
+                    <div className={classes.ButtonQuantityText}>
                         {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
                     </div>
-                    <div className={classes.ButtonQuantity}>
+                    <div className={classes.ButtonQuantityRight}>
                         <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
                     </div>
                 </div>
@@ -132,7 +133,7 @@ class NasiBuilder extends Component {
                         listCheckoutDict={listCheckoutDict}
                         specialInstruction={specialInstruction}
                     >
-                        Your Item - RM {totalPrice} 
+                        RM {totalPrice} 
                     </Button>
                 </Footer>
             </div>

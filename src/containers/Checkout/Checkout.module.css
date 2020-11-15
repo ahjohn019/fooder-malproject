@@ -5,10 +5,9 @@
     margin-bottom : 90px;
 }
 
-
 h2 {
     text-align:center;
-    padding-top: 20px;
+    padding-top: 24px;
     font-family: 'Itim', cursive;
 }
 
@@ -48,39 +47,141 @@ h2 {
     margin-top:10px;
     font-family: 'Itim', cursive;
     color:#A8A8A8;
-    display: inline-block;
-    
 } /*need change position on web*/
 
+
+/*Custom Edit Button CSS*/
 .CheckoutBlockSelector .CheckoutEditButton {
     background-color:#00e600;
     border-radius: 25%;
     border:0;
     height:45px;
     color:white;
-    box-shadow: 0 8px 6px -6px lightgray;
+    box-shadow: 0 8px #999;
     float:right;
     margin-right: 10px;
+    
 }
 
+.CheckoutBlockSelector .CheckoutEditButton:hover {
+    background-color:green;
+}
+
+.CheckoutBlockSelector .CheckoutEditButton:active {
+    background-color:green;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+}
+
+.CheckoutBlockSelector .CheckoutEditButton:focus {
+    outline:none;
+}
+
+
+/*Custom Delete Button CSS*/
 .CheckoutBlockSelector .CheckoutDeleteButton {
     background-color: red;
     border-radius: 25%;
     border: 0;
     height:45px;
     color:white;
-    box-shadow: 0 8px 6px -6px lightgray;
+    box-shadow: 0 8px #999;
     float:right;
     margin-right:10px;
 }
 
-
-.CheckoutListSelector{
-    border: 1px solid black;
-    display:inline-block;
-    margin-left: 30px;
-    width:38%;
+.CheckoutBlockSelector .CheckoutDeleteButton:hover {
+    background-color: salmon;
 }
+
+.CheckoutBlockSelector .CheckoutDeleteButton:active {
+    background-color:salmon;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+}
+
+.CheckoutBlockSelector .CheckoutDeleteButton:focus {
+    outline:none;
+}
+
+
+/*Custom AddOn Delete Button CSS*/
+.CheckoutBlockSelector .checkoutEditColumn{
+    display:inline-block;
+}
+
+.CheckoutBlockSelector .checkoutEditColumn button{
+    padding-bottom:3px;
+    color: white;
+    transition: transform .6s ease-in-out;
+    border:0;
+    background-color: transparent;
+    
+}
+
+.CheckoutBlockSelector .checkoutEditColumn button:hover{
+    cursor: pointer;
+    border-radius: 25%; 
+    transform: rotate(360deg);
+}
+
+.CheckoutBlockSelector .checkoutEditColumn button:active{
+    background-color:lightgray;
+    cursor: pointer;
+}
+
+.CheckoutBlockSelector .checkoutEditColumn button:focus{
+    outline: none;
+}
+
+
+.CheckoutBlockSelector .checkoutaddOn{
+    margin-left:5px;
+    padding:6px 8px;
+    background-color:lightseagreen;
+    font-weight:bold;
+    color:white;
+    text-transform:uppercase;
+    border-radius: 10%; 
+    
+}
+
+/*Custom Place Order Button CSS*/
+.CheckoutPlaceOrderButton {
+    border:0;
+    border-radius: 25%;
+    background-color: #87CEFA;
+    width:25%;
+    margin:0 auto;
+    color:white;
+    display: block;
+    height:75%;
+    padding: 5px 15px;
+    margin-top:5px;
+    box-shadow: 0 7px #999;
+}
+
+.CheckoutPlaceOrderButton p {
+    font-size:24px;
+    text-transform: uppercase;
+    font-weight:bold;
+}
+
+.CheckoutPlaceOrderButton:hover {
+    background-color: #6CA5C8;
+}
+
+.CheckoutPlaceOrderButton:active {
+    background-color:#6CA5C8;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+}
+
+.CheckoutPlaceOrderButton:focus {
+    outline:none;
+}
+
+
 
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -89,7 +190,7 @@ and (min-device-width : 320px)
 and (max-device-width : 480px) {
 /* Styles */
 .CheckoutBlockSelector hr {
-    margin-top: 20%;
+    margin-top: 30%;
 }
 }
 
@@ -98,7 +199,7 @@ and (max-device-width : 480px) {
 and (min-width : 321px) {
 /* Styles */
 .CheckoutBlockSelector hr {
-    margin-top: 20%;
+    margin-top: 30%;
 }
 }
 
@@ -107,7 +208,7 @@ and (min-width : 321px) {
 and (max-width : 320px) {
 /* Styles */
 .CheckoutBlockSelector hr {
-    margin-top: 20%;
+    margin-top: 30%;
 }
 }
 
@@ -148,7 +249,7 @@ and (orientation : portrait) {
 and (min-width : 1224px) {
 /* Styles */
 .CheckoutBlockSelector hr {
-    margin-top: 5%;
+    margin-top: 15%;
 }
 }
 
@@ -157,7 +258,7 @@ and (min-width : 1224px) {
 and (min-width : 1824px) {
 /* Styles */
 .CheckoutBlockSelector hr {
-    margin-top: 5%;
+    margin-top: 15%;
 }
 }
 

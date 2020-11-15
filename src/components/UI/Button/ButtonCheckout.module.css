@@ -8,18 +8,30 @@
     margin:0 auto;
     color:white;
     display: block;
-    height:90%;
-    padding-top: 7px;
+    height:75%;
+    padding: 5px 15px;
     margin-top:5px;
+    box-shadow: 0 7px #999;
 }
 
 .ButtonConfirmation p {
-    font-size: 20px;
+    font-size: 24px;
+    
 }
 
 .ButtonConfirmation:hover{
-    background-color: #93d2fa;
+    background-color:#6CA5C8;
     cursor: pointer;
+}
+
+.ButtonConfirmation:active {
+    background-color:#6CA5C8;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+}
+
+.ButtonConfirmation:focus{
+    outline: none;
 }
 
 .PriceList {

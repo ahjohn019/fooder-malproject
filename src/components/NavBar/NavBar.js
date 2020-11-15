@@ -7,6 +7,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchBar from './SearchBar/SearchBar';
 import Logo from '../Logo/Logo';
 import DrawerIcon from '../NavBar/Drawer/Drawer';
+import {Link} from "react-router-dom";
 
 const navBar = (props) => (
     <div className={classes.NavBar}>
@@ -14,7 +15,7 @@ const navBar = (props) => (
         <DrawerIcon />
         <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
         <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>         
-        <NavItem><ShoppingCartIcon style={{ fontSize: 30 }}/></NavItem> 
+        <Link to="/checkout"><NavItem><ShoppingCartIcon style={{ fontSize: 30 }}/></NavItem></Link> 
         <SearchBar />
     </div>
 );
