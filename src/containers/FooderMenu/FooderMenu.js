@@ -5,6 +5,7 @@ import Button from '../../components/UI/Button/ButtonCheckout';
 import FoodController from '../../components/FoodController/FoodController';
 import Footer from '../../components/Footer/Footer';
 import { FaMinus, FaPlus } from "react-icons/fa";
+import axios from "axios";
 
 
 class NasiBuilder extends Component {
@@ -19,10 +20,22 @@ class NasiBuilder extends Component {
             checkoutPrice : [],
             specialInstruction : "",
             charLeft: 50,
-            maxChar: 50
+            maxChar: 50,
+            foodercheckout:[]
         };
     }
 
+    componentDidMount(){
+        axios.get('/fooder_checkout')
+            .then(response => {
+                this.setState({
+                    foodercheckout:response.data
+                })    
+            }).catch(error =>{
+                    this.setState({error:true})
+        });
+    }
+   
 
     //get base price + addon price(by users)
     //if tick => add into base price else remove addon prices
@@ -66,8 +79,6 @@ class NasiBuilder extends Component {
         this.setState({specialInstruction: specialInstruction, charLeft: charLeft});
     }
 
-    
-
 
     render() {
         //quantity of food base on normal price
@@ -87,10 +98,13 @@ class NasiBuilder extends Component {
             return {label:key, price:checkoutPrice[index]}
         });
 
+        //count the length of checkout data
+        const _gettotalcheckoutdata = this.state.foodercheckout.length;
+        console.log(_gettotalcheckoutdata)
 
         return (
             <div className={classes.BlockContent}>
-                <NavBar/>  
+                <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
 
                 <FoodController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>      
 

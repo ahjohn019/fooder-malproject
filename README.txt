@@ -10,8 +10,8 @@
 10. Design Modal Checkout [done]
 11. Special Instructions [done]
 12. Post Data To Checkout Page [done]
-13. Payment Details
-14. Customer Details
+13. Payment Details UI
+14. Customer Details UI [done]
 15. Restructure DB (Food Menu)
 16. Food Selection
 17. Food Menu By Id

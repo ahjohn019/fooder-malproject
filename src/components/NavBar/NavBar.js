@@ -9,13 +9,19 @@ import Logo from '../Logo/Logo';
 import DrawerIcon from '../NavBar/Drawer/Drawer';
 import {Link} from "react-router-dom";
 
+
 const navBar = (props) => (
     <div className={classes.NavBar}>
         <Logo />
         <DrawerIcon />
         <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
         <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>         
-        <Link to="/checkout"><NavItem><ShoppingCartIcon style={{ fontSize: 30 }}/></NavItem></Link> 
+        <Link to="/checkout">
+            <NavItem>
+                <ShoppingCartIcon style={{ fontSize: 30 }}/>
+                <span className={classes.NotificationIcons} value={props.countCheckoutItem}>{props.countCheckoutItem}</span>
+            </NavItem>
+        </Link> 
         <SearchBar />
     </div>
 );
