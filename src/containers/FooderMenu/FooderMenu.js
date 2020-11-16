@@ -100,7 +100,6 @@ class NasiBuilder extends Component {
 
         //count the length of checkout data
         const _gettotalcheckoutdata = this.state.foodercheckout.length;
-        console.log(_gettotalcheckoutdata)
 
         return (
             <div className={classes.BlockContent}>
