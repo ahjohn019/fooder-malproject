@@ -23,6 +23,10 @@
 
 Problem:
 1) Cannot Delete Addon Menu List
+2) - push the addon into temp array (dont save on db)
+   - bring addon temp list to checkout page
+   - checkout page display temp add on List
+   - if user confirm addon, only push addon into db list 
 
 Fixed:
 1) Checkout Incomplete List [done for label & price]

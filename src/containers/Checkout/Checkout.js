@@ -11,7 +11,7 @@ class Checkout extends Component {
         super(props);
         this.state={
             foodercheckout:[],
-            foodercheckout_addon:[],
+            foodercheckout_addon:["Fried Chicken","Salty Egg", "Peanut", "Rice"],
             display_edit:false
         }    
     }
@@ -29,9 +29,14 @@ class Checkout extends Component {
     }
 
     //delete id->addon array ?
-    editCheckoutHandler = (event) => {
-        //get addon checkout list
-        alert("deleted")
+    editCheckoutHandler = (name, i) => {
+        //1. get addon checkout list
+        let addonlist = this.state.foodercheckout_addon.slice();
+        addonlist.splice(i, 1);
+        console.log(addonlist)
+        this.setState({
+            foodercheckout_addon:addonlist
+        });
     }
 
 
@@ -73,20 +78,17 @@ class Checkout extends Component {
 
                                 <div style={{marginLeft:"15px"}} key={fcheckout._id}>
                                     {
-                                        fcheckout.addon.map((fadd) => 
+                                        fcheckout.addon.map((fadd,index) => 
                                             <div key={fadd} className={classes.checkoutEditColumn}>
                                                 <span value={fadd} className={classes.checkoutaddOn}>
-                                                    <button id={fcheckout.addon} value={fadd} onClick={this.editCheckoutHandler}><FaTimes size={20}/></button>
-                                                        {fadd}                                   
+                                                    <button id={index} value={fadd} onClick={() =>{this.editCheckoutHandler(fadd,index)}}><FaTimes size={20}/></button>
+                                                        {/* {fadd}     */}
+                                                        {this.state.foodercheckout_addon}                               
                                                 </span>
                                             </div>)
                                     }
                                 </div>
-                              
-
-                                
-
-
+  
                                 <p>Remarks: {fcheckout.remarks}</p>
                                 {/* Update The Data */}
                                 <button value={fcheckout._id} type="submit" className={classes.CheckoutEditButton} >
