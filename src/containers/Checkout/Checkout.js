@@ -11,7 +11,7 @@ class Checkout extends Component {
         super(props);
         this.state={
             foodercheckout:[],
-            foodercheckout_addon:["Fried Chicken","Salty Egg", "Peanut", "Rice"],
+            foodercheckout_addon: this.props.location.state.detail,
             display_edit:false
         }    
     }
@@ -33,7 +33,6 @@ class Checkout extends Component {
         //1. get addon checkout list
         let addonlist = this.state.foodercheckout_addon.slice();
         addonlist.splice(i, 1);
-        console.log(addonlist)
         this.setState({
             foodercheckout_addon:addonlist
         });
@@ -58,12 +57,10 @@ class Checkout extends Component {
     render() {
         const _gettotalprice = this.state.foodercheckout.map(fcheckout => fcheckout.totalprice).reduce((sum,index)=>sum+index,0);
         const _gettotalcheckoutdata = this.state.foodercheckout.length; 
-        
 
         return (
             <div className={classes.CheckoutContent}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
-                    {}
                     {/* <CheckoutEdit checkoutHandler={this.editCheckoutHandler}/> */}
                     {/* <CheckoutEdit key={fcheckout._id} checkoutQty={fcheckout.quantity} checkoutLabel={fcheckout.addon} /> */}
                     <h2>Order Summary</h2>
@@ -87,6 +84,7 @@ class Checkout extends Component {
                                                 </span>
                                             </div>)
                                     }
+                                    
                                 </div>
   
                                 <p>Remarks: {fcheckout.remarks}</p>

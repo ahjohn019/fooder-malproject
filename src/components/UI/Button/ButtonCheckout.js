@@ -17,13 +17,12 @@ const ButtonConfirmation = (props) => {
 
         const handlecheckout = (event) => {
             var _addon = listCheckoutDict.map(list => list.label);
-
             const btnValue = event.currentTarget.value;
-            console.log(btnValue)
+            
             const foodCheckoutList = ({
                 maindish:"Nasi Lemak",
                 type:"Local Food",
-                addon: _addon,
+                addon: "",
                 quantity: props.quantity,
                 totalprice:props.totalPrice,
                 baseprice:4,
@@ -42,7 +41,11 @@ const ButtonConfirmation = (props) => {
                   .catch(function (error) {
                     console.log(error);
                   });
-                history.push('/checkout');
+                history.push({
+                    pathname: '/checkout',
+                    state:{ detail :_addon}
+                });
+
             }
 
             if(btnValue === "btnGoBack"){
