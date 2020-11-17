@@ -27,23 +27,34 @@ const ButtonConfirmation = (props) => {
                 quantity: props.quantity,
                 totalprice:props.totalPrice,
                 baseprice:4,
-                remarks: props.specialInstruction
+                remarks:props.specialInstruction
             });
 
-            axios.post('/fooder_checkout/add', foodCheckoutList).then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
+            if(foodCheckoutList.remarks === "" ){
+                foodCheckoutList.remarks = "None"
+            }
+
             
             if(btnValue === "btnCheckout"){
+                axios.post('/fooder_checkout/add', foodCheckoutList).then(function (response) {
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
                 history.push('/checkout');
             }
 
             if(btnValue === "btnGoBack"){
                 history.push('/');
+                axios.post('/fooder_checkout/add', foodCheckoutList).then(function (response) {
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });          
             }
+
         }
         
         return(

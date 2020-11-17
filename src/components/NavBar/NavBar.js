@@ -12,7 +12,9 @@ import {Link} from "react-router-dom";
 
 const navBar = (props) => (
     <div className={classes.NavBar}>
-        <Logo />
+        <Link to="/">
+            <Logo />
+        </Link>
         <DrawerIcon />
         <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
         <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>         
