@@ -39,15 +39,26 @@ class Checkout extends Component {
         let filterresult = firstresult.filter(res=>res !== getaddonvalue)
         console.log(filterresult)
 
-        //3. update by api & render
-        const addonupdate = {addon: filterresult}
-        axios.post(`/fooder_checkout/update/${getaddonid}`, addonupdate)
-            .then(response=>{
-                console.log(response)
-                console.log(response.data)
+        //3. get the data id from addon db
+        axios.get(`/fooder_checkout/${getaddonid}`)
+            .then(response => {
+               console.log(response.data)
+               this.setState({foodercheckout_addon:response.data})
+               const test = this.state.foodercheckout_addon.maindish
+               console.log("This State: ",test) 
             }).catch(error=>{
                 this.setState({error:true})
-        }); 
+        });
+
+        //4. update by api & render
+        // const addonupdate = {addon: filterresult}
+        // axios.post(`/fooder_checkout/update/${getaddonid}`, addonupdate)
+        //     .then(response=>{
+        //         console.log(response)
+        //         console.log(response.data)
+        //     }).catch(error=>{
+        //         this.setState({error:true})
+        // }); 
     }
 
 
