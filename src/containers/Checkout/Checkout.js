@@ -29,36 +29,47 @@ class Checkout extends Component {
     }
 
     //delete id->addon array ?
-    editCheckoutHandler = (event) => {
+    geteditCheckoutHandlerId = (event) => {
         //1. get addon checkout list
         const getaddonid = event.currentTarget.id
         const getaddonlist = event.currentTarget.name
         const getaddonvalue = event.currentTarget.value
         //2. filter
         const firstresult = getaddonlist.split(",")
-        let filterresult = firstresult.filter(res=>res !== getaddonvalue)
-        console.log(filterresult)
+        let filteraddon = firstresult.filter(res=>res !== getaddonvalue)
 
         //3. get the data id from addon db
         axios.get(`/fooder_checkout/${getaddonid}`)
             .then(response => {
-               console.log(response.data)
-               this.setState({foodercheckout_addon:response.data})
-               const test = this.state.foodercheckout_addon.maindish
-               console.log("This State: ",test) 
+               console.log(response.status)
+               this.setState({foodercheckout_addon:response.data, filteraddon:filteraddon,getaddonid:getaddonid})
+               this.updateCheckoutHandler()
             }).catch(error=>{
                 this.setState({error:true})
         });
 
-        //4. update by api & render
-        // const addonupdate = {addon: filterresult}
-        // axios.post(`/fooder_checkout/update/${getaddonid}`, addonupdate)
-        //     .then(response=>{
-        //         console.log(response)
-        //         console.log(response.data)
-        //     }).catch(error=>{
-        //         this.setState({error:true})
-        // }); 
+    }
+
+    updateCheckoutHandler = () => {
+        const filterList = this.state.filteraddon
+        const getaddonid = this.state.getaddonid
+        const foodercheckoutList = {
+            addon: filterList,
+            maindish: this.state.foodercheckout_addon.maindish,
+            type: this.state.foodercheckout_addon.type,
+            quantity: this.state.foodercheckout_addon.quantity,
+            totalprice: this.state.foodercheckout_addon.totalprice,
+            baseprice: this.state.foodercheckout_addon.baseprice,
+            remarks: this.state.foodercheckout_addon.remarks
+        }
+
+        axios.post(`/fooder_checkout/update/${getaddonid}`, foodercheckoutList)
+            .then(response=>{
+                console.log(response)
+                console.log(response.data)
+            }).catch(error=>{
+                this.setState({error:true})
+        }); 
     }
 
 
@@ -83,7 +94,7 @@ class Checkout extends Component {
         return (
             <div className={classes.CheckoutContent}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
-                    {/* <CheckoutEdit checkoutHandler={this.editCheckoutHandler}/> */}
+                    {/* <CheckoutEdit checkoutHandler={this.geteditCheckoutHandlerId}/> */}
                     {/* <CheckoutEdit key={fcheckout._id} checkoutQty={fcheckout.quantity} checkoutLabel={fcheckout.addon} /> */}
                     <h2>Order Summary</h2>
                     <div className={classes.CheckoutBlockSelector}>
@@ -100,7 +111,7 @@ class Checkout extends Component {
                                         fcheckout.addon.map((fadd,index) => 
                                             <div key={fadd} className={classes.checkoutEditColumn}>
                                                 <span value={fadd} className={classes.checkoutaddOn}>
-                                                    <button id={fcheckout._id} name={fcheckout.addon} value={fadd} onClick={this.editCheckoutHandler}><FaTimes size={20}/></button>
+                                                    <button id={fcheckout._id} name={fcheckout.addon} value={fadd} onClick={this.geteditCheckoutHandlerId}><FaTimes size={20}/></button>
                                                         {fadd}                                     
                                                 </span>
                                             </div>)
@@ -162,5 +173,5 @@ export default Checkout;
 // const getaddonlist = event.currentTarget.id
 // const getaddonvalue = event.currentTarget.value
 // const firstresult = getaddonlist.split(",")
-// let filterresult = firstresult.filter(res=>res !== getaddonvalue)
-// console.log(filterresult)
+// let filteraddon = firstresult.filter(res=>res !== getaddonvalue)
+// console.log(filteraddon)
