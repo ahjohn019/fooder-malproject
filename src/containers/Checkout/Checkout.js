@@ -11,7 +11,7 @@ class Checkout extends Component {
         super(props);
         this.state={
             foodercheckout:[],
-            foodercheckout_addon: this.props.location.state.detail,
+            foodercheckout_addon: [],
             display_edit:false
         }    
     }
@@ -29,15 +29,26 @@ class Checkout extends Component {
     }
 
     //delete id->addon array ?
-    editCheckoutHandler = (name, i) => {
+    editCheckoutHandler = (event) => {
         //1. get addon checkout list
-        let addonlist = this.state.foodercheckout_addon.slice();
-        addonlist.splice(i, 1);
-        this.setState({
-            foodercheckout_addon:addonlist
-        });
-    }
+        const getaddonid = event.currentTarget.id
+        const getaddonlist = event.currentTarget.name
+        const getaddonvalue = event.currentTarget.value
+        //2. filter
+        const firstresult = getaddonlist.split(",")
+        let filterresult = firstresult.filter(res=>res !== getaddonvalue)
+        console.log(filterresult)
 
+        //3. update by api & render
+        const addonupdate = {addon: filterresult}
+        axios.post(`/fooder_checkout/update/${getaddonid}`, addonupdate)
+            .then(response=>{
+                console.log(response)
+                console.log(response.data)
+            }).catch(error=>{
+                this.setState({error:true})
+        }); 
+    }
 
 
     deleteCheckoutHandler = (event) => {
@@ -78,9 +89,8 @@ class Checkout extends Component {
                                         fcheckout.addon.map((fadd,index) => 
                                             <div key={fadd} className={classes.checkoutEditColumn}>
                                                 <span value={fadd} className={classes.checkoutaddOn}>
-                                                    <button id={index} value={fadd} onClick={() =>{this.editCheckoutHandler(fadd,index)}}><FaTimes size={20}/></button>
-                                                        {/* {fadd}     */}
-                                                        {this.state.foodercheckout_addon}                               
+                                                    <button id={fcheckout._id} name={fcheckout.addon} value={fadd} onClick={this.editCheckoutHandler}><FaTimes size={20}/></button>
+                                                        {fadd}                                     
                                                 </span>
                                             </div>)
                                     }
@@ -126,7 +136,7 @@ export default Checkout;
 //     fcheckout.addon.map(fadd => <span key={fadd} className={classes.checkoutaddOn}>{fadd}</span>)
 // }
 
-//get addon checkout list
+//get addon checkout list (1st)
 // let getIdaddon = event.currentTarget.id
 // let getValueaddon = event.currentTarget.value
 // const arraysplit = getIdaddon.split(",")
@@ -136,3 +146,10 @@ export default Checkout;
 // //splice the value after click button
 // getaddon = getaddon.filter(add=>add !==  getValueaddon)
 // console.log(getaddon)
+
+//1. get addon checkout list (2nd)
+// const getaddonlist = event.currentTarget.id
+// const getaddonvalue = event.currentTarget.value
+// const firstresult = getaddonlist.split(",")
+// let filterresult = firstresult.filter(res=>res !== getaddonvalue)
+// console.log(filterresult)

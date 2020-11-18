@@ -22,7 +22,7 @@ const ButtonConfirmation = (props) => {
             const foodCheckoutList = ({
                 maindish:"Nasi Lemak",
                 type:"Local Food",
-                addon: "",
+                addon: _addon,
                 quantity: props.quantity,
                 totalprice:props.totalPrice,
                 baseprice:4,
@@ -42,8 +42,7 @@ const ButtonConfirmation = (props) => {
                     console.log(error);
                   });
                 history.push({
-                    pathname: '/checkout',
-                    state:{ detail :_addon}
+                    pathname: '/checkout'
                 });
 
             }
