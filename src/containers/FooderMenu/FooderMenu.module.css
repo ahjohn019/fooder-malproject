@@ -14,16 +14,6 @@
     left:20%;
 }
 
-.BlockImage {
-    width: 38%;
-    height:50%;
-    text-align:center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top:100px;
-}
-
 .BlockSelector{
     border: 0;
     width:38%;

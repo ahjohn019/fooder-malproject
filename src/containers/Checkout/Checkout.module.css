@@ -15,12 +15,13 @@ h2 {
     border: 0;
     width:25%;
     margin-top: 20px;
-    position:absolute;
+    position:relative;
     left:52%;
     padding-top:20px;
     padding-bottom:20px; 
     box-shadow: 3px 3px 3px 3px #ccc;
     border-radius: 2%;
+    display:block;
 }
 
 .CheckoutBlockSelector .CheckoutTitle {
@@ -257,6 +258,8 @@ and (orientation : portrait) {
 and (min-width : 1224px) {
 .CheckoutBlockSelector {
     left:52%;
+    position: absolute;
+    top:9.5%;
 }
 .CheckoutBlockSelector hr {
     margin-top: 15%;
@@ -267,7 +270,6 @@ and (min-width : 1224px) {
 @media only screen 
 and (max-width : 1223px) {
 .CheckoutBlockSelector {
-    top:83%;
     left:25%;
     width:52%;
     margin-bottom:10%;

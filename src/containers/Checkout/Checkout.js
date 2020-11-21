@@ -88,12 +88,13 @@ class Checkout extends Component {
                         <h3 className={classes.CheckoutTitle}>Subtotal : </h3>
                         <h3 className={classes.CheckoutPrice}>RM {_gettotalprice}</h3>
                     </div>  
-                    <Payment />    
+                    <Payment />     
                 <Footer>
                    <button className={classes.CheckoutPlaceOrderButton}>
                        <p>Place Order</p>
                     </button>
                 </Footer> 
+               
             </div>
         );
     }
