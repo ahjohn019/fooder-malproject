@@ -5,15 +5,16 @@
     margin-bottom : 90px;
 }
 
-
 .CustomerDetailsBlockSelector {
     border:0;
+    border-radius: 2%;
     position: absolute;
-    top:13%;
     left:25%;
-    width:55%;
-    height:50%;
-    display:block;
+    margin-top:20px;
+    padding:25px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    margin-bottom:5%;
 }
 
 .CustomerDetailsBlockSelector p {
@@ -22,7 +23,89 @@
 }
 
 .CustomerDetailsBlockSelector .formDetails {
-    display:block;
+    display:flex;
+    flex-wrap: wrap;
     width:'25ch';
     margin-top:40px;
+
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+.CustomerDetailsBlockSelector {
+    width: 52%;
+}
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+.CustomerDetailsBlockSelector {
+    width: 52%;
+}
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+.CustomerDetailsBlockSelector {
+    width: 52%;
+}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+
+.CustomerDetailsBlockSelector {
+    width: 52%;
+}
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+.CustomerDetailsBlockSelector {
+    width: 52%;
+}
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+.CustomerDetailsBlockSelector {
+    width: 52%;
+}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+.CustomerDetailsBlockSelector {
+    width: 25%;
+}
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+.CustomerDetailsBlockSelector {
+    width: 25%;
+}
+}
+

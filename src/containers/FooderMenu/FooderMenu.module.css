@@ -33,7 +33,7 @@
     margin-right: auto;
     box-shadow: 3px 3px 3px 3px #ccc;
     padding-bottom:10px;
-    
+    border-radius: 2%;
 }
 
 .BlockSelector h3 {

@@ -4,6 +4,8 @@ import Footer from '../../components/Footer/Footer';
 import classes from '../../containers/Checkout/Checkout.module.css';
 import { BsListTask } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
+import Payment from '../Payment/Payment';
+
 import axios from "axios";
 
 class Checkout extends Component {
@@ -28,51 +30,6 @@ class Checkout extends Component {
         });
     }
 
-    //delete id->addon array ?
-    geteditCheckoutHandlerId = (event) => {
-        //1. get addon checkout list
-        const getaddonid = event.currentTarget.id
-        const getaddonlist = event.currentTarget.name
-        const getaddonvalue = event.currentTarget.value
-        //2. filter
-        const firstresult = getaddonlist.split(",")
-        let filteraddon = firstresult.filter(res=>res !== getaddonvalue)
-
-        //3. get the data id from addon db
-        axios.get(`/fooder_checkout/${getaddonid}`)
-            .then(response => {
-               console.log(response.status)
-               this.setState({foodercheckout_addon:response.data, filteraddon:filteraddon,getaddonid:getaddonid})
-               this.updateCheckoutHandler()
-            }).catch(error=>{
-                this.setState({error:true})
-        });
-
-    }
-
-    updateCheckoutHandler = () => {
-        const filterList = this.state.filteraddon
-        const getaddonid = this.state.getaddonid
-        const foodercheckoutList = {
-            addon: filterList,
-            maindish: this.state.foodercheckout_addon.maindish,
-            type: this.state.foodercheckout_addon.type,
-            quantity: this.state.foodercheckout_addon.quantity,
-            totalprice: this.state.foodercheckout_addon.totalprice,
-            baseprice: this.state.foodercheckout_addon.baseprice,
-            remarks: this.state.foodercheckout_addon.remarks
-        }
-
-        axios.post(`/fooder_checkout/update/${getaddonid}`, foodercheckoutList)
-            .then(response=>{
-                console.log(response)
-                console.log(response.data)
-            }).catch(error=>{
-                this.setState({error:true})
-        }); 
-    }
-
-
     deleteCheckoutHandler = (event) => {
         event.preventDefault();
         let _checkoutDeleteButtonId = event.currentTarget.value
@@ -94,11 +51,9 @@ class Checkout extends Component {
         return (
             <div className={classes.CheckoutContent}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
-                    {/* <CheckoutEdit checkoutHandler={this.geteditCheckoutHandlerId}/> */}
-                    {/* <CheckoutEdit key={fcheckout._id} checkoutQty={fcheckout.quantity} checkoutLabel={fcheckout.addon} /> */}
-                    <h2>Order Summary</h2>
-                    <div className={classes.CheckoutBlockSelector}>
-                        
+                    <div className={classes.CheckoutBlockSelector}>    
+                        <h2>Your Order</h2>
+                        <hr />
                         {this.state.foodercheckout.map((fcheckout) =>
                             <div key={fcheckout._id}>
                                 <h3 className={classes.CheckoutTitle}>x{fcheckout.quantity}</h3>
@@ -106,19 +61,17 @@ class Checkout extends Component {
                                 <p className={classes.CheckoutPrice}>RM {fcheckout.totalprice}</p>
                                 <p>{fcheckout.type} - RM {fcheckout.baseprice}</p>
 
-                                <div style={{marginLeft:"15px"}} key={fcheckout._id}>
+                                <div style={{marginLeft:"50px"}} key={fcheckout._id}>
                                     {
-                                        fcheckout.addon.map((fadd,index) => 
+                                        fcheckout.addon.map((fadd) => 
                                             <div key={fadd} className={classes.checkoutEditColumn}>
                                                 <span value={fadd} className={classes.checkoutaddOn}>
-                                                    <button id={fcheckout._id} name={fcheckout.addon} value={fadd} onClick={this.geteditCheckoutHandlerId}><FaTimes size={20}/></button>
-                                                        {fadd}                                     
+                                                    {fadd}                                     
                                                 </span>
                                             </div>)
-                                    }
-                                    
+                                    }        
                                 </div>
-  
+                                    
                                 <p>Remarks: {fcheckout.remarks}</p>
                                 {/* Update The Data */}
                                 <button value={fcheckout._id} type="submit" className={classes.CheckoutEditButton} >
@@ -134,8 +87,8 @@ class Checkout extends Component {
                         <br />
                         <h3 className={classes.CheckoutTitle}>Subtotal : </h3>
                         <h3 className={classes.CheckoutPrice}>RM {_gettotalprice}</h3>
-                    </div>     
-
+                    </div>  
+                    <Payment />    
                 <Footer>
                    <button className={classes.CheckoutPlaceOrderButton}>
                        <p>Place Order</p>

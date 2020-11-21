@@ -7,20 +7,20 @@
 
 h2 {
     text-align:center;
-    padding-top: 24px;
+    padding-top: 20px;
     font-family: 'Itim', cursive;
 }
 
 .CheckoutBlockSelector{
     border: 0;
-    width:65%;
+    width:25%;
     margin-top: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    position:absolute;
+    left:52%;
     padding-top:20px;
+    padding-bottom:20px; 
     box-shadow: 3px 3px 3px 3px #ccc;
-    padding-bottom:10px;
+    border-radius: 2%;
 }
 
 .CheckoutBlockSelector .CheckoutTitle {
@@ -189,34 +189,30 @@ h2 {
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
 /* Styles */
+.CheckoutBlockSelector {
+    top:75%;
+    left:25%;
+    width:52%;
+    margin-bottom:10%;
+}
 .CheckoutBlockSelector hr {
     margin-top: 30%;
 }
 }
 
-/* Smartphones (landscape) ----------- */
-@media only screen 
-and (min-width : 321px) {
-/* Styles */
-.CheckoutBlockSelector hr {
-    margin-top: 30%;
-}
-}
 
-/* Smartphones (portrait) ----------- */
-@media only screen 
-and (max-width : 320px) {
-/* Styles */
-.CheckoutBlockSelector hr {
-    margin-top: 30%;
-}
-}
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) {
 /* Styles */
+.CheckoutBlockSelector {
+    top:75%;
+    left:25%;
+    width:52%;
+    margin-bottom:10%;
+}
 .CheckoutBlockSelector hr {
     margin-top: 5%;
 }
@@ -228,6 +224,12 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) 
 and (orientation : landscape) {
 /* Styles */
+.CheckoutBlockSelector {
+    top:75%;
+    left:25%;
+    width:52%;
+    margin-bottom:10%;
+}
 .CheckoutBlockSelector hr {
     margin-top: 5%;
 }
@@ -239,6 +241,12 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) 
 and (orientation : portrait) {
 /* Styles */
+.CheckoutBlockSelector {
+    top:75%;
+    left:25%;
+    width:52%;
+    margin-bottom:10%;
+}
 .CheckoutBlockSelector hr {
     margin-top: 5%;
 }
@@ -247,29 +255,28 @@ and (orientation : portrait) {
 /* Desktops and laptops ----------- */
 @media only screen 
 and (min-width : 1224px) {
-/* Styles */
+.CheckoutBlockSelector {
+    left:52%;
+}
 .CheckoutBlockSelector hr {
     margin-top: 15%;
 }
 }
 
-/* Large screens ----------- */
+/* Desktops and laptops two ----------- */
 @media only screen 
-and (min-width : 1824px) {
-/* Styles */
+and (max-width : 1223px) {
+.CheckoutBlockSelector {
+    top:83%;
+    left:25%;
+    width:52%;
+    margin-bottom:10%;
+}
 .CheckoutBlockSelector hr {
     margin-top: 15%;
 }
 }
 
-/* iPhone 4 ----------- */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-/* Styles */
-.CheckoutBlockSelector hr {
-    margin-top: 20%;
-}
-}
+
 
 

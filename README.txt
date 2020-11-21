@@ -16,21 +16,17 @@
 16. Food Selection
 17. Food Menu By Id
 18. Button Improvement [done]
-19. Delete AddOn Menu Function [on hold]
+19. Delete AddOn Menu Function [done]
 20. Favourite List
 21. Track Order
 
 
 Problem:
-1) Cannot Delete Addon Menu List
-2) - push the addon into temp array (dont save on db)
-   - bring addon temp list to checkout page
-   - checkout page display temp add on List
-   - if user confirm addon, only push addon into db list 
 
 Fixed:
 1) Checkout Incomplete List [done for label & price]
 - List Out Each Label & Price
+2) Delete Addon Menu List
 
 2) - base price(exp) = 4 
    - addon(must have purchase one exclude quantity) - only 1(exp) =  1+2+3+4 = (10)
