@@ -2,6 +2,7 @@
   "name": "nasi-lemak-project",
   "version": "0.1.0",
   "private": true,
+  "proxy":"http://localhost:5000",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "start": "concurrently \"node server.js\" \"npm run dev\" \"serve -s build\" ",
+    "start": "concurrently \"npm install -g serve\" \"npm run dev\" \"node server.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
