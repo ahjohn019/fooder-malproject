@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from '../../containers/Payment/Payment.module.css';
-import {TextField, FormControl, Radio, RadioGroup, FormLabel,FormControlLabel} from '@material-ui/core';
+import {TextField, FormControl, Radio, RadioGroup, FormControlLabel} from '@material-ui/core';
 
 class Payment extends Component {
 

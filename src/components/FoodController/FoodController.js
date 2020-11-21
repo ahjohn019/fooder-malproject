@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import classes from './FoodController.module.css';
 import axios from "axios";
-
+import {Checkbox, FormControlLabel} from '@material-ui/core';
 
 class FoodController extends Component {
     constructor(props){
@@ -40,7 +40,20 @@ class FoodController extends Component {
                 {
                     this.state.foodermenu.map(fmenu =>
                     <div key={fmenu.addon} className={classes.checkboxOne}>
-                        <span><input id={fmenu.addon} type="checkbox" name="choice" value={fmenu.price_addon} onClick={this.props.changed} /></span>
+                        <span>
+                            <FormControlLabel
+                            control=
+                            {
+                                <Checkbox
+                                id={fmenu.addon}
+                                name="choice"
+                                value={fmenu.price_addon}
+                                onChange={this.props.changed} 
+                                label={fmenu.addon}
+                                />
+                            }
+                             />
+                        </span>
                         <label>{fmenu.addon}</label>
                         <p>+ {fmenu.price_addon}</p>         
                     </div>)

@@ -6,6 +6,7 @@ import FoodController from '../../components/FoodController/FoodController';
 import Footer from '../../components/Footer/Footer';
 import { FaMinus, FaPlus } from "react-icons/fa";
 import axios from "axios";
+import {TextField} from '@material-ui/core';
 
 
 class NasiBuilder extends Component {
@@ -46,7 +47,7 @@ class NasiBuilder extends Component {
         let checkoutLabel = [...this.state.checkoutLabel, pricelabel];
         let checkoutPrice = [...this.state.checkoutPrice, pricevalue];
         let {basePrice} = this.state; 
-        console.log(...this.state.checkoutLabel)
+        console.log(pricevalue)
 
         if(isChecked){
             basePrice += parseFloat(pricevalue) ; 
@@ -111,31 +112,38 @@ class NasiBuilder extends Component {
                 <div className={classes.BlockSelector}>
                     <h3>Remarks</h3>
                     <br />
-                        <textarea 
-                        className={classes.SpecialInstructions} 
-                        type="text" 
-                        placeholder="Exp: No Vegetables..." 
-                        value={specialInstruction} 
-                        onChange={this.textareaValueEvent}
-                        maxLength={maxChar}
+                        <TextField
+                            required
+                            id="outlined-multiline-static"
+                            label="Special Instructions"
+                            multiline
+                            rows={4}
+                            placeholder="Exp: No Vegetables..."
+                            variant="outlined"
+                            className={classes.SpecialInstructions}
+                            value={specialInstruction} 
+                            onChange={this.textareaValueEvent}
+                            inputProps={{ maxLength: maxChar }}
+                            
                         />
-                    
                     <br/>
                     <p className={classes.CharLeft}> {this.state.charLeft} words remaining</p>
                 </div>
                 
                 <div className={classes.BlockSelector}>
                     <h3>Quantity</h3>
-                    <div className={classes.ButtonQuantityLeft}>
-                        <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
-                            <FaMinus size={24}/>
-                        </button>
-                    </div>
-                    <div className={classes.ButtonQuantityText}>
-                        {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
-                    </div>
-                    <div className={classes.ButtonQuantityRight}>
-                        <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
+                    <div className={classes.BlockAdjustSelector}>
+                        <div className={classes.ButtonQuantityLeft}>
+                            <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
+                                <FaMinus size={24}/>
+                            </button>
+                        </div>
+                        <div className={classes.ButtonQuantityText}>
+                            {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
+                        </div>
+                        <div className={classes.ButtonQuantityRight}>
+                            <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
+                        </div>
                     </div>
                 </div>
             
