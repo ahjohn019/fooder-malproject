@@ -6,7 +6,7 @@ import HelpIcon from '@material-ui/icons/Help';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchBar from './SearchBar/SearchBar';
 import Logo from '../Logo/Logo';
-import DrawerIcon from '../NavBar/Drawer/Drawer';
+import DrawerIcon from './Drawer/Drawer';
 import {Link} from "react-router-dom";
 
 
