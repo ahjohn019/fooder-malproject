@@ -44,7 +44,6 @@ class FooderMaster extends Component {
                     <div className={classes.FoodMasterBlockSelector}>    
                         <div className={classes.FoodMasterRecommendation}>
                             <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
-                            
                         </div>
                         <div className={classes.FoodMasterRecommendation}>
                             <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
