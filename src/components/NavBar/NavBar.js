@@ -26,7 +26,7 @@ const navBar = (props) => (
                 <span className={classes.NotificationIcons} value={props.countCheckoutItem}>{props.countCheckoutItem}</span>
             </NavItem>
         </Link> 
-        <SearchBar />
+        
     </div>
 );
 
