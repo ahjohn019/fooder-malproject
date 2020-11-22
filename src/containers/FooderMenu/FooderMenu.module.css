@@ -119,6 +119,7 @@ and (min-width : 321px) {
 @media only screen 
 and (min-width : 1224px) {
 /* Styles */
+
 .BlockSelector .ButtonQuantityText {
     display: inline-block;
     text-align: center;
@@ -135,6 +136,15 @@ and (min-width : 1224px) {
     margin-left:5%;
     
 }/*adjust on mobile*/
+}
+
+/* Desktops and laptops Two ----------- */
+@media only screen 
+and (max-width : 1223px) {
+/* Styles */
+.BlockSelector{
+    width:75%;
+}
 }
 
 

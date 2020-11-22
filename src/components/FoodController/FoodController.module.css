@@ -28,7 +28,6 @@
 
 .BlockSelector{
     border: 0;
-    width:38%;
     margin-top:40px;
     display: block;
     margin-left: auto;
@@ -58,4 +57,26 @@
     margin-top: 20px;
     box-shadow: 3px 3px 3px 3px #ccc;
     border-radius: 2%;
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+.BlockSelector {
+    width:38%;
+}
+}
+
+/* Desktops and laptops Two ----------- */
+@media only screen 
+and (max-width : 1223px) {
+/* Styles */
+.BlockImage{
+    width:75%;
+}
+
+.BlockSelector{
+    width:75%;
+}
 }
