@@ -2,6 +2,9 @@
     height: 90px;
     width: 100%;
     background-color: lightseagreen;
+    position:fixed;
+    top:0;
+    z-index:99;
 }
 
 .NavBar .NotificationIcons{
