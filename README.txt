@@ -19,7 +19,7 @@
 19. Delete AddOn Menu Function [done]
 20. Favourite List
 21. Track Order
-
+22. Deploy To Heroku [done]
 
 Problem:
 

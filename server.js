@@ -1,7 +1,7 @@
 
 const express = require('express');
 const app = express();
-const port = 5000;
+const port = 6000;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -28,8 +28,7 @@ const FooderMenuRouter = require('./fooderbackend/routes/fooder_menu');
 app.use('/fooder_checkout', FooderCheckoutRouter);
 app.use('/fooder_menu',FooderMenuRouter);
 
-
-app.listen((port), function(){
+app.listen((process.env.PORT || port), function(){
     console.log(`Example app listening at http://localhost:${port}`)
 });
 
