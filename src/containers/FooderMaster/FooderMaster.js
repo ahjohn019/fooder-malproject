@@ -13,7 +13,7 @@ class FooderMaster extends Component {
     }
 
     componentDidMount(){
-        axios.get('/fooder_checkout')
+        axios.get('/api/fooder_checkout')
             .then(response => {
                 this.setState({
                     foodercheckout:response.data

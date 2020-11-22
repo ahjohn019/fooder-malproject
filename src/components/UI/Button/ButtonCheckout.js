@@ -35,7 +35,7 @@ const ButtonConfirmation = (props) => {
 
             
             if(btnValue === "btnCheckout"){
-                axios.post('/fooder_checkout/add', foodCheckoutList).then(function (response) {
+                axios.post('/api/fooder_checkout/add', foodCheckoutList).then(function (response) {
                     console.log(response);
                   })
                   .catch(function (error) {
@@ -49,7 +49,7 @@ const ButtonConfirmation = (props) => {
 
             if(btnValue === "btnGoBack"){
                 history.push('/');
-                axios.post('/fooder_checkout/add', foodCheckoutList).then(function (response) {
+                axios.post('/api/fooder_checkout/add', foodCheckoutList).then(function (response) {
                     console.log(response);
                   })
                   .catch(function (error) {

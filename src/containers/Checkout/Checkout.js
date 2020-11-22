@@ -19,7 +19,7 @@ class Checkout extends Component {
     }
 
     componentDidMount(){
-        axios.get('/fooder_checkout')
+        axios.get('/api/fooder_checkout')
             .then(response => {
                 this.setState({
                     foodercheckout:response.data
@@ -34,7 +34,7 @@ class Checkout extends Component {
         event.preventDefault();
         let _checkoutDeleteButtonId = event.currentTarget.value
 
-        axios.delete(`/fooder_checkout/${_checkoutDeleteButtonId}`)
+        axios.delete(`/api/fooder_checkout/${_checkoutDeleteButtonId}`)
             .then(res => {
                 console.log(res);
                 console.log(res.data);

@@ -16,7 +16,9 @@ const navBar = (props) => (
             <Logo />
         </Link>
         <DrawerIcon />
-        <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
+        <Link to="/foodmenu">
+            <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
+        </Link>
         <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>         
         <Link to="/checkout">
             <NavItem>

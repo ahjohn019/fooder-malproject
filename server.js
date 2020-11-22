@@ -25,8 +25,8 @@ connection.once('open', () => {
 //create router
 const FooderCheckoutRouter = require('./fooderbackend/routes/fooder_checkout');
 const FooderMenuRouter = require('./fooderbackend/routes/fooder_menu');
-app.use('/fooder_checkout', FooderCheckoutRouter);
-app.use('/fooder_menu',FooderMenuRouter);
+app.use('/api/fooder_checkout', FooderCheckoutRouter);
+app.use('/api/fooder_menu',FooderMenuRouter);
 
 app.listen((process.env.PORT || port), function(){
     console.log(`Example app listening at http://localhost:${port}`)
