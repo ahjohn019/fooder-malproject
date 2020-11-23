@@ -32,7 +32,7 @@ class FooderMaster extends Component {
 
 
         return (
-            <div>
+            <div className={classes.FoodMasterBody}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>    
                     <div className={classes.FooderBanner}>
                         <div className={classes.FooderBannerText}>
@@ -40,7 +40,7 @@ class FooderMaster extends Component {
                             <p>EAT MORE PAY LESS</p>
                         </div>
                     </div>
-                    <h2>OUR RECOMMENDATION</h2>
+                     <h2>OUR RECOMMENDATION</h2>
                     <div className={classes.FoodMasterBlockSelector}>    
                         <div className={classes.FoodMasterRecommendation}>
                             <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
@@ -61,11 +61,11 @@ class FooderMaster extends Component {
                             <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
                         </div>
                     </div>
-                    <div className={classes.FoodMasterBlockSelectorTwo}>
+                     <div className={classes.FoodMasterBlockSelectorTwo}>
                         <div className={classes.FoodMasterBlockPosition}>
                             <img src={DisplayHealthy} alt="DisplayHealthy" className={classes.FoodMasterDisplayImage}/>
                         </div>
-                        <h3>Why Choose Our Food ?</h3>
+                        <h2>Why Choose Our Food ?</h2>
                         <div className={classes.FoodMasterDisplayContent}>
                             <li>No MSG</li>
                             <li>100% No Preservatives</li>
@@ -74,7 +74,7 @@ class FooderMaster extends Component {
                             <li>Weekly Promotion</li>
                         </div>
                     </div>
-                    <div className={classes.FoodMasterFaq}>
+                    {/* <div className={classes.FoodMasterFaq}>
                         <h2>Frequently Asked Questions</h2>
                         <br />
                         <Accordion>
@@ -113,7 +113,7 @@ class FooderMaster extends Component {
                                 sit amet blandit leo lobortis eget.</p>
                             </AccordionDetails>
                         </Accordion>
-                    </div>
+                    </div>   */}
                 <Footer />
             </div>
         );

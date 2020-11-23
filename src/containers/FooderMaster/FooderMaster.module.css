@@ -1,3 +1,8 @@
+.FoodMasterBody{
+    height:100%;
+    margin-bottom : 90px;
+}
+
 .FooderBanner{
     background-image:url('../../assets/images/foodermasterbanner.png');
     background-position: 50%;
@@ -102,6 +107,24 @@ and (max-width : 768px) {
 }
 .FoodMasterBlockSelector .FoodMasterRecommendation {
     height:15%;
+}
+.FoodMasterDisplayImage{
+    height:200px;
+    width:200px;
+    z-index: 99;
+}
+.FoodMasterBlockSelectorTwo .FoodMasterBlockPosition{
+    border:0;
+    position: absolute;
+    left:60%;
+    margin-top:15%;
+}
+.FoodMasterDisplayContent{
+    border:0;
+    left:15%;
+    width:40%;
+    padding:18px 16px;
+    top:5%;
 }
 }
 
