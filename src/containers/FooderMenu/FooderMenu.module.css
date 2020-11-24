@@ -141,7 +141,7 @@ and (min-width : 1224px) {
 
 /* Desktops and laptops Two ----------- */
 @media only screen 
-and (max-width : 1223px) {
+and (max-width : 1024px) {
 /* Styles */
 .BlockSelector{
     width:75%;

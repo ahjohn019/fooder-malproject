@@ -13,10 +13,9 @@ h2 {
 .CheckoutBlockSelector{
     border: 0;
     width:25%;
-    margin-top: 10%;
-    position:relative;
+    position: relative;
     left:52%;
-    padding-top:20px;
+    margin-top:2.5%;
     padding-bottom:20px; 
     box-shadow: 3px 3px 3px 3px #ccc;
     border-radius: 2%;
@@ -184,74 +183,6 @@ h2 {
 
 
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
-.CheckoutBlockSelector {
-    top:75%;
-    left:25%;
-    width:52%;
-    margin-bottom:10%;
-}
-.CheckoutBlockSelector hr {
-    margin-top: 30%;
-}
-}
-
-
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-/* Styles */
-.CheckoutBlockSelector {
-    top:75%;
-    left:25%;
-    width:52%;
-    margin-bottom:10%;
-}
-.CheckoutBlockSelector hr {
-    margin-top: 5%;
-}
-}
-
-/* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-/* Styles */
-.CheckoutBlockSelector {
-    top:75%;
-    left:25%;
-    width:52%;
-    margin-bottom:10%;
-}
-.CheckoutBlockSelector hr {
-    margin-top: 5%;
-}
-}
-
-/* iPads (portrait) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-/* Styles */
-.CheckoutBlockSelector {
-    top:75%;
-    left:25%;
-    width:52%;
-    margin-bottom:10%;
-}
-.CheckoutBlockSelector hr {
-    margin-top: 5%;
-}
-}
-
 /* Desktops and laptops ----------- */
 @media only screen 
 and (min-width : 1224px) {
@@ -259,6 +190,7 @@ and (min-width : 1224px) {
     left:52%;
     position: absolute;
     top:9.5%;
+    
 }
 .CheckoutBlockSelector hr {
     margin-top: 15%;
@@ -267,10 +199,11 @@ and (min-width : 1224px) {
 
 /* Desktops and laptops two ----------- */
 @media only screen 
-and (max-width : 1223px) {
+and (max-width : 1024px) {
 .CheckoutBlockSelector {
     left:10%;
     width:82%;
+    margin-top:15%;
     margin-bottom:10%;
 }
 .CheckoutBlockSelector hr {
