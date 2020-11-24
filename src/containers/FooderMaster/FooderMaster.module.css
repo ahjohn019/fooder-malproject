@@ -121,8 +121,8 @@ and (max-width : 768px) {
     border:0;
     left:2%;
     width:40%;
-    padding:14px 12px;
-    top:5%;
+    padding:6px 2px;
+    top:0.5%;
     display: block;
     margin-left: auto;
     margin-right: auto;
