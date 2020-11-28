@@ -2,13 +2,19 @@
     height:100%;
 }
 
+
+h2 {
+    text-align:center;
+    padding-top: 20px;
+}
+
 .FooderBanner{
     background-image:url('../../assets/images/foodermasterbanner.png');
     background-position: 50%;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    height:600px;
+    height:400px;
     position: relative;
     z-index: -1;
 }

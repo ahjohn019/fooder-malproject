@@ -4,11 +4,6 @@
     height:100%;
 }
 
-h2 {
-    text-align:center;
-    padding-top: 20px;
-}
-
 .CheckoutBlockSelector{
     border: 0;
     width:25%;
@@ -19,6 +14,8 @@ h2 {
     box-shadow: 3px 3px 3px 3px #ccc;
     border-radius: 2%;
     display:block;
+    overflow-y: scroll;
+    height:91.5%;
 }
 
 .CheckoutBlockSelector .CheckoutTitle {
@@ -48,90 +45,15 @@ h2 {
 } /*need change position on web*/
 
 
-/*Custom Edit Button CSS*/
-.CheckoutBlockSelector .CheckoutEditButton {
-    background-color:#00e600;
-    border-radius: 25%;
-    border:0;
-    height:45px;
-    color:white;
-    box-shadow: 0 8px #999;
-    float:right;
-    margin-right: 10px;
-    
-}
-
-.CheckoutBlockSelector .CheckoutEditButton:hover {
-    background-color:green;
-}
-
-.CheckoutBlockSelector .CheckoutEditButton:active {
-    background-color:green;
-    box-shadow: 0 4px #666;
-    transform: translateY(4px);
-}
-
-.CheckoutBlockSelector .CheckoutEditButton:focus {
-    outline:none;
-}
-
-
 /*Custom Delete Button CSS*/
 .CheckoutBlockSelector .CheckoutDeleteButton {
-    background-color: red;
-    border-radius: 25%;
-    border: 0;
-    height:45px;
-    color:white;
-    box-shadow: 0 8px #999;
     float:right;
     margin-right:10px;
 }
 
-.CheckoutBlockSelector .CheckoutDeleteButton:hover {
-    background-color: salmon;
-}
-
-.CheckoutBlockSelector .CheckoutDeleteButton:active {
-    background-color:salmon;
-    box-shadow: 0 4px #666;
-    transform: translateY(4px);
-}
-
-.CheckoutBlockSelector .CheckoutDeleteButton:focus {
-    outline:none;
-}
-
-
-/*Custom AddOn Delete Button CSS*/
 .CheckoutBlockSelector .checkoutEditColumn{
     display:inline-block;
 }
-
-.CheckoutBlockSelector .checkoutEditColumn button{
-    padding-bottom:3px;
-    color: white;
-    transition: transform .6s ease-in-out;
-    border:0;
-    background-color: transparent;
-    
-}
-
-.CheckoutBlockSelector .checkoutEditColumn button:hover{
-    cursor: pointer;
-    border-radius: 25%; 
-    transform: rotate(360deg);
-}
-
-.CheckoutBlockSelector .checkoutEditColumn button:active{
-    background-color:lightgray;
-    cursor: pointer;
-}
-
-.CheckoutBlockSelector .checkoutEditColumn button:focus{
-    outline: none;
-}
-
 
 .CheckoutBlockSelector .checkoutaddOn{
     margin-left:5px;
@@ -142,41 +64,6 @@ h2 {
     text-transform:uppercase;
     border-radius: 10%; 
     
-}
-
-/*Custom Place Order Button CSS*/
-.CheckoutPlaceOrderButton {
-    border:0;
-    border-radius: 25%;
-    background-color: #87CEFA;
-    width:25%;
-    margin:0 auto;
-    color:white;
-    display: block;
-    height:75%;
-    padding: 5px 15px;
-    margin-top:5px;
-    box-shadow: 0 7px #999;
-}
-
-.CheckoutPlaceOrderButton p {
-    font-size:24px;
-    text-transform: uppercase;
-    font-weight:bold;
-}
-
-.CheckoutPlaceOrderButton:hover {
-    background-color: #6CA5C8;
-}
-
-.CheckoutPlaceOrderButton:active {
-    background-color:#6CA5C8;
-    box-shadow: 0 4px #666;
-    transform: translateY(4px);
-}
-
-.CheckoutPlaceOrderButton:focus {
-    outline:none;
 }
 
 

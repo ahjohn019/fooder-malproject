@@ -1,6 +1,5 @@
 .Footer {
-  padding-top:32px;
-  height:100px;
-  padding-bottom:50px;
   background-color: lightseagreen;
+  margin: 5% 0 0 0;
+  padding: 35px 0 50px 0;  
 }

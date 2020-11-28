@@ -8,3 +8,11 @@
     height:70px;
 }
 
+/* Mobile Responsive ----------- */
+@media only screen 
+and (max-width : 768px) {
+/* Styles */
+    .Logo img {
+        display:none;
+    }
+}

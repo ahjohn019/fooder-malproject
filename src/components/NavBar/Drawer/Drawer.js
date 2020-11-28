@@ -35,13 +35,15 @@ const DrawerIcon = (props) => {
 
     return(
         <React.Fragment key="left">
-            <IconButton
-                edge="start"
-                aria-label="menu"
-                onClick={toggleDrawer("left", true)}
-            >
-                <Menu style={{ color: `white`, fontSize:65 }} />
-            </IconButton>
+            <div className={classes.DrawerIconStyle}>
+                <IconButton
+                    edge="start"
+                    aria-label="menu"
+                    onClick={toggleDrawer("left", true)}
+                >
+                    <Menu style={{fontSize:65}} />
+                </IconButton>
+            </div>
             
             <Drawer anchor="left" open={state.left} onClose={toggleDrawer("left", false)}>
                 {list("left")}

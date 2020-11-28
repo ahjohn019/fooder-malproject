@@ -7,16 +7,14 @@
     width:25%;
     margin:0 auto;
     color:white;
-    display: block;
-    height:75%;
-    padding: 5px 15px;
-    margin-top:5px;
+    display: flex;
+    padding: 0 15px;
     box-shadow: 0 7px #999;
+    justify-content: center;
 }
 
 .ButtonConfirmation p {
     font-size: 24px;
-    
 }
 
 .ButtonConfirmation:hover{

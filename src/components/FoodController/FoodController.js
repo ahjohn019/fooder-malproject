@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import classes from './FoodController.module.css';
 import axios from "axios";
 import {Checkbox, FormControlLabel} from '@material-ui/core';
+import NasiLemakImg from '../../assets/images/nasi_lemak_sample.jpg';
 
 class FoodController extends Component {
     constructor(props){
@@ -25,7 +26,7 @@ class FoodController extends Component {
         return (
             <div>
                 <div>
-                    <img src="img/nasi_lemak_sample.jpg" alt="NasiLemak" className={classes.BlockImage}/>
+                    <img src={NasiLemakImg} alt="NasiLemak" className={classes.BlockImage}/>
                 </div>
                 <div className={classes.BlockSelector}>
                     <h3>Nasi Lemak</h3>
@@ -54,8 +55,8 @@ class FoodController extends Component {
                             }
                              />
                         </span>
-                        <label>{fmenu.addon}</label>
-                        <p>+ {fmenu.price_addon}</p>         
+                        <label>{fmenu.addon} <p>+ {fmenu.price_addon}</p> </label>
+                              
                     </div>)
                 }
                 </div>
@@ -65,13 +66,3 @@ class FoodController extends Component {
 }
 
 export default FoodController;
-
-
-// componentDidMount(){
-    //     axios.get('/api/foodmenu')
-    //         .then(response => {
-    //             this.setState({foodmenu:response.data});
-    //         }).catch(error=> {
-    //             this.setState({error:true})
-    //         });
-    // }

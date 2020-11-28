@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classes from '../../containers/Payment/Payment.module.css';
 import {TextField, FormControl, Radio, RadioGroup, FormControlLabel} from '@material-ui/core';
+import {FaDollarSign}  from "react-icons/fa";
+import Button from '@material-ui/core/Button';
 
 class Payment extends Component {
 
@@ -55,12 +57,18 @@ class Payment extends Component {
                                     <FormControlLabel value="cashindelivery" control={<Radio />} label="Cash-In-Delivery" />
                                     <FormControlLabel value="creditcard" control={<Radio />} label="Credit Card" />
                                 </RadioGroup>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    size="large"
+                                    startIcon={<FaDollarSign />}
+                                >
+                                    ORDER
+                                </Button>
                             </FormControl>
                         </div>  
                     </form>
-
-            </div>
-            
+            </div>      
         );
     }
 }

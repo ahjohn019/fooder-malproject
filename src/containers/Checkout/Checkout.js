@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import classes from '../../containers/Checkout/Checkout.module.css';
-import { BsListTask } from "react-icons/bs";
-import { FaTimes } from "react-icons/fa";
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Payment from '../Payment/Payment';
-
 import axios from "axios";
 
 class Checkout extends Component {
@@ -73,13 +72,19 @@ class Checkout extends Component {
                                 </div>
                                     
                                 <p>Remarks: {fcheckout.remarks}</p>
-                                {/* Update The Data */}
-                                <button value={fcheckout._id} type="submit" className={classes.CheckoutEditButton} >
-                                    <BsListTask size={32}/>
-                                </button>
-                                <button value={fcheckout._id} type="submit" className={classes.CheckoutDeleteButton} onClick={this.deleteCheckoutHandler}>
-                                    <FaTimes size={32}/>
-                                </button>
+                                {/* Delete The Data */}
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    className={classes.CheckoutDeleteButton}
+                                    startIcon={<DeleteIcon />}
+                                    type="submit"
+                                    onClick={this.deleteCheckoutHandler}
+                                    value={fcheckout._id}
+                                >
+                                    Delete
+                                </Button>
+                                
                                 <hr />
                                 
                             </div>
@@ -89,11 +94,7 @@ class Checkout extends Component {
                         <h3 className={classes.CheckoutPrice}>RM {_gettotalprice}</h3>
                     </div>  
                     <Payment />     
-                <Footer>
-                   <button className={classes.CheckoutPlaceOrderButton}>
-                       <p>Place Order</p>
-                    </button>
-                </Footer> 
+                <Footer />
                
             </div>
         );

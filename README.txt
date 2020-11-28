@@ -13,13 +13,14 @@
 13. Payment Details UI
 14. Customer Details UI [done]
 15. Restructure DB (Food Menu)
-16. Food Selection
-17. Food Menu By Id
+16. Food Selection 
+17. Food Menu By Id [1st]
 18. Button Improvement [done]
 19. Delete AddOn Menu Function [done]
 20. Favourite List
 21. Track Order
 22. Deploy To Heroku [done]
+23. Food Master UI
 
 Problem:
 

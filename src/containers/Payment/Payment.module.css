@@ -57,38 +57,6 @@ and (max-width : 320px) {
 }
 }
 
-/* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-/* Styles */
-
-.CustomerDetailsBlockSelector {
-    width: 52%;
-}
-}
-
-/* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-/* Styles */
-.CustomerDetailsBlockSelector {
-    width: 52%;
-}
-}
-
-/* iPads (portrait) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-/* Styles */
-.CustomerDetailsBlockSelector {
-    width: 52%;
-}
-}
 
 /* Desktops and laptops ----------- */
 @media only screen 

@@ -21,3 +21,12 @@
 }
 
 
+/* Mobile Responsive ----------- */
+@media only screen 
+and (max-width : 768px) {
+/* Styles */
+.NavItem {
+    display: none;
+}
+
+}
