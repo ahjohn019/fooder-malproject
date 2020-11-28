@@ -4,8 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import classes from '../../containers/FooderMaster/FooderMaster.module.css';
 import axios from "axios";
 import DisplayHealthy from '../../assets/images/healthy_diet.png';
-import {Accordion,AccordionSummary,AccordionDetails} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CardCategory from '../../components/UI/CardCategory/CardCategory';
 
 class FooderMaster extends Component {
     constructor(props){
@@ -40,27 +39,8 @@ class FooderMaster extends Component {
                             <p>EAT MORE PAY LESS</p>
                         </div>
                     </div>
-                     <h2>OUR RECOMMENDATION</h2>
-                    <div className={classes.FoodMasterBlockSelector}>    
-                        <div className={classes.FoodMasterRecommendation}>
-                            <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
-                        </div>
-                        <div className={classes.FoodMasterRecommendation}>
-                            <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
-                        </div>
-                        <div className={classes.FoodMasterRecommendation}>
-                            <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
-                        </div>
-                        <div className={classes.FoodMasterRecommendation}>
-                            <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
-                        </div>
-                        <div className={classes.FoodMasterRecommendation}>
-                            <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
-                        </div>
-                        <div className={classes.FoodMasterRecommendation}>
-                            <p style={{textAlign:"center",position:"relative",top:"45%"}}>SAMPLE FOOD</p>
-                        </div>
-                    </div>
+                     <h2>CATEGORIES</h2>   
+                    <CardCategory />         
                      <div className={classes.FoodMasterBlockSelectorTwo}>
                         <div className={classes.FoodMasterBlockPosition}>
                             <img src={DisplayHealthy} alt="DisplayHealthy" className={classes.FoodMasterDisplayImage}/>
@@ -74,46 +54,6 @@ class FooderMaster extends Component {
                             <li>Weekly Promotion</li>
                         </div>
                     </div>
-                    {/* <div className={classes.FoodMasterFaq}>
-                        <h2>Frequently Asked Questions</h2>
-                        <br />
-                        <Accordion>
-                            <AccordionSummary
-                              expandIcon={<ExpandMoreIcon />}
-                              aria-controls="panel1a-content"
-                              id="panel1a-header">
-                                  <p>Lorem ipsum dolor sit amet</p>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit amet blandit leo lobortis eget.</p>
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion>
-                            <AccordionSummary
-                              expandIcon={<ExpandMoreIcon />}
-                              aria-controls="panel1a-content"
-                              id="panel1a-header">
-                                  <p>Lorem ipsum dolor sit amet</p>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit amet blandit leo lobortis eget.</p>
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion>
-                            <AccordionSummary
-                              expandIcon={<ExpandMoreIcon />}
-                              aria-controls="panel1a-content"
-                              id="panel1a-header">
-                                  <p>Lorem ipsum dolor sit amet</p>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit amet blandit leo lobortis eget.</p>
-                            </AccordionDetails>
-                        </Accordion>
-                    </div>   */}
                 <Footer />
             </div>
         );

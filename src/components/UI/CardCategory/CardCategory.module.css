@@ -1,0 +1,39 @@
+.cardCategoryGrid {
+    border:0;
+    margin-top:20px;
+    height:650px;
+    display:grid;
+    grid-template-columns: auto auto auto;
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+    padding:16px 14px;
+    margin-bottom: 20px;
+    border-radius: 2%;
+    box-shadow: 3px 3px 3px 3px #ccc;
+}
+
+
+.cardCategoryGrid  .cardCategoryList {
+    border:0;
+    margin-top:30px;
+    margin:10px;
+    border-radius: 2%;
+    box-shadow: 3px 3px 3px 3px #ccc;
+}
+
+.cardBestSellerGrid{
+    border:1px solid black;
+    border-radius: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+    padding: 16px 14px;
+    background-color: grey;
+    margin: 0 auto;
+}
+
+.cardBestSellerGrid .cardBestSellerItem{
+    border:1px solid black;
+    margin: 0 3px;
+}
