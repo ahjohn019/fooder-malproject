@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import classes from '../../UI/CardSlider/CardSlider.module.css';
 import styled from 'styled-components';
 import NasiLemakImg from '../../../assets/images/nasi_lemak_sample.jpg';
+import IconButton from '@material-ui/core/IconButton';
+import {FaPlus} from "react-icons/fa";
 
 
 function NoneNextArrow(props) {
@@ -113,7 +115,9 @@ class cardSlider extends Component {
                             <h3>Nasi Lemak</h3>
                             <p>Local Food</p>
                             <p className={classes.cardBestSellerPriceTag}>RM 4</p>
-
+                            <IconButton color="primary" aria-label="redirectfoodurl" className={classes.RedirectFoodIcon}>
+                                <FaPlus />
+                            </IconButton>
                         </div>
                         <div className={classes.cardBestSellerItem}>
                             <h3>2</h3>

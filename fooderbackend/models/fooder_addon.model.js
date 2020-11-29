@@ -8,7 +8,10 @@ let foodmenuSchema = new Schema({
     description:{type: String},
     baseprice:{type:Number},
     addon:{type:String}, //addon
-    price_addon:{type:Number} //price
+    price_addon:{type:Number}, //price
+    _refmaindish :[
+        {type: Schema.Types.ObjectId, ref: 'FooderMainDish'}
+    ]
 });
 
 foodmenuSchema.set('timestamps', true);

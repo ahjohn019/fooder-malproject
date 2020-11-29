@@ -23,10 +23,15 @@ connection.once('open', () => {
 })
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 //create router
+const FooderMainDishRouter = require('./fooderbackend/routes/fooder_maindish');
 const FooderCheckoutRouter = require('./fooderbackend/routes/fooder_checkout');
-const FooderMenuRouter = require('./fooderbackend/routes/fooder_menu');
+const FooderAddOnRouter = require('./fooderbackend/routes/fooder_addon');
+
+app.use('/api/fooder_maindish', FooderMainDishRouter)
 app.use('/api/fooder_checkout', FooderCheckoutRouter);
-app.use('/api/fooder_menu',FooderMenuRouter);
+app.use('/api/fooder_addon',FooderAddOnRouter);
+
+
 
 app.listen((process.env.PORT || port), function(){
     console.log(`Example app listening at http://localhost:${port}`)

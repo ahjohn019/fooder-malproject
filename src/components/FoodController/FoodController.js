@@ -14,7 +14,7 @@ class FoodController extends Component {
     }
 
     componentDidMount(){
-        axios.get('/api/fooder_menu')
+        axios.get('/api/fooder_addon')
             .then(response => {
                 this.setState({foodermenu:response.data});
             }).catch(error=> {

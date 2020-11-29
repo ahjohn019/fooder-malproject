@@ -44,20 +44,22 @@
     box-shadow: 0 5px 15px #777;
 }
 
-.cardBestSellerItem .AddShoppingCartIcon{
+.cardBestSellerItem .RedirectFoodIcon{
     float:right;
 }
 
-.cardBestSellerItem .AddShoppingCartIcon:focus{
+.cardBestSellerItem .RedirectFoodIcon:focus{
     outline: none;
 }
+
+
 
 /* Mobile One----------- */
 @media only screen 
 and (min-width : 1024px) {
 /* Styles */
 .cardBestSellerItem{
-    margin-left: calc(100% - 290px);
+    margin-left: calc(100% - 260px);
     box-shadow: 3px 3px 3px 3px #ccc;
 }
 }
