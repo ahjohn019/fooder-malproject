@@ -1,20 +1,17 @@
 .cardBestSellerGrid{
     border-radius: 2%;
-    width:80%;
-    padding: 16px 14px;
+    padding:2% 10%;
     background-color: white;
-    margin: 20px auto 20px auto;
+    margin: 2% 5%;
 }
 
 .cardBestSellerItem{
-    margin: 26px auto 10px 30px;
+    margin: 26px auto 10px auto;
     min-width: 150px;
     max-width:250px;
     padding:16px 14px;
     height:350px;
     border-radius: 10%;
-    box-shadow: 3px 3px 3px 3px #ccc;
-    position: relative;
 }
 
 .cardBestSellerItem h3 {
@@ -57,10 +54,10 @@
 
 /* Mobile One----------- */
 @media only screen 
-and (max-width : 1024px) {
+and (min-width : 1024px) {
 /* Styles */
 .cardBestSellerItem{
-    margin: 30px auto 20px auto;
+    margin-left: calc(100% - 290px);
+    box-shadow: 3px 3px 3px 3px #ccc;
 }
-
 }
