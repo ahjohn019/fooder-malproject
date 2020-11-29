@@ -60,9 +60,7 @@
 and (max-width : 1024px) {
 /* Styles */
 .cardBestSellerItem{
-    margin: 26px auto 20px 17%;
+    margin: 30px auto 20px auto;
 }
-
-
 
 }

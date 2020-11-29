@@ -11,7 +11,6 @@ h2 {
 .FooderBanner{
     background-image:url('../../assets/images/foodermasterbanner.png');
     background-position: 50%;
-    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     height:400px;
@@ -142,5 +141,10 @@ and (min-width : 1224px) {
 .FoodMasterBlockSelector{
     display:grid;
     grid-template-columns: auto auto auto;
+}
+
+.FooderBanner{
+    background-attachment: fixed;
+    height:600px;
 }
 }
