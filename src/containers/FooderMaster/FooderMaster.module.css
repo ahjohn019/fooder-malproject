@@ -45,6 +45,9 @@ h2 {
     margin-bottom: 20px;
     border-radius: 2%;
     box-shadow: 3px 3px 3px 3px #ccc;
+    height:auto;
+    width:auto;
+    
 }
 
 .FoodMasterBlockSelector .FoodMasterRecommendation {

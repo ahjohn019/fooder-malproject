@@ -8,8 +8,8 @@
     margin: 0 auto 20px auto;
     padding:16px 14px;
     border-radius: 2%;
-    box-shadow: 3px 3px 3px 3px #ccc;
-    height:fit-content;  
+    height:auto; 
+    width:auto; 
 }
 
 .cardCategoryGrid  .cardCategoryList {
