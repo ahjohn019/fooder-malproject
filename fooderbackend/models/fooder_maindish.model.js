@@ -9,7 +9,10 @@ let foodmainSchema = new Schema({
     baseprice: {type:Number},
     category: {type:String},
     origin: {type: String},
-    status: {type:String}
+    status: {type:String},
+    _refadddon :[
+        {type: Schema.Types.ObjectId, ref: 'FooderMenu'}
+    ]
 });
 
 foodmainSchema.set('timestamps', true);

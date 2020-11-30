@@ -16,6 +16,6 @@ let foodmenuSchema = new Schema({
 
 foodmenuSchema.set('timestamps', true);
 
-const FooderMenu = mongoose.model('Foodermenu',foodmenuSchema);
+const FooderMenu = mongoose.model('FooderMenu',foodmenuSchema);
 
 module.exports = FooderMenu;
