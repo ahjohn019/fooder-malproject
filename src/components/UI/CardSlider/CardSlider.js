@@ -40,7 +40,7 @@ class cardSlider extends Component {
                 slidesToScroll: 3,
                 responsive: [
                 {
-                    breakpoint: 1200,
+                    breakpoint: 1375,
                     settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
