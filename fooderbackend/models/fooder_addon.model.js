@@ -3,10 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let foodmenuSchema = new Schema({
-    maindish: {type:String, required:true},
-    type: {type:String, required:true}, 
-    description:{type: String},
-    baseprice:{type:Number},
+    addon_maindish:{type:String},
     addon:{type:String}, //addon
     price_addon:{type:Number}, //price
     _refmaindish :[
