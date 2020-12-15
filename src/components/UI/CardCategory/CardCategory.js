@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from '../../UI/CardCategory/CardCategory.module.css';
-import CardSlider from '../../UI/CardSlider/CardSlider';
 import MalaysiaFood from '../../../assets/images/malaysiafoodimg.jpg';
 import ChineseFood from '../../../assets/images/chinesefoodimg.png';
 import BurgerFood from '../../../assets/images/burgerimg.jpg';
@@ -36,7 +35,6 @@ const cardCategory = (props) =>{
                     {/* <p style={{textAlign:"center",position:"relative",top:"45%"}}>MAMAK FOOD</p> */}
                 </div>
             </div>
-            <CardSlider />
         </div>
     );
 } 

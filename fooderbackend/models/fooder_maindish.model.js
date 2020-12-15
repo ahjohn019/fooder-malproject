@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let foodmainSchema = new Schema({
-    maindish: {type:String},
+    maindish: {type:String, required:true},
     description: {type:String},
     type: {type: String},
-    baseprice: {type:Number},
+    baseprice: {type:Number, required:true},
     category: {type:String},
     origin: {type: String},
     status: {type:String},

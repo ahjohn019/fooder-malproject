@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import classes from './FooderMenu.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Button from '../../components/UI/Button/ButtonCheckout';
-import FoodController from '../../components/FoodController/FoodController';
 import Footer from '../../components/Footer/Footer';
 import { FaMinus, FaPlus } from "react-icons/fa";
 import axios from "axios";
 import {TextField} from '@material-ui/core';
-
+import {Checkbox, FormControlLabel} from '@material-ui/core';
+import NasiLemakImg from '../../assets/images/nasi_lemak_sample.jpg';
 
 class NasiBuilder extends Component {
     
@@ -22,11 +22,13 @@ class NasiBuilder extends Component {
             specialInstruction : "",
             charLeft: 50,
             maxChar: 50,
-            foodercheckout:[]
+            foodercheckout:[],
+            fooder_menu:[]
         };
     }
 
     componentDidMount(){
+        const fooder_id = this.props.match.params._refmaindish
         axios.get('/api/fooder_checkout')
             .then(response => {
                 this.setState({
@@ -35,6 +37,13 @@ class NasiBuilder extends Component {
             }).catch(error =>{
                     this.setState({error:true})
         });
+
+        axios.get(`/api/fooder_addon/${fooder_id}`)
+            .then(response => {
+                this.setState({fooder_menu:response.data});
+            }).catch(error=> {
+                this.setState({error:true})
+        })
     }
    
 
@@ -47,7 +56,6 @@ class NasiBuilder extends Component {
         let checkoutLabel = [...this.state.checkoutLabel, pricelabel];
         let checkoutPrice = [...this.state.checkoutPrice, pricevalue];
         let {basePrice} = this.state; 
-        console.log(pricevalue)
 
         if(isChecked){
             basePrice += parseFloat(pricevalue) ; 
@@ -102,11 +110,69 @@ class NasiBuilder extends Component {
         //count the length of checkout data
         const _gettotalcheckoutdata = this.state.foodercheckout.length;
 
+        //get reference fooder maindish
+        const getfoodermaindish = this.state.fooder_menu.map(food=>food._refmaindish.map(ref=>ref.maindish))
+        let uniqueFooderMaindish = Object.values(getfoodermaindish.reduce((index,value)=>{
+            index[value.id] = value
+            return index
+        },{})) 
+
+        //get reference fooder description
+        const getfooderdescription = this.state.fooder_menu.map(food=>food._refmaindish.map(ref=>ref.description))
+        let uniqueFooderDesc = Object.values(getfooderdescription.reduce((index,value)=>{
+            index[value.id] = value
+            return index
+        },{}))
+
+        //get reference fooder baseprice
+        // const getfooderbaseprice = this.state.fooder_menu.map(food=>food._refmaindish.map(ref=>ref.baseprice))
+        // let uniqueFooderBaseprice = Object.values(getfooderbaseprice.reduce((index,value)=>{
+        //     index[value.id] = value
+        //     return index
+        // },{}))  
+
+
         return (
             <div className={classes.BlockContent}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
+                <div>
+                    <img src={NasiLemakImg} alt="NasiLemak" className={classes.BlockImage}/>
+                </div>
+                {/* <FoodController 
+                changed={this.checkboxIncrement} 
+                value={this.state.isChecked} 
+                quantity={quantity}/>  */}
 
-                <FoodController changed={this.checkboxIncrement} value={this.state.isChecked} quantity={quantity}/>      
+                <div className={classes.BlockSelector}>
+                    <h3>{uniqueFooderMaindish}</h3>
+                    <p>{uniqueFooderDesc}</p>
+
+                </div>     
+
+                <div className={classes.BlockSelector}>
+                    <h3 className={classes.addontitle}>Add-On Sides</h3>
+                    {
+                        this.state.fooder_menu.map(fmenu =>
+                        <div key={fmenu.addon} className={classes.checkboxOne}>
+                            <span>
+                                <FormControlLabel
+                                control=
+                                {
+                                    <Checkbox
+                                    id={fmenu.addon}
+                                    name="choice"
+                                    value={fmenu.price_addon}
+                                    onChange={this.checkboxIncrement} 
+                                    label={fmenu.addon}
+                                    />
+                                }
+                                />
+                            </span>
+                            <label>{fmenu.addon} <p>+ {fmenu.price_addon}</p> </label>
+                                
+                        </div>)
+                    }
+                </div>
 
                 {/* Reusable Component */}
                 <div className={classes.BlockSelector}>

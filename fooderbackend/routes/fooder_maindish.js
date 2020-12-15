@@ -1,5 +1,6 @@
 const fooder_maindishrouter = require('express').Router();
 const FooderMainDish = require('../models/fooder_maindish.model');
+const FooderAddon = require('../models/fooder_addon.model');
 
 
 fooder_maindishrouter.route('/').get((req,res)=>{
@@ -27,17 +28,17 @@ fooder_maindishrouter.route('/add').post((req,res) => {
         status
     });
 
-
     newFooderDish.save()
     .then(() => res.json('Food Main Dish added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 fooder_maindishrouter.route('/:id').get((req,res)=>{
-    FooderMainDish.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Food Main Dish added!'))
+    FooderMainDish.findById(req.params.id)
+    .then(FooderMainDish => res.json(FooderMainDish))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
 
 fooder_maindishrouter.route('/:id').delete((req,res) => {
     FooderMainDish.findByIdAndDelete(req.params.id)
@@ -47,7 +48,6 @@ fooder_maindishrouter.route('/:id').delete((req,res) => {
 
 
 fooder_maindishrouter.route('/update/:id').put(function(req,res) {
-
     FooderMainDish.findById(req.params.id, function(err,foodmaindishupdate){
         if(!foodmaindishupdate)
             res.status(404).send("data is not found");

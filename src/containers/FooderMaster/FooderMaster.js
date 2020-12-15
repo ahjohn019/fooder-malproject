@@ -5,12 +5,14 @@ import classes from '../../containers/FooderMaster/FooderMaster.module.css';
 import axios from "axios";
 import DisplayHealthy from '../../assets/images/healthy_diet.png';
 import CardCategory from '../../components/UI/CardCategory/CardCategory';
+import CardSlider from '../../components/UI/CardSlider/CardSlider';
 
 class FooderMaster extends Component {
     constructor(props){
         super(props);
         this.state = {
-            foodercheckout:[]
+            foodercheckout:[],
+            fooderid:[]
         };
     }
 
@@ -29,24 +31,34 @@ class FooderMaster extends Component {
         //count the length of checkout data
         const _gettotalcheckoutdata = this.state.foodercheckout.length;
 
+        //get the foodmenulist id in slider
+        // const _getfoodlistid = this.state.foodercheckout.map(f=>f._refmaindish)
+        // const _uniquefoodlistid = _getfoodlistid.reduce(function(a,b){
+        //     return a.concat(b);
+        // },[]);
+        // let _uniquefoodlistfinal = [...new Set(_uniquefoodlistid)]
+        // console.log(_uniquefoodlistfinal)
 
         return (
             <div className={classes.FoodMasterBody}>
-                <NavBar countCheckoutItem={_gettotalcheckoutdata}/>    
+                <NavBar countCheckoutItem={_gettotalcheckoutdata}/>
                     <div className={classes.FooderBanner}>
                         <div className={classes.FooderBannerText}>
                             <h2 style={{fontSize:"72px",fontWeight:"bold"}}>FOODER MALAYSIA</h2>
                             <p>EAT MORE PAY LESS</p>
                         </div>
                     </div>
-                     <h2>CATEGORIES</h2>   
-                    <CardCategory />         
+                     <h2>CATEGORIES</h2> 
+                    
+                    <CardCategory />    
+                    <CardSlider />     
                      <div className={classes.FoodMasterBlockSelectorTwo}>
                         <div className={classes.FoodMasterBlockPosition}>
                             <img src={DisplayHealthy} alt="DisplayHealthy" className={classes.FoodMasterDisplayImage}/>
                         </div>
                         <h2>Why Choose Our Food ?</h2>
                         <div className={classes.FoodMasterDisplayContent}>
+                            
                             <li>No MSG</li>
                             <li>100% No Preservatives</li>
                             <li>Home Cooking</li>

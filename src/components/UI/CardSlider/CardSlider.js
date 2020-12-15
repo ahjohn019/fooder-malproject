@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import NasiLemakImg from '../../../assets/images/nasi_lemak_sample.jpg';
 import IconButton from '@material-ui/core/IconButton';
 import {FaPlus} from "react-icons/fa";
-
+import axios from 'axios';
+import {Link} from "react-router-dom";
 
 function NoneNextArrow(props) {
     const { className, style, onClick } = props;
@@ -18,7 +19,7 @@ function NoneNextArrow(props) {
     );
   }
   
-  function NonePrevArrow(props) {
+function NonePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
@@ -27,23 +28,43 @@ function NoneNextArrow(props) {
         onClick={onClick}
       />
     );
-  }
+}
 
 class cardSlider extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            foodermaindish:[],
+            fooderaddon:[]
+        };
+    }
+
+    componentDidMount(){
+        axios.get('/api/fooder_maindish')
+            .then(response => {
+                this.setState({
+                    foodermaindish:response.data
+                })    
+            }).catch(error =>{
+                    this.setState({error:true})
+        });
+
+    }
+
     render()
         {
             const settings = {
                 dots: true,
                 infinite: true,
                 speed: 500,
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: this.state.foodermaindish.length,
+                slidesToScroll: this.state.foodermaindish.length,
                 responsive: [
                 {
                     breakpoint: 1375,
                     settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: this.state.foodermaindish.length,
+                    slidesToScroll: this.state.foodermaindish.length,
                     infinite: true,
                     dots: true
                     }
@@ -108,32 +129,22 @@ class cardSlider extends Component {
         return(
             <div className={classes.cardBestSellerGrid}>
                 <div >
-                    <h2> Best Seller</h2>
+                    <h2>Best Seller</h2>
+
                     <StyledSlider {...settings}>
-                        <div className={classes.cardBestSellerItem}>                            
-                            <img src={NasiLemakImg} alt="NasiLemak" className={classes.cardBestSellerImage}/>
-                            <h3>Nasi Lemak</h3>
-                            <p>Local Food</p>
-                            <p className={classes.cardBestSellerPriceTag}>RM 4</p>
-                            <IconButton color="primary" aria-label="redirectfoodurl" className={classes.RedirectFoodIcon}>
-                                <FaPlus />
-                            </IconButton>
-                        </div>
-                        <div className={classes.cardBestSellerItem}>
-                            <h3>2</h3>
-                        </div>
-                        <div className={classes.cardBestSellerItem}>
-                            <h3>3</h3>
-                        </div>
-                        <div className={classes.cardBestSellerItem}>
-                            <h3>4</h3>
-                        </div>
-                        <div className={classes.cardBestSellerItem}>
-                            <h3>5</h3>
-                        </div>
-                        <div className={classes.cardBestSellerItem}>
-                            <h3>6</h3>
-                        </div>
+                        {this.state.foodermaindish.map(f=>
+                            <div className={classes.cardBestSellerItem}>  
+                                <img src={NasiLemakImg} alt="NasiLemak" className={classes.cardBestSellerImage}/>
+                                <h3>{f.maindish}</h3>
+                                <p>{f.type}</p>
+                                <p className={classes.cardBestSellerPriceTag}>RM {f.baseprice}</p>
+                                <Link to={{ pathname: "/foodlist/" + f._id }}>
+                                    <IconButton color="primary" aria-label="redirectfoodurl" className={classes.RedirectFoodIcon}>
+                                        <FaPlus />
+                                    </IconButton>
+                                </Link>
+                            </div>
+                        )}
                     </StyledSlider>
                     
                 </div>

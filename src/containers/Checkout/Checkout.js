@@ -46,7 +46,6 @@ class Checkout extends Component {
     render() {
         const _gettotalprice = this.state.foodercheckout.map(fcheckout => fcheckout.totalprice).reduce((sum,index)=>sum+index,0);
         const _gettotalcheckoutdata = this.state.foodercheckout.length; 
-
         return (
             <div className={classes.CheckoutContent}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
