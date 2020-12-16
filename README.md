@@ -8,7 +8,10 @@
 2) Install React Icons
 - npm install react-icons --save
 
-3) Run npm start dev
+3) Install Concurrent Extension
+- npm install -g concurrently
+
+4) Run npm start dev
 
 ## Tools Used
 1) React JS
