@@ -18,11 +18,13 @@ const navBar = (props) => (
         <Link to="/foodmenu">
             <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
         </Link>
-        <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>         
-        <NavItem>
-            <ShoppingCartIcon style={{ fontSize: 30 }}/>
-            <span className={classes.NotificationIcons} value={props.countCheckoutItem}>{props.countCheckoutItem}</span>
-        </NavItem>
+        <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>  
+        <Link to="/checkout">       
+            <NavItem>
+                <ShoppingCartIcon style={{ fontSize: 30 }}/>
+                <span className={classes.NotificationIcons} value={props.countCheckoutItem}>{props.countCheckoutItem}</span>
+            </NavItem>
+        </Link>
     </div>
 );
 

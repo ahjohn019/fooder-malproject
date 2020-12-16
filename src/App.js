@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router';
 import './App.css';
 import FooderMenu from './containers/FooderMenu/FooderMenu';
 import FooderMaster from './containers/FooderMaster/FooderMaster';
-import Checkout from './containers/Checkout/Checkout';
+import FooderCheckout from './containers/FooderCheckout/FooderCheckout';
 import Payment from './containers/Payment/Payment';
 import FooderListDev from './containers/FooderListDev/FooderListDev';
 
@@ -16,7 +16,7 @@ class App extends Component {
             <Route exact path="/" component={FooderMaster}/>
             {/* <Route path="/foodlist" component={FooderMenu} /> */}
             <Route path="/foodlist/:_refmaindish" component={FooderMenu} />
-            <Route path="/checkout" component={Checkout}/>
+            <Route path="/checkout" component={FooderCheckout}/>
             <Route path="/payment" component={Payment}/>
             <Route path="/fooderlistdev/:_refmaindish" component={FooderListDev} />
         </Switch>   

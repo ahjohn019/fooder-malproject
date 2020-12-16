@@ -10,22 +10,24 @@ import {Checkbox, FormControlLabel} from '@material-ui/core';
 import NasiLemakImg from '../../assets/images/nasi_lemak_sample.jpg';
 
 class NasiBuilder extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
             quantity: 1,
             showQuantity: true,
-            basePrice:4,
+            basePrice: 6,
             checkoutLabel: [],
             checkoutPrice : [],
             specialInstruction : "",
             charLeft: 50,
             maxChar: 50,
             foodercheckout:[],
-            fooder_menu:[]
+            fooder_menu:[],
+            fooder_maindish:[]
         };
     }
+   
 
     componentDidMount(){
         const fooder_id = this.props.match.params._refmaindish
@@ -44,8 +46,15 @@ class NasiBuilder extends Component {
             }).catch(error=> {
                 this.setState({error:true})
         })
+
+        axios.get(`/api/fooder_maindish/${fooder_id}`)
+            .then(response => {
+                this.setState({fooder_maindish:response.data});
+            }).catch(error=> {
+                this.setState({error:true})
+        })
+
     }
-   
 
     //get base price + addon price(by users)
     //if tick => add into base price else remove addon prices
@@ -57,10 +66,15 @@ class NasiBuilder extends Component {
         let checkoutPrice = [...this.state.checkoutPrice, pricevalue];
         let {basePrice} = this.state; 
 
+        // let basePrice = this.state.fooder_maindish["baseprice"];
+        // console.log(basePriceTest);
+
         if(isChecked){
             basePrice += parseFloat(pricevalue) ; 
+            console.log(basePrice);
         } else {
-            basePrice -= parseFloat(pricevalue) ;   
+            basePrice -= parseFloat(pricevalue) ;  
+            console.log(basePrice); 
             checkoutLabel = checkoutLabel.filter(checklist => checklist !== pricelabel);  
         } 
 
@@ -110,20 +124,6 @@ class NasiBuilder extends Component {
         //count the length of checkout data
         const _gettotalcheckoutdata = this.state.foodercheckout.length;
 
-        //get reference fooder maindish
-        const getfoodermaindish = this.state.fooder_menu.map(food=>food._refmaindish.map(ref=>ref.maindish))
-        let uniqueFooderMaindish = Object.values(getfoodermaindish.reduce((index,value)=>{
-            index[value.id] = value
-            return index
-        },{})) 
-
-        //get reference fooder description
-        const getfooderdescription = this.state.fooder_menu.map(food=>food._refmaindish.map(ref=>ref.description))
-        let uniqueFooderDesc = Object.values(getfooderdescription.reduce((index,value)=>{
-            index[value.id] = value
-            return index
-        },{}))
-
         //get reference fooder baseprice
         // const getfooderbaseprice = this.state.fooder_menu.map(food=>food._refmaindish.map(ref=>ref.baseprice))
         // let uniqueFooderBaseprice = Object.values(getfooderbaseprice.reduce((index,value)=>{
@@ -144,9 +144,8 @@ class NasiBuilder extends Component {
                 quantity={quantity}/>  */}
 
                 <div className={classes.BlockSelector}>
-                    <h3>{uniqueFooderMaindish}</h3>
-                    <p>{uniqueFooderDesc}</p>
-
+                    <h3>{this.state.fooder_maindish["maindish"]}</h3>
+                    <p>{this.state.fooder_maindish["description"]}</p>
                 </div>     
 
                 <div className={classes.BlockSelector}>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
-import classes from '../../containers/Checkout/Checkout.module.css';
+import classes from '../../containers/FooderCheckout/FooderCheckout.module.css';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Payment from '../Payment/Payment';
