@@ -24,7 +24,8 @@ class NasiBuilder extends Component {
             maxChar: 50,
             foodercheckout:[],
             fooder_menu:[],
-            fooder_maindish:[]
+            fooder_maindish:[],
+            fooder_baseprice:""
         };
     }
    
@@ -49,12 +50,13 @@ class NasiBuilder extends Component {
 
         axios.get(`/api/fooder_maindish/${fooder_id}`)
             .then(response => {
-                this.setState({fooder_maindish:response.data});
+                this.setState({fooder_maindish:response.data,fooder_baseprice:response.data["baseprice"]});
             }).catch(error=> {
                 this.setState({error:true})
         })
 
     }
+
 
     //get base price + addon price(by users)
     //if tick => add into base price else remove addon prices
@@ -64,21 +66,16 @@ class NasiBuilder extends Component {
         const isChecked = event.target.checked;
         let checkoutLabel = [...this.state.checkoutLabel, pricelabel];
         let checkoutPrice = [...this.state.checkoutPrice, pricevalue];
-        let {basePrice} = this.state; 
-
-        // let basePrice = this.state.fooder_maindish["baseprice"];
-        // console.log(basePriceTest);
+        let {fooder_baseprice} = this.state; 
 
         if(isChecked){
-            basePrice += parseFloat(pricevalue) ; 
-            console.log(basePrice);
+            fooder_baseprice += parseFloat(pricevalue) ; 
         } else {
-            basePrice -= parseFloat(pricevalue) ;  
-            console.log(basePrice); 
+            fooder_baseprice -= parseFloat(pricevalue) ;  
             checkoutLabel = checkoutLabel.filter(checklist => checklist !== pricelabel);  
         } 
 
-        this.setState({basePrice, pricelabel: pricelabel, checkoutLabel: checkoutLabel, checkoutPrice: checkoutPrice});
+        this.setState({fooder_baseprice, pricelabel: pricelabel, checkoutLabel: checkoutLabel, checkoutPrice: checkoutPrice});
     }
 
 
@@ -108,7 +105,7 @@ class NasiBuilder extends Component {
         var totalPrice;
         let checkoutLabel = this.state.checkoutLabel;
         let checkoutPrice = this.state.checkoutPrice;
-        let basePrice = this.state.basePrice;
+        let basePrice = this.state.fooder_baseprice;
         let quantity = this.state.quantity;
         let specialInstruction = this.state.specialInstruction;
         const maxChar = this.state.maxChar;
@@ -130,7 +127,6 @@ class NasiBuilder extends Component {
         //     index[value.id] = value
         //     return index
         // },{}))  
-
 
         return (
             <div className={classes.BlockContent}>
