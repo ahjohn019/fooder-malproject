@@ -6,6 +6,11 @@ import Button from '@material-ui/core/Button';
 
 class Payment extends Component {
 
+    paymentSuccess = () => {
+        alert("Payout Success");
+    }
+
+
     render() {
         return (
             <div className={classes.PaymentContent}>
@@ -62,6 +67,7 @@ class Payment extends Component {
                                     color="primary"
                                     size="large"
                                     startIcon={<FaDollarSign />}
+                                    onClick={this.paymentSuccess}
                                 >
                                     ORDER
                                 </Button>

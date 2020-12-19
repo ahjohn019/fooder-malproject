@@ -5,7 +5,6 @@ import FooderMenu from './containers/FooderMenu/FooderMenu';
 import FooderMaster from './containers/FooderMaster/FooderMaster';
 import FooderCheckout from './containers/FooderCheckout/FooderCheckout';
 import Payment from './containers/Payment/Payment';
-import FooderListDev from './containers/FooderListDev/FooderListDev';
 
 
 class App extends Component {
@@ -18,7 +17,6 @@ class App extends Component {
             <Route path="/foodlist/:_refmaindish" component={FooderMenu} />
             <Route path="/checkout" component={FooderCheckout}/>
             <Route path="/payment" component={Payment}/>
-            <Route path="/fooderlistdev/:_refmaindish" component={FooderListDev} />
         </Switch>   
     );
   }; 

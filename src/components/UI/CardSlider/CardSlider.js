@@ -57,14 +57,14 @@ class cardSlider extends Component {
                 dots: true,
                 infinite: true,
                 speed: 500,
-                slidesToShow: this.state.foodermaindish.length,
-                slidesToScroll: this.state.foodermaindish.length,
+                slidesToShow: this.state.foodermaindish.length <= 4 ? this.state.foodermaindish.length : 4, 
+                slidesToScroll: this.state.foodermaindish.length <= 4 ? this.state.foodermaindish.length : 4, 
                 responsive: [
                 {
                     breakpoint: 1375,
                     settings: {
-                    slidesToShow: this.state.foodermaindish.length,
-                    slidesToScroll: this.state.foodermaindish.length,
+                    slidesToShow: this.state.foodermaindish.length <= 3 ? this.state.foodermaindish.length : 3,
+                    slidesToScroll: this.state.foodermaindish.length <= 3 ? this.state.foodermaindish.length : 3,
                     infinite: true,
                     dots: true
                     }

@@ -31,14 +31,6 @@ class FooderMaster extends Component {
         //count the length of checkout data
         const _gettotalcheckoutdata = this.state.foodercheckout.length;
 
-        //get the foodmenulist id in slider
-        // const _getfoodlistid = this.state.foodercheckout.map(f=>f._refmaindish)
-        // const _uniquefoodlistid = _getfoodlistid.reduce(function(a,b){
-        //     return a.concat(b);
-        // },[]);
-        // let _uniquefoodlistfinal = [...new Set(_uniquefoodlistid)]
-        // console.log(_uniquefoodlistfinal)
-
         return (
             <div className={classes.FoodMasterBody}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>

@@ -16,7 +16,6 @@ class NasiBuilder extends Component {
         this.state = {
             quantity: 1,
             showQuantity: true,
-            basePrice: 6,
             checkoutLabel: [],
             checkoutPrice : [],
             specialInstruction : "",
@@ -121,23 +120,12 @@ class NasiBuilder extends Component {
         //count the length of checkout data
         const _gettotalcheckoutdata = this.state.foodercheckout.length;
 
-        //get reference fooder baseprice
-        // const getfooderbaseprice = this.state.fooder_menu.map(food=>food._refmaindish.map(ref=>ref.baseprice))
-        // let uniqueFooderBaseprice = Object.values(getfooderbaseprice.reduce((index,value)=>{
-        //     index[value.id] = value
-        //     return index
-        // },{}))  
-
         return (
             <div className={classes.BlockContent}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
                 <div>
                     <img src={NasiLemakImg} alt="NasiLemak" className={classes.BlockImage}/>
                 </div>
-                {/* <FoodController 
-                changed={this.checkboxIncrement} 
-                value={this.state.isChecked} 
-                quantity={quantity}/>  */}
 
                 <div className={classes.BlockSelector}>
                     <h3>{this.state.fooder_maindish["maindish"]}</h3>
@@ -146,26 +134,27 @@ class NasiBuilder extends Component {
 
                 <div className={classes.BlockSelector}>
                     <h3 className={classes.addontitle}>Add-On Sides</h3>
+                    
                     {
                         this.state.fooder_menu.map(fmenu =>
-                        <div key={fmenu.addon} className={classes.checkboxOne}>
-                            <span>
-                                <FormControlLabel
-                                control=
-                                {
-                                    <Checkbox
-                                    id={fmenu.addon}
-                                    name="choice"
-                                    value={fmenu.price_addon}
-                                    onChange={this.checkboxIncrement} 
-                                    label={fmenu.addon}
+                            <div key={fmenu.addon} className={classes.checkboxOne}>
+                                <span>
+                                    <FormControlLabel
+                                    control=
+                                    {
+                                        <Checkbox
+                                        id={fmenu.addon}
+                                        name="choice"
+                                        value={fmenu.price_addon}
+                                        onChange={this.checkboxIncrement} 
+                                        label={fmenu.addon}
+                                        />
+                                    }
                                     />
-                                }
-                                />
-                            </span>
-                            <label>{fmenu.addon} <p>+ {fmenu.price_addon}</p> </label>
-                                
-                        </div>)
+                                </span>
+                                <label>{fmenu.addon} <p>+ {fmenu.price_addon}</p> </label>            
+                            </div>
+                        )
                     }
                 </div>
 
