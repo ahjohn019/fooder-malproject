@@ -9,6 +9,15 @@ fooder_maindishrouter.route('/').get((req,res)=>{
         .catch(err => res.status(400).json('Error: ' + err));
 })
 
+fooder_maindishrouter.route('/:type').get((req, res) => {
+    var type = req.params.type;
+    FooderMainDish
+        .find({type: type})
+        .exec(function(err,cat){
+            res.json(cat);
+        })
+});
+
 fooder_maindishrouter.route('/add').post((req,res) => {
     const maindish = req.body.maindish;
     const description = req.body.description;
@@ -39,13 +48,11 @@ fooder_maindishrouter.route('/:id').get((req,res)=>{
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-
 fooder_maindishrouter.route('/:id').delete((req,res) => {
     FooderMainDish.findByIdAndDelete(req.params.id)
         .then(() => res.json('Food Main Dish Deleted'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
-
 
 fooder_maindishrouter.route('/update/:id').put(function(req,res) {
     FooderMainDish.findById(req.params.id, function(err,foodmaindishupdate){
@@ -68,6 +75,7 @@ fooder_maindishrouter.route('/update/:id').put(function(req,res) {
             });
     });
 });
+
 
 
 module.exports = fooder_maindishrouter;

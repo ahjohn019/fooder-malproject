@@ -57,22 +57,14 @@
 and (max-width : 1024px) {
 /* Styles */
 .cardCategoryGrid {
-    display: block;
-    box-sizing: content-box;
+    display: none;
 }
 
-.cardCategoryGrid .cardCategoryList{
-    margin: auto auto 25px;
-    height: 200px;
-    width: 300px;
-}
 
 /* Mobile Two----------- */
 @media only screen and (max-width: 600px) {
-    .cardCategoryGrid .cardCategoryList{
-        margin: auto auto 25px;
-        height: 200px;
-        width: 250px;
+    .cardCategoryGrid {
+        display: none;
     }
 }
 }

@@ -1,0 +1,28 @@
+.FooderBanner{
+    background-image:url('../../../assets/images/foodermasterbanner.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:500px;
+    position: relative;
+    z-index: -1;
+}
+
+.FooderBanner .FooderBannerText{
+    text-align:center;
+    position:absolute;
+    top:55%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: fadeIn ease 3s;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1)
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}

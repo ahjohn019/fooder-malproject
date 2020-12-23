@@ -6,6 +6,7 @@ import axios from "axios";
 import DisplayHealthy from '../../assets/images/healthy_diet.png';
 import CardCategory from '../../components/UI/CardCategory/CardCategory';
 import CardSlider from '../../components/UI/CardSlider/CardSlider';
+import BannerMain from '../../components/UI/BannerMain/BannerMain';
 
 class FooderMaster extends Component {
     constructor(props){
@@ -34,14 +35,8 @@ class FooderMaster extends Component {
         return (
             <div className={classes.FoodMasterBody}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>
-                    <div className={classes.FooderBanner}>
-                        <div className={classes.FooderBannerText}>
-                            <h2 style={{fontSize:"72px",fontWeight:"bold"}}>FOODER MALAYSIA</h2>
-                            <p>EAT MORE PAY LESS</p>
-                        </div>
-                    </div>
-                     <h2>CATEGORIES</h2> 
-                    
+                    <BannerMain />
+                    <h2 className={classes.categorytext}>CATEGORIES</h2>  
                     <CardCategory />    
                     <CardSlider />     
                      <div className={classes.FoodMasterBlockSelectorTwo}>
