@@ -26,3 +26,13 @@
     0% {opacity:0;}
     100% {opacity:1;}
 }
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+
+.FooderBanner{
+    background-attachment: fixed;
+}
+}

@@ -35,9 +35,12 @@ class FooderType extends Component {
                 {/* Sort By */}
                 {/* Pagination */}
                 {/* SearchBar */}
-                <div className={classes.TypeSelector}>
-                    <p>{this.state.fooder_type.map(fcategory => fcategory.maindish)}</p>
-                </div>
+                
+                {this.state.fooder_type.map(fcategory => 
+                    <div className={classes.TypeSelector}>
+                        {fcategory.maindish}
+                    </div>)}
+                
             </div>
         );
     }

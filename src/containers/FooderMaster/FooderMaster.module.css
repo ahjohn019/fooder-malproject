@@ -116,11 +116,6 @@ and (min-width : 1224px) {
     display:grid;
     grid-template-columns: auto auto auto;
 }
-
-.FooderBanner{
-    background-attachment: fixed;
-    height:600px;
-}
 }
 
 /* Mobile One----------- */

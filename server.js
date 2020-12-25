@@ -31,6 +31,9 @@ app.use('/api/fooder_maindish', FooderMainDishRouter)
 app.use('/api/fooder_checkout', FooderCheckoutRouter);
 app.use('/api/fooder_addon',FooderAddOnRouter);
 
+app.get('/checkout', function (req, res){
+    res.send('checkout')
+})
 
 
 app.listen((process.env.PORT || port), function(){
