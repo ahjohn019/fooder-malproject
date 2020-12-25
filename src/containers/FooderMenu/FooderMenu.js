@@ -123,7 +123,7 @@ class NasiBuilder extends Component {
         return (
             <div className={classes.BlockContent}>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
-                <div>
+                <div className={classes.BlockImagePosition}>
                     <img src={NasiLemakImg} alt="NasiLemak" className={classes.BlockImage}/>
                 </div>
 

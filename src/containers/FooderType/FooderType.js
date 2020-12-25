@@ -3,6 +3,7 @@ import classes from '../../containers/FooderType/FooderType.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import BannerMain from '../../components/UI/BannerMain/BannerMain';
 import axios from 'axios';
+import queryString from 'query-string';
 
 class FooderType extends Component {
     constructor(props) {
@@ -13,8 +14,8 @@ class FooderType extends Component {
     }
 
     componentDidMount(){
-        const fooder_type = this.props.match.params.type
-        axios.get(`/api/fooder_maindish/${fooder_type}`)
+        const values = queryString.parse(this.props.location.search)
+        axios.get(`/api/fooder_maindish/type?type=` + values.type)
             .then(response => {
                 console.log(response.data)
                 this.setState({
@@ -34,9 +35,9 @@ class FooderType extends Component {
                 {/* Sort By */}
                 {/* Pagination */}
                 {/* SearchBar */}
-                
-                <p>{this.state.fooder_type.map(fcategory => fcategory.maindish)}</p>
-                
+                <div className={classes.TypeSelector}>
+                    <p>{this.state.fooder_type.map(fcategory => fcategory.maindish)}</p>
+                </div>
             </div>
         );
     }
