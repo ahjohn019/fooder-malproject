@@ -32,7 +32,6 @@ app.use('/api/fooder_checkout', FooderCheckoutRouter);
 app.use('/api/fooder_addon',FooderAddOnRouter);
 
 app.get('*', function (req, res){
-  console.log(__dirname)
   res.sendFile(path.join(__dirname+'/build/index.html'));
 })
 

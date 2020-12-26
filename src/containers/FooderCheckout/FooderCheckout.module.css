@@ -2,6 +2,7 @@
 
 .CheckoutContent{
     height:100%;
+    padding-top: 100px;
 }
 
 .CheckoutBlockSelector{
@@ -9,7 +10,6 @@
     width:25%;
     position: relative;
     left:52%;
-    margin-top:2.5%;
     padding-bottom:20px; 
     box-shadow: 3px 3px 3px 3px #ccc;
     border-radius: 2%;
@@ -75,8 +75,6 @@ and (min-width : 1224px) {
 .CheckoutBlockSelector {
     left:52%;
     position: absolute;
-    top:9.5%;
-    
 }
 .CheckoutBlockSelector hr {
     margin-top: 15%;

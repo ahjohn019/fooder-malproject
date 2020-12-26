@@ -10,7 +10,6 @@ class Payment extends Component {
         alert("Payout Success");
     }
 
-
     render() {
         return (
             <div className={classes.PaymentContent}>

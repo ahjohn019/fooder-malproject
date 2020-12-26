@@ -1,7 +1,5 @@
 const fooder_maindishrouter = require('express').Router();
 const FooderMainDish = require('../models/fooder_maindish.model');
-const FooderAddon = require('../models/fooder_addon.model');
-
 
 fooder_maindishrouter.route('/').get((req,res)=>{
     FooderMainDish.find()
