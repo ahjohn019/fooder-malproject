@@ -11,6 +11,9 @@
 3) Install Concurrent Extension
 - npm install -g concurrently
 
+4) Install Moment
+- npm install --save moment
+
 4) Run npm start dev
 
 ## Tools Used
