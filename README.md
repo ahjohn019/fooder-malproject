@@ -14,7 +14,7 @@
 4) Install Moment
 - npm install --save moment
 
-4) Run npm start dev
+5) Run npm start dev
 
 ## Tools Used
 1) React JS
