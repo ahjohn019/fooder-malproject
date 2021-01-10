@@ -160,6 +160,23 @@ class NasiBuilder extends Component {
 
                 {/* Reusable Component */}
                 <div className={classes.BlockSelector}>
+                    <h3>Quantity</h3>
+                    <div className={classes.BlockAdjustSelector}>
+                        <div className={classes.ButtonQuantityLeft}>
+                            <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
+                                <FaMinus size={24}/>
+                            </button>
+                        </div>
+                        <div className={classes.ButtonQuantityText}>
+                            {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
+                        </div>
+                        <div className={classes.ButtonQuantityRight}>
+                            <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className={classes.BlockSelector}>
                     <h3>Remarks</h3>
                     <br />
                         <TextField
@@ -180,25 +197,11 @@ class NasiBuilder extends Component {
                     <p className={classes.CharLeft}> {this.state.charLeft} words remaining</p>
                 </div>
                 
-                <div className={classes.BlockSelector}>
-                    <h3>Quantity</h3>
-                    <div className={classes.BlockAdjustSelector}>
-                        <div className={classes.ButtonQuantityLeft}>
-                            <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
-                                <FaMinus size={24}/>
-                            </button>
-                        </div>
-                        <div className={classes.ButtonQuantityText}>
-                            {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
-                        </div>
-                        <div className={classes.ButtonQuantityRight}>
-                            <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
-                        </div>
-                    </div>
-                </div>
-            
                 <Footer>
                     <Button 
+                        fooderMaindish={this.state.fooder_maindish["maindish"]}
+                        fooderType={this.state.fooder_maindish["type"]}
+                        fooderbasePrice={this.state.fooder_maindish["baseprice"]}
                         totalPrice={totalPrice} 
                         quantity={quantity}  
                         listCheckoutDict={listCheckoutDict}

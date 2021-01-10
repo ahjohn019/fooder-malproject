@@ -18,14 +18,16 @@ const ButtonConfirmation = (props) => {
         const handlecheckout = (event) => {
             var _addon = listCheckoutDict.map(list => list.label);
             const btnValue = event.currentTarget.value;
+
+
             
             const foodCheckoutList = ({
-                maindish:"Nasi Lemak",
-                type:"Local Food",
+                maindish:props.fooderMaindish,
+                type:props.fooderType,
                 addon: _addon,
                 quantity: props.quantity,
                 totalprice:props.totalPrice,
-                baseprice:4,
+                baseprice:props.fooderbasePrice,
                 remarks:props.specialInstruction
             });
 
@@ -56,7 +58,6 @@ const ButtonConfirmation = (props) => {
                     console.log(error);
                   });          
             }
-
         }
         
         return(

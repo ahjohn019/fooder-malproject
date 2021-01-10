@@ -26,10 +26,12 @@ connection.once('open', () => {
 const FooderMainDishRouter = require('./fooderbackend/routes/fooder_maindish');
 const FooderCheckoutRouter = require('./fooderbackend/routes/fooder_checkout');
 const FooderAddOnRouter = require('./fooderbackend/routes/fooder_addon');
+const FooderTypeRouter = require('./fooderbackend/routes/fooder_type');
 
 app.use('/api/fooder_maindish', FooderMainDishRouter)
 app.use('/api/fooder_checkout', FooderCheckoutRouter);
 app.use('/api/fooder_addon',FooderAddOnRouter);
+app.use('/api/fooder_type',FooderTypeRouter);
 
 app.get('*', function (req, res){
   res.sendFile(path.join(__dirname+'/build/index.html'));
