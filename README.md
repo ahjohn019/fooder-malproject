@@ -11,7 +11,10 @@
 3) Install Concurrent Extension
 - npm install -g concurrently
 
-4) Run npm start dev
+4) Install Moment
+- npm install --save moment
+
+5) Run npm start dev
 
 ## Tools Used
 1) React JS
