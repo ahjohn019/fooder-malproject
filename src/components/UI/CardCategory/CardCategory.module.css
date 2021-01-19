@@ -14,7 +14,7 @@
 
 .cardCategoryGrid  .cardCategoryList {
     border:0;
-    margin:10px 30px;
+    margin:auto;
     border-radius: 2%;
     box-shadow: 3px 3px 3px 3px #ccc;
     height: 250px;

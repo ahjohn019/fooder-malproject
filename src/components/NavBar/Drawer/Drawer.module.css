@@ -12,6 +12,10 @@
 
 .DrawerCategoryList{
     padding-left: 30px;
+    font-weight: 400;
+    color:black;
+    font-size:1rem;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 /* Desktop Responsive ----------- */

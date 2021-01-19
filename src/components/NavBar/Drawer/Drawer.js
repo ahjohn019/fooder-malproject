@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Drawer, List, ListItem,ListItemText,IconButton} from '@material-ui/core';
 import classes from '../../NavBar/Drawer/Drawer.module.css';
 import Logo from '../../Logo/Logo';
@@ -6,6 +6,8 @@ import { Menu } from "@material-ui/icons";
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 const DrawerIcon = (props) => {
     const [state, setState] = useState({
@@ -16,9 +18,6 @@ const DrawerIcon = (props) => {
     });
 
     const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
         setState({ ...state, [anchor]: open });
     }
 
@@ -27,16 +26,37 @@ const DrawerIcon = (props) => {
     const handleList = () => {
         setOpen(!open);
     };
+
+    const [foodType , setFoodType] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/fooder_type')
+            .then(response => {
+               setFoodType(response.data)
+            });
+    });
+
+
     
     const list = (anchor) => (
         <div className={classes.DrawerStylesFull}>
             <Logo />
             <List className={classes.DrawerStylesList} onClick={toggleDrawer(anchor, false)} onKeyDown={toggleDrawer(anchor, false)}>
-                {['Cart', 'Help', 'Contact Us'].map((text, index) => (
+                {/* {['Cart', 'Help', 'Contact Us'].map((text, index) => (
                 <ListItem button key={text}>
                     <ListItemText primary={text} />
                 </ListItem>
-                ))}
+                ))} */}
+                <ListItem button key='Home'>
+                    <Link to="/">
+                        <ListItemText primary='Home' />
+                    </Link>
+                </ListItem>
+                <ListItem button key='Cart'>
+                    <Link to="/checkout">
+                        <ListItemText primary='Cart' />
+                    </Link>
+                </ListItem>
             </List>
             <ListItem button onClick={handleList}>
                     <ListItemText primary="Category" />
@@ -44,24 +64,12 @@ const DrawerIcon = (props) => {
             </ListItem>
             <Collapse in={!open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                <ListItem button >
-                    <ListItemText primary="Local" className={classes.DrawerCategoryList}/>
-                </ListItem>
-                <ListItem button >
-                    <ListItemText primary="Chinese" className={classes.DrawerCategoryList}/>
-                </ListItem>
-                <ListItem button >
-                    <ListItemText primary="Burger" className={classes.DrawerCategoryList}/>
-                </ListItem>
-                <ListItem button >
-                    <ListItemText primary="Dessert" className={classes.DrawerCategoryList}/>
-                </ListItem>
-                <ListItem button >
-                    <ListItemText primary= "Thai" className={classes.DrawerCategoryList}/>
-                </ListItem>
-                <ListItem button >
-                    <ListItemText primary="Mamak" className={classes.DrawerCategoryList}/>
-                </ListItem>
+                    {
+                        foodType.map(food =>
+                        <ListItem button key={food.foodalias}>            
+                            <a href={"/foodertype/type?type="+food.foodalias} className={classes.DrawerCategoryList}>{food.foodtype}</a>                              
+                        </ListItem>)
+                    }
                 </List>
             </Collapse>
 
@@ -71,6 +79,7 @@ const DrawerIcon = (props) => {
     return(
         <React.Fragment key="left">
             <div className={classes.DrawerIconStyle}>
+            
                 <IconButton
                     edge="start"
                     aria-label="menu"

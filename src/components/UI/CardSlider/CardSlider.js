@@ -124,6 +124,7 @@ class cardSlider extends Component {
                     .slick-track{
                         margin:auto;
                     }
+                    
                 `
 
         return(

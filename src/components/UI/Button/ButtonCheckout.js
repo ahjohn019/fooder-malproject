@@ -19,8 +19,6 @@ const ButtonConfirmation = (props) => {
             var _addon = listCheckoutDict.map(list => list.label);
             const btnValue = event.currentTarget.value;
 
-
-            
             const foodCheckoutList = ({
                 maindish:props.fooderMaindish,
                 type:props.fooderType,
