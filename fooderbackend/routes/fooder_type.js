@@ -17,6 +17,7 @@ fooder_typerouter.route('/add').post((req,res)=>{
         foodalias,
         foodimgname
     });
+    
 
     newFooderType.save()
     .then(()=> res.json('Food Types added!'))
