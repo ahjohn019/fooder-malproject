@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import classes from './NavBar.module.css';
 import NavItem from './NavItem/NavItem';
 import ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
+import PersonIcon from '@material-ui/icons/Person';
 import HelpIcon from '@material-ui/icons/Help';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import Logo from '../Logo/Logo';
 import DrawerIcon from './Drawer/Drawer';
 import {Link} from "react-router-dom";
@@ -38,9 +38,21 @@ class navBar extends Component {
                     <Logo />
                 </Link>
                 <DrawerIcon />
-                <Link to="/foodmenu">
-                    <NavItem><NotificationsIcon style={{ fontSize: 30 }}/></NavItem>
-                </Link>
+                <NavItem>
+                    <div className={classes.dropdown}>
+                        <span><PersonIcon style={{fontSize:30}}></PersonIcon></span>
+                        <div className={classes.dropdown_content}>
+                            <Link to="/login"> 
+                                <p>Login</p>
+                            </Link>
+                            <Link to="/register">
+                                <p>Register</p>
+                            </Link>
+                        </div>
+
+                    </div>
+
+                </NavItem>
                 <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>  
                 <Link to="/checkout">       
                     <NavItem>

@@ -34,7 +34,7 @@ class cardCategory extends Component {
                 <div className={classes.cardCategoryGrid}>  
 
                     {this.state.fooder_type.map(ftype=>
-                        <div className={classes.cardCategoryList}>
+                        <div key={ftype._id} className={classes.cardCategoryList}>
                             <img src={MalaysiaFood} alt="MalaysiaFood" className={classes.categoriesImg}></img>
                             <div className={classes.FoodCategory}>
                                 <Link to={{ pathname: "/foodertype/type",

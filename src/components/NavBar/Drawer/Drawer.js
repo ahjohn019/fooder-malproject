@@ -34,10 +34,9 @@ const DrawerIcon = (props) => {
             .then(response => {
                setFoodType(response.data)
             });
-    });
+    }, []);
 
 
-    
     const list = (anchor) => (
         <div className={classes.DrawerStylesFull}>
             <Logo />
@@ -55,6 +54,16 @@ const DrawerIcon = (props) => {
                 <ListItem button key='Cart'>
                     <Link to="/checkout">
                         <ListItemText primary='Cart' />
+                    </Link>
+                </ListItem>
+                <ListItem button key='Login'>
+                    <Link to="/login">
+                        <ListItemText primary='Login' />
+                    </Link>
+                </ListItem>
+                <ListItem button key='Register'>
+                    <Link to="/register">
+                        <ListItemText primary='Register' />
                     </Link>
                 </ListItem>
             </List>

@@ -134,7 +134,7 @@ class cardSlider extends Component {
 
                     <StyledSlider {...settings}>
                         {this.state.foodermaindish.map(f=>
-                            <div className={classes.cardBestSellerItem}>  
+                            <div key={f._id} className={classes.cardBestSellerItem}>  
                                 <img src={NasiLemakImg} alt="NasiLemak" className={classes.cardBestSellerImage}/>
                                 <h3>{f.maindish}</h3>
                                 <p>{f.type}</p>

@@ -1,20 +1,42 @@
 .NavBar {
-    height: 90px;
-    width: 100%;
-    background-color: lightseagreen;
-    position:fixed;
-    top:0;
-    z-index:99;
+  height: 90px;
+  width: 100%;
+  background-color: lightseagreen;
+  position: fixed;
+  top: 0;
+  z-index: 99;
 }
 
-.NavBar .NotificationIcons{
-    position:absolute;
-    background-color: red;
-    top:-10px;
-    right:-25%;
-    padding:1px 8px;
-    border-radius: 50%;
-    font-size:12px;
+.NavBar .NotificationIcons {
+  position: absolute;
+  background-color: red;
+  top: -10px;
+  right: -25%;
+  padding: 1px 8px;
+  border-radius: 50%;
+  font-size: 12px;
 }
 
+.dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 130px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 1px;
+}
 
+.dropdown:hover .dropdown_content {
+  color: black;
+  display: block;
+}
+
+.dropdown_content p {
+  color: black;
+  padding: 16px 12px;
+}
+
+.dropdown_content p:hover {
+  background-color: lightgray;
+}

@@ -1,32 +1,28 @@
 .NavItem {
-    float: right;
-    margin-right: 30px;
-    transition: 0.3s ease;
-    opacity: 0.7;
-    color:white;
-    margin-top:30px;
-    position: relative;
+  float: right;
+  margin-right: 30px;
+  transition: 0.3s ease;
+  opacity: 0.7;
+  color: white;
+  margin-top: 30px;
+  position: relative;
 }
 
 .NavItem:hover {
-    cursor:pointer;
-    transform: scale(1.5, 1.5);
-    opacity: 1;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .NavItem:active {
-    cursor:pointer;
-    transform: scale(1, 1);
-    opacity: 1;
+  cursor: pointer;
+  transform: scale(1, 1);
+  opacity: 1;
 }
-
 
 /* Mobile Responsive ----------- */
-@media only screen 
-and (max-width : 768px) {
-/* Styles */
-.NavItem {
+@media only screen and (max-width: 768px) {
+  /* Styles */
+  .NavItem {
     display: none;
-}
-
+  }
 }

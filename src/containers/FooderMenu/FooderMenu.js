@@ -23,10 +23,10 @@ class NasiBuilder extends Component {
             maxChar: 50,
             fooder_menu:[],
             fooder_maindish:[],
-            fooder_baseprice:""
+            fooder_baseprice:"",
+            message_status:""
         };
     }
-   
 
     componentDidMount(){
         const fooder_id = this.props.match.params._refmaindish
@@ -196,7 +196,7 @@ class NasiBuilder extends Component {
                         specialInstruction={specialInstruction}
                     >
                         RM {totalPrice} 
-                    </Button>
+                    </Button> 
                 </Footer>
             </div>
         );
