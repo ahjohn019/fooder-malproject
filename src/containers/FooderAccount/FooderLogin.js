@@ -18,16 +18,6 @@ class FooderLogin extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidMount(){
-        axios.get('/api/fooder_checkout')
-            .then(response => {
-                this.setState({
-                    fooder_checkout:response.data
-                })            
-            }).catch(error=>{
-                this.setState({error:true})
-        });
-    }
 
     handleChange = (event) => {
         this.setState({
@@ -68,8 +58,6 @@ class FooderLogin extends Component {
     }
 
     render() {
-        const _gettotalcheckoutdata = this.state.fooder_checkout.length; 
-
         const messageBox = this.state.message_status["isAuth"] === true ? 
             <MuiAlert elevation={6} variant="filled" severity="success">Login Successfully</MuiAlert> :
             this.state.message_status["isAuth"] === false ?
@@ -78,7 +66,7 @@ class FooderLogin extends Component {
 
         return (
             <div>
-                <NavBar countCheckoutItem={_gettotalcheckoutdata}/>
+                <NavBar />
                 <span className={classes.success_message}>Login suceessfully</span>
                 <div className={classes.FooderAccountContent}>
                     <form onSubmit={this.handleSubmit}>

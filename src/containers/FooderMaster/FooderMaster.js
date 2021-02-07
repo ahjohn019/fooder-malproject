@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import classes from '../../containers/FooderMaster/FooderMaster.module.css';
-import axios from "axios";
 import DisplayHealthy from '../../assets/images/healthy_diet.png';
 import CardCategory from '../../components/UI/CardCategory/CardCategory';
 import CardSlider from '../../components/UI/CardSlider/CardSlider';
@@ -17,24 +16,10 @@ class FooderMaster extends Component {
         };
     }
 
-    componentDidMount(){
-        axios.get('/api/fooder_checkout')
-            .then(response => {
-                this.setState({
-                    foodercheckout:response.data
-                })    
-            }).catch(error =>{
-                    this.setState({error:true})
-        });
-    }
-
     render() {
-        //count the length of checkout data
-        const _gettotalcheckoutdata = this.state.foodercheckout.length;
-
         return (
             <div className={classes.FoodMasterBody}>
-                <NavBar countCheckoutItem={_gettotalcheckoutdata}/>
+                <NavBar />
                     <BannerMain />
                     <h2 className={classes.categorytext}>CATEGORIES</h2>  
                     <CardCategory />    

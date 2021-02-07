@@ -21,7 +21,6 @@ class NasiBuilder extends Component {
             specialInstruction : "",
             charLeft: 50,
             maxChar: 50,
-            foodercheckout:[],
             fooder_menu:[],
             fooder_maindish:[],
             fooder_baseprice:""
@@ -31,14 +30,6 @@ class NasiBuilder extends Component {
 
     componentDidMount(){
         const fooder_id = this.props.match.params._refmaindish
-        axios.get('/api/fooder_checkout')
-            .then(response => {
-                this.setState({
-                    foodercheckout:response.data
-                })    
-            }).catch(error =>{
-                    this.setState({error:true})
-        });
 
         axios.get(`/api/fooder_addon/${fooder_id}`)
             .then(response => {
@@ -117,12 +108,9 @@ class NasiBuilder extends Component {
             return {label:key, price:checkoutPrice[index]}
         });
 
-        //count the length of checkout data
-        const _gettotalcheckoutdata = this.state.foodercheckout.length;
-
         return (
             <div className={classes.BlockContent}>
-                <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
+                <NavBar />  
                 <div className={classes.BlockImagePosition}>
                     <img src={NasiLemakImg} alt="NasiLemak" className={classes.BlockImage}/>
                 </div>

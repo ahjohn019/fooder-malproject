@@ -18,7 +18,6 @@ class FooderType extends Component {
         super(props);
         this.state = {
             fooder_type:[],
-            fooder_checkout:[],
             fooder_sortmaindish:""
         };
     }
@@ -29,14 +28,6 @@ class FooderType extends Component {
             .then(response => {
                 this.setState({
                     fooder_type:response.data
-                })    
-            }).catch(error =>{
-                    this.setState({error:true})
-        });
-        axios.get('/api/fooder_checkout')
-            .then(response => {
-                this.setState({
-                    fooder_checkout:response.data
                 })    
             }).catch(error =>{
                     this.setState({error:true})
@@ -87,11 +78,9 @@ class FooderType extends Component {
 
     
     render() {
-        //count the length of checkout data
-        const _gettotalcheckoutdata = this.state.fooder_checkout.length;
         return (
             <div>
-                <NavBar countCheckoutItem={_gettotalcheckoutdata}/>  
+                <NavBar />  
                 <BannerMain />
                 {/* Grid */}
                 {/* Pagination */}
