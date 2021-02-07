@@ -89,7 +89,6 @@ fooder_registerouter.route('/logout').get(auth,(req,res)=>{
 })
 
 
-
 fooder_registerouter.route('/:id').get((req, res)=>{
     FooderRegister.findById(req.params.id)
         .then(FooderRegister => res.json(FooderRegister))

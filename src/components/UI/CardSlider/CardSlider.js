@@ -129,7 +129,7 @@ class cardSlider extends Component {
 
         return(
             <div className={classes.cardBestSellerGrid}>
-                <div >
+                <div>
                     <h2>Best Seller</h2>
 
                     <StyledSlider {...settings}>

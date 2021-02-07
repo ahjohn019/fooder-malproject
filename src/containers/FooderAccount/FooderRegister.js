@@ -59,7 +59,6 @@ class FooderRegister extends Component {
     }
 
 
-
     render() {
         const _gettotalcheckoutdata = this.state.fooder_checkout.length; 
         return (

@@ -1,33 +1,33 @@
-.FooderAccountContent{
-    height:100%;
-    margin-top: 150px;
-    max-width:600px;
-    margin-left: auto;
-    margin-right: auto;
-    border:1px solid lightgray;
+.FooderAccountContent {
+  height: 100%;
+  margin-top: 150px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid lightgray;
 }
 
-.FooderAccountContent h2{
-    text-align:center;
-    margin:20px 18px;
-    font-family: "Poppins", sans-serif;
-    font-weight:400px;
+.FooderAccountContent h2 {
+  text-align: center;
+  margin: 20px 18px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400px;
 }
 
-.FooderForm_Group{
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    margin-bottom:1.5rem;
+.FooderForm_Group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 }
 
-.FooderForm_HalfField{
-    width:50%;
-    padding-left: 30px;
+.FooderForm_HalfField {
+  width: 50%;
+  padding-left: 30px;
 }
 
-.FooderForm_Field{
-    width:540px;
-    margin-left: auto;
-    margin-right: auto;
+.FooderForm_Field {
+  width: 540px;
+  margin-left: auto;
+  margin-right: auto;
 }
