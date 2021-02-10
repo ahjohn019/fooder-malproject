@@ -47,7 +47,6 @@ class NasiBuilder extends Component {
 
     }
 
-
     //get base price + addon price(by users)
     //if tick => add into base price else remove addon prices
     checkboxIncrement = (event) => {

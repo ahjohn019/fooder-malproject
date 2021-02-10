@@ -4,6 +4,8 @@ import classes from '../../containers/FooderAccount/FooderAccount.module.css';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 import MuiAlert from '@material-ui/lab/Alert';
+import Button from '@material-ui/core/Button';
+import Footer from '../../components/Footer/Footer';
 
 class FooderLogin extends Component {
     constructor(props) {
@@ -101,10 +103,12 @@ class FooderLogin extends Component {
                                         />
                                     </div>         
                                 </div> 
-                                <button type="submit">Submit</button>  
+                                <div className={classes.FooderAccountLogin}>
+                                    <Button variant="contained" color="primary" type="submit">Submit</Button>  
+                                </div>
                                 </form>
                         </div>
-                    
+                    <Footer />   
             </div>
         );
     }

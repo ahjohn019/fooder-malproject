@@ -53,6 +53,8 @@ class navBar extends Component {
 
     render(){
         const _gettotalcheckoutdata = this.state.fooder_checkout.length; 
+
+
         return(
             <div className={classes.NavBar}>
                 <Link to="/">

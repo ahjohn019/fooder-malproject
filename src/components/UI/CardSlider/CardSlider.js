@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import {FaPlus} from "react-icons/fa";
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import LockIcon from '@material-ui/icons/Lock';
+
 
 function NoneNextArrow(props) {
     const { className, style, onClick } = props;
@@ -35,7 +37,8 @@ class cardSlider extends Component {
         super(props);
         this.state = {
             foodermaindish:[],
-            fooderaddon:[]
+            fooderaddon:[],
+            fooder_profile:[]
         };
     }
 
@@ -49,6 +52,13 @@ class cardSlider extends Component {
                     this.setState({error:true})
         });
 
+        axios.get('/api/fooder_register/profile')
+            .then(response => {
+                this.setState({fooder_profile:response.data})
+            }).catch(error =>{
+                this.setState({error:true})
+        });
+        
     }
 
     render()
@@ -139,14 +149,24 @@ class cardSlider extends Component {
                                 <h3>{f.maindish}</h3>
                                 <p>{f.type}</p>
                                 <p className={classes.cardBestSellerPriceTag}>RM {f.baseprice}</p>
-                                <Link to={{ pathname: "/foodlist/" + f._id }}>
-                                    <IconButton color="primary" aria-label="redirectfoodurl" className={classes.RedirectFoodIcon}>
-                                        <FaPlus />
-                                    </IconButton>
-                                </Link>
+                                {   
+                                    this.state.fooder_profile["isAuth"] === true ?
+                                    <Link to={{ pathname: "/foodlist/" + f._id }}>
+                                        <IconButton color="primary" aria-label="redirectfoodurl" className={classes.RedirectFoodIcon}>
+                                            <FaPlus />
+                                        </IconButton>
+                                    </Link> :   
+                                    <Link to="/login">
+                                        <IconButton aria-label="redirectfoodurl" className={classes.RedirectFoodIcon}>                                
+                                            <LockIcon />           
+                                        </IconButton>   
+                                    </Link>            
+                                }
                             </div>
+                            
                         )}
                     </StyledSlider>
+
                     
                 </div>
     

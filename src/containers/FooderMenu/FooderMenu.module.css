@@ -1,194 +1,183 @@
-
-.BlockContent{
-    height:100%;
-    padding-top:100px;
+.BlockContent {
+  height: 100%;
+  padding-top: 100px;
 }
 
-
-
 .BlockTitle {
-    text-align : center;
-    border : 1px solid;
-    box-shadow: 3px 3px 3px 3px #ccc;
-    width: 60%;
-    height:auto;
-    position:fixed;
-    top:10%;
-    left:20%;
+  text-align: center;
+  border: 1px solid;
+  box-shadow: 3px 3px 3px 3px #ccc;
+  width: 60%;
+  height: auto;
+  position: fixed;
+  top: 10%;
+  left: 20%;
 }
 
 .BlockImage {
-    width: 38%;
-    height:50%;
-    text-align:center;
-    display: block;
-    margin:auto;
-    border:0;
-    box-shadow: 3px 3px 3px 3px #ccc;
-    border-radius: 2%;
+  width: 38%;
+  height: 50%;
+  text-align: center;
+  display: block;
+  margin: auto;
+  border: 0;
+  box-shadow: 3px 3px 3px 3px #ccc;
+  border-radius: 2%;
 }
 
-.BlockSelector{
-    border: 0;
-    width:38%;
-    margin-top:40px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 3px 3px 3px 3px #ccc;
-    padding:14px 12px;
-    padding-bottom:10px;
-    border-radius: 2%;
-    margin-bottom: 20px;
+.BlockSelector {
+  border: 0;
+  width: 38%;
+  margin-top: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 3px 3px 3px 3px #ccc;
+  padding: 14px 12px;
+  padding-bottom: 10px;
+  border-radius: 2%;
+  margin-bottom: 20px;
 }
 
 .BlockSelector h3 {
-    padding-left: 10px;
-    padding-top: 20px;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 
 .BlockSelector p {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
-.BlockSubselector{
-    border: 1px solid;
-    margin-top:20px;
-    max-width:80%;
-    margin-left:10%;
-    height:100px;
+.BlockSubselector {
+  border: 1px solid;
+  margin-top: 20px;
+  max-width: 80%;
+  margin-left: 10%;
+  height: 100px;
 }
 
 .BlockSelector button {
-    background-color:lightseagreen;
-    border:0;
-    border-radius:20%;
-    margin:7px;
-    padding:15px;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 6px lightgray;
+  background-color: lightseagreen;
+  border: 0;
+  border-radius: 20%;
+  margin: 7px;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px lightgray;
 }
 
-.BlockSelector button:hover{
-    background-color: #1ca099 ;
+.BlockSelector button:hover {
+  background-color: #1ca099;
 }
 
-.BlockSelector button:active{
-    background-color: #1ca099 ;
-    box-shadow: 0 3px gray;
-    transform: translateY(4px);
+.BlockSelector button:active {
+  background-color: #1ca099;
+  box-shadow: 0 3px gray;
+  transform: translateY(4px);
 }
 
-.BlockSelector button:focus{
-    outline:none;
+.BlockSelector button:focus {
+  outline: none;
 }
 
-.BlockSelector .SpecialInstructions{
-    border:0;
-    border-radius: 2%;
-    display: flex;
-    margin:5px;
+.BlockSelector .SpecialInstructions {
+  border: 0;
+  border-radius: 2%;
+  display: flex;
+  margin: 5px;
 }
 
-.BlockSelector .BlockAdjustSelector{
-    width:180px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.BlockSelector .BlockAdjustSelector {
+  width: 180px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .CharLeft {
-    color:grey;
-    font-size: small;
-    text-align: right;
-    padding-right: 15px;
+  color: grey;
+  font-size: small;
+  text-align: right;
+  padding-right: 15px;
 }
 
 .nasi_lemak_sample {
-    max-width: 75%;
-    max-height: 75%;
-    padding-top:30px;
+  max-width: 75%;
+  max-height: 75%;
+  padding-top: 30px;
 }
 
 /*checkbox list*/
-.checkboxOne input[type=checkbox]{
-    width:15px;
-    height:15px;
-    margin-left:15px;
-    cursor: pointer;
+.checkboxOne input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 .checkboxOne label {
-    font-size:  20px;
-    margin-left:10px;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 .checkboxOne {
-    padding-top:5px;
-    padding-bottom:10px;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 .checkboxOne p {
-    display: inline;
-    font-weight: bold;
+  display: inline;
+  font-weight: bold;
 }
 
 .addontitle {
-    padding-left: 12px;
+  padding-left: 12px;
 }
 
-
-
 /* Smartphones (landscape) ----------- */
-@media only screen 
-and (min-width : 321px) {
-/* Styles */
-.BlockSelector .ButtonQuantityText {
-    padding-left:10px;
-}/*adjust on mobile*/
+@media only screen and (min-width: 321px) {
+  /* Styles */
+  .BlockSelector .ButtonQuantityText {
+    padding-left: 10px;
+  } /*adjust on mobile*/
 
-.BlockSelector .ButtonQuantityLeft {
-    display:flex;
+  .BlockSelector .ButtonQuantityLeft {
+    display: flex;
     justify-content: center;
-}/*adjust on mobile*/
+  } /*adjust on mobile*/
 
-.BlockSelector .ButtonQuantityRight {
-    display:flex;
+  .BlockSelector .ButtonQuantityRight {
+    display: flex;
     justify-content: center;
-}/*adjust on mobile*/
+  } /*adjust on mobile*/
 }
 
 /* Desktops and laptops ----------- */
-@media only screen 
-and (min-width : 1224px) {
-/* Styles */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
 
-.BlockSelector .ButtonQuantityText {
+  .BlockSelector .ButtonQuantityText {
     display: inline-block;
     text-align: center;
-}/*adjust on mobile*/
+  } /*adjust on mobile*/
 
-.BlockSelector .ButtonQuantityLeft {
+  .BlockSelector .ButtonQuantityLeft {
     display: inline-block;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
-}/*adjust on mobile*/
+  } /*adjust on mobile*/
 
-.BlockSelector .ButtonQuantityRight {
+  .BlockSelector .ButtonQuantityRight {
     display: inline-block;
-    margin-left:5%;
-    
-}/*adjust on mobile*/
+    margin-left: 5%;
+  } /*adjust on mobile*/
 }
 
 /* Desktops and laptops Two ----------- */
-@media only screen 
-and (max-width : 1024px) {
-/* Styles */
-.BlockSelector{
-    width:75%;
+@media only screen and (max-width: 1024px) {
+  /* Styles */
+  .BlockSelector {
+    width: 75%;
+  }
 }
-}
-
-

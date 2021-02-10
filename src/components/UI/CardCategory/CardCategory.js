@@ -1,6 +1,6 @@
 import React,{ Component} from 'react';
 import classes from '../../UI/CardCategory/CardCategory.module.css';
-import MalaysiaFood from '../../../assets/images/malaysiafoodimg.jpg';
+// import MalaysiaFood from '../../../assets/images/malaysiafoodimg.jpg';
 // import ChineseFood from '../../../assets/images/chinesefoodimg.png';
 // import BurgerFood from '../../../assets/images/burgerimg.jpg';
 // import Dessert from '../../../assets/images/dessertimg.jpg';
@@ -28,14 +28,15 @@ class cardCategory extends Component {
     }
 
     render() {
-    
+
         return (
             <div>
                 <div className={classes.cardCategoryGrid}>  
 
                     {this.state.fooder_type.map(ftype=>
                         <div key={ftype._id} className={classes.cardCategoryList}>
-                            <img src={MalaysiaFood} alt="MalaysiaFood" className={classes.categoriesImg}></img>
+                            <img src={process.env.PUBLIC_URL + `/img/${ftype.foodimgname}`} alt="MalaysiaFood" className={classes.categoriesImg}></img>
+
                             <div className={classes.FoodCategory}>
                                 <Link to={{ pathname: "/foodertype/type",
                                             search:"?type=" + ftype.foodalias }}>
@@ -44,6 +45,9 @@ class cardCategory extends Component {
                             </div>
                         </div>
                     )}
+                    {/* {
+                        imagestest.map(img=><img src={img} alt={img} className={classes.categoriesImg}/>)
+                        } */}
                     
                     {/* <div className={classes.cardCategoryList}>
                         <img src={MalaysiaFood} alt="MalaysiaFood" className={classes.categoriesImg}></img>
