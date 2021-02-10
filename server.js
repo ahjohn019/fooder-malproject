@@ -17,7 +17,7 @@ const uri = "mongodb+srv://ahrui123:ahrui123@myprojectcluster.9c5nh.mongodb.net/
 
 // the __dirname is the current directory from where the script is running
 app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'public')));//build
+app.use(express.static(path.join(__dirname, 'build')));//build
 
 
 //connect to mongoose db
