@@ -32,9 +32,9 @@ class FooderLogin extends Component {
             password: password
         })
 
-        // const sleep = (milliseconds) => {
-        //     return new Promise(resolve => setTimeout(resolve, milliseconds))
-        // }
+        const sleep = (milliseconds) => {
+            return new Promise(resolve => setTimeout(resolve, milliseconds))
+        }
 
         axios.post('api/fooder_register/login',
             food_login
@@ -44,9 +44,9 @@ class FooderLogin extends Component {
         .then(response => {
             if(response.status === 200){
                 this.setState({message_status:response.data})
-                // if(response.data["isAuth"] === true){
-                //     sleep(3000).then(() => this.props.history.push('/'))
-                // }
+                if(response.data["isAuth"] === true){
+                    sleep(2000).then(() => this.props.history.push('/'))
+                }
             }
         })
         .catch(error => {
@@ -104,8 +104,7 @@ class FooderLogin extends Component {
                                 <button type="submit">Submit</button>  
                                 </form>
                         </div>
-                    {/* {this.state.message_status["isAuth"] === true ?
-                    <p>I love kahmun boobies</p>:<p>Please login to see boobies</p>} */}
+                    
             </div>
         );
     }

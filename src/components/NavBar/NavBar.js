@@ -15,7 +15,8 @@ class navBar extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            fooder_checkout: []
+            fooder_checkout: [],
+            fooder_profile:[]
         }
     }
 
@@ -28,6 +29,26 @@ class navBar extends Component {
             }).catch(error=>{
                 this.setState({error:true})
         });
+
+        axios.get('/api/fooder_register/profile')
+            .then(response =>{
+                this.setState({
+                    fooder_profile:response.data
+                })
+            }).catch(error=>{
+                this.setState({error:true})
+            });
+
+    }
+
+    handleLogout = () => {
+        axios.get('/api/fooder_register/logout')
+            .then(response => {
+                console.log(response.data)
+                localStorage.clear();
+                window.location.href = '/';
+            })
+            .catch(error=>{this.setState({error:true})});
     }
 
     render(){
@@ -42,16 +63,22 @@ class navBar extends Component {
                     <div className={classes.dropdown}>
                         <span><PersonIcon style={{fontSize:30}}></PersonIcon></span>
                         <div className={classes.dropdown_content}>
-                            <Link to="/login"> 
-                                <p>Login</p>
-                            </Link>
+                            { 
+                                this.state.fooder_profile['isAuth'] === true ?
+                                    <div>
+                                        <p>{this.state.fooder_profile['name']}</p>                                        
+                                        <p onClick={this.handleLogout}>Logout</p>                                                                                   
+                                    </div>
+                                :
+                                    <Link to="/login"> 
+                                        <p>Login</p>
+                                    </Link>
+                            }
                             <Link to="/register">
                                 <p>Register</p>
                             </Link>
                         </div>
-
                     </div>
-
                 </NavItem>
                 <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>  
                 <Link to="/checkout">       

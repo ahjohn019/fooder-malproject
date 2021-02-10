@@ -84,7 +84,9 @@ fooder_registerouter.route('/profile').get(auth,(req,res)=>{
 fooder_registerouter.route('/logout').get(auth,(req,res)=>{
     req.user.deleteToken(req.token,(err,user)=>{
         if(err) return res.status(400).send(err);
-        res.sendStatus(200);
+        res.json({
+            isLogout:true
+        })
     })
 })
 
