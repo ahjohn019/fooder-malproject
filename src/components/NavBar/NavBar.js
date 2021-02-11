@@ -57,10 +57,6 @@ class navBar extends Component {
 
         return(
             <div className={classes.NavBar}>
-                <Link to="/">
-                    <Logo />
-                </Link>
-                <DrawerIcon />
                 <NavItem>
                     <div className={classes.dropdown}>
                         <span><PersonIcon style={{fontSize:30}}></PersonIcon></span>
@@ -82,13 +78,17 @@ class navBar extends Component {
                         </div>
                     </div>
                 </NavItem>
-                <NavItem><HelpIcon style={{ fontSize: 30 }}/></NavItem>  
                 <Link to="/checkout">       
                     <NavItem>
                         <ShoppingCartIcon style={{ fontSize: 30 }}/>
                         <span className={classes.NotificationIcons} value={_gettotalcheckoutdata}>{_gettotalcheckoutdata}</span>
                     </NavItem>
                 </Link>
+                <Link to="/">
+                    <Logo />
+                </Link>
+                <DrawerIcon />
+                
             </div>
         );
     }
