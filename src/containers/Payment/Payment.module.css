@@ -1,78 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-
-.PaymentContent{
-    height:100%;
-}
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 
 .CustomerDetailsBlockSelector {
-    border:0;
-    border-radius: 2%;
-    position: relative;
-    left:25%;
-    padding:25px;
-    box-sizing: border-box;
-    box-shadow: 3px 3px 3px 3px #ccc;
-    margin-bottom:5%;
+  position: relative;
+  left: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-
 .CustomerDetailsBlockSelector p {
-    font-size:24px;
-    padding: 14px 10px;
+  font-size: 24px;
+  padding: 14px 10px;
 }
 
 .CustomerDetailsBlockSelector .formDetails {
-    display:flex;
-    flex-wrap: wrap;
-    width:'25ch';
-    margin-top:40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: "25ch";
+  margin-top: 40px;
+}
 
+.FooderForm_HalfField {
+  width: 50%;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
-.CustomerDetailsBlockSelector {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* Styles */
+  .CustomerDetailsBlockSelector {
     width: 52%;
-}
+  }
 }
 
 /* Smartphones (landscape) ----------- */
-@media only screen 
-and (min-width : 321px) {
-/* Styles */
-.CustomerDetailsBlockSelector {
+@media only screen and (min-width: 321px) {
+  /* Styles */
+  .CustomerDetailsBlockSelector {
     width: 52%;
-}
+  }
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen 
-and (max-width : 320px) {
-/* Styles */
-.CustomerDetailsBlockSelector {
+@media only screen and (max-width: 320px) {
+  /* Styles */
+  .CustomerDetailsBlockSelector {
     width: 52%;
+  }
 }
-}
-
 
 /* Desktops and laptops ----------- */
-@media only screen 
-and (min-width : 1224px) {
-/* Styles */
-.CustomerDetailsBlockSelector {
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+  /* .CustomerDetailsBlockSelector {
     width: 25%;
-}
+  } */
 }
 
 /* Desktops and laptops Two ----------- */
-@media only screen 
-and (max-width : 1223px) {
-/* Styles */
-.CustomerDetailsBlockSelector {
-    left:10%;
+@media only screen and (max-width: 1223px) {
+  /* Styles */
+  .CustomerDetailsBlockSelector {
+    left: 10%;
     width: 82%;
+  }
 }
-}
-

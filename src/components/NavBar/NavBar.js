@@ -3,7 +3,6 @@ import classes from './NavBar.module.css';
 import NavItem from './NavItem/NavItem';
 import ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
 import PersonIcon from '@material-ui/icons/Person';
-import HelpIcon from '@material-ui/icons/Help';
 import Logo from '../Logo/Logo';
 import DrawerIcon from './Drawer/Drawer';
 import {Link} from "react-router-dom";

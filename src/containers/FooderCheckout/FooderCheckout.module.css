@@ -1,98 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 
-.CheckoutContent{
-    height:100%;
-    padding-top: 100px;
+.CheckoutBody {
+  height: 100%;
+  margin: 100px auto 90px auto;
 }
 
-.CheckoutBlockSelector{
-    border: 0;
-    width:25%;
-    position: relative;
-    left:52%;
-    padding-bottom:20px; 
-    box-shadow: 3px 3px 3px 3px #ccc;
-    border-radius: 2%;
-    display:block;
-    overflow-y: scroll;
-    height:91.5%;
+.CheckoutBlockSelector {
+  border: 1px solid lightgray;
+  width: 30%;
+  position: relative;
+  display: block;
+  overflow-y: scroll;
+  height: 50%;
 }
 
 .CheckoutBlockSelector .CheckoutTitle {
-    font-family: 'Itim', cursive;
-    text-align: left;
-    margin-left:5px;
-    display:inline-block;
-    padding-left: 4%;
+  font-family: "Itim", cursive;
+  text-align: left;
+  margin-left: 5px;
+  display: inline-block;
+  padding-left: 4%;
 }
 
 .CheckoutBlockSelector .CheckoutPrice {
-    color:#ff9999;
-    float:right;
-    padding-right: 30px;
-    font-family: 'Itim', cursive;
+  color: #ff9999;
+  float: right;
+  padding-right: 30px;
+  font-family: "Itim", cursive;
 }
 
-.CheckoutBlockSelector li{
-    padding-left: 10%;
+.CheckoutBlockSelector li {
+  padding-left: 10%;
 } /*need change position on web*/
 
 .CheckoutBlockSelector p {
-    padding-left: 12%;
-    margin-top:10px;
-    font-family: 'Itim', cursive;
-    color:#A8A8A8;
+  padding-left: 12%;
+  margin-top: 10px;
+  font-family: "Itim", cursive;
+  color: #a8a8a8;
 } /*need change position on web*/
-
 
 /*Custom Delete Button CSS*/
 .CheckoutBlockSelector .CheckoutDeleteButton {
-    float:right;
-    margin-right:10px;
+  float: right;
+  margin-right: 10px;
 }
 
-.CheckoutBlockSelector .checkoutEditColumn{
-    display:inline-block;
+.CheckoutBlockSelector .checkoutEditColumn {
+  display: inline-block;
 }
 
-.CheckoutBlockSelector .checkoutaddOn{
-    margin-left:5px;
-    padding:6px 8px;
-    background-color:lightseagreen;
-    font-weight:bold;
-    color:white;
-    text-transform:uppercase;
-    border-radius: 10%; 
-    
+.CheckoutBlockSelector .checkoutaddOn {
+  margin-left: 5px;
+  padding: 6px 8px;
+  background-color: lightseagreen;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 10%;
 }
-
 
 /* Desktops and laptops ----------- */
-@media only screen 
-and (min-width : 1224px) {
-.CheckoutBlockSelector {
-    left:52%;
+@media only screen and (min-width: 1224px) {
+  .CheckoutBlockSelector {
+    left: 55%;
     position: absolute;
-}
-.CheckoutBlockSelector hr {
+  }
+  .CheckoutBlockSelector hr {
     margin-top: 15%;
-}
+  }
 }
 
 /* Desktops and laptops two ----------- */
-@media only screen 
-and (max-width : 1024px) {
-.CheckoutBlockSelector {
-    left:10%;
-    width:82%;
-    margin-top:15%;
-    margin-bottom:10%;
-}
-.CheckoutBlockSelector hr {
+@media only screen and (max-width: 1024px) {
+  .CheckoutBlockSelector {
+    left: 10%;
+    width: 82%;
     margin-top: 15%;
+    margin-bottom: 10%;
+  }
+  .CheckoutBlockSelector hr {
+    margin-top: 15%;
+  }
 }
-}
-
-
-
-

@@ -6,19 +6,22 @@ import axios from 'axios';
 import queryString from 'query-string';
 import {Link} from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
+import LockIcon from '@material-ui/icons/Lock';
 import {FaPlus} from "react-icons/fa";
 import NasiLemakImg from '../../assets/images/nasi_lemak_sample.jpg';
 import FormControl from  '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Footer from '../../components/Footer/Footer';
+import MasterClasses from '../FooderMaster/FooderMaster.module.css';
 
 class FooderType extends Component {
     constructor(props) {
         super(props);
         this.state = {
             fooder_type:[],
-            fooder_sortmaindish:""
+            fooder_sortmaindish:"",
+            fooder_profile:[]
         };
     }
 
@@ -31,6 +34,11 @@ class FooderType extends Component {
                 })    
             }).catch(error =>{
                     this.setState({error:true})
+        });
+        axios.get('/api/fooder_register/profile')
+            .then(response => {
+                this.setState({fooder_profile:response.data})
+            }).catch(error =>{this.setState({error:true})
         });
     }   
 
@@ -79,7 +87,7 @@ class FooderType extends Component {
     
     render() {
         return (
-            <div>
+            <div className={MasterClasses.FoodMasterBody}>
                 <NavBar />  
                 <BannerMain />
                 {/* Grid */}
@@ -108,11 +116,19 @@ class FooderType extends Component {
                                 <h3>{ftype.maindish}</h3>
                                 <p>{ftype.type}</p>
                                 <p className={classes.cardTypePriceTag}>RM {ftype.baseprice}</p>
-                                <Link to={{ pathname: "/foodlist/" + ftype._id }}>
-                                    <IconButton color="primary" aria-label="redirectfoodurl" style={{float:"right"}}>
-                                        <FaPlus />
-                                    </IconButton>
-                                </Link>
+                                {
+                                    this.state.fooder_profile["isAuth"] === true ?
+                                    <Link to={{ pathname: "/foodlist/" + ftype._id }}>
+                                        <IconButton color="primary" aria-label="redirectfoodurl" style={{float:"right"}}>
+                                            <FaPlus />
+                                        </IconButton>
+                                    </Link> :
+                                    <Link to="/login">
+                                        <IconButton color="primary" aria-label="redirectfoodurl" style={{float:"right"}}>
+                                            <LockIcon />
+                                        </IconButton>
+                                    </Link>
+                                }
                                 
                             </div>)}
                     </div>

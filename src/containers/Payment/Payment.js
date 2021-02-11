@@ -12,7 +12,7 @@ class Payment extends Component {
 
     render() {
         return (
-            <div className={classes.PaymentContent}>
+            <div className={classes.CustomerDetailsBlockSelector }>
                     <form>
                         <div className={classes.CustomerDetailsBlockSelector}>
                             <h2>Billing Details</h2>
@@ -33,16 +33,20 @@ class Payment extends Component {
                                 className={classes.formDetails} 
                                 fullWidth
                                 />
-                            <TextField 
-                                required id="cities" 
-                                label="City" 
-                                className={classes.formDetails} 
-                            />
-                            <TextField 
-                                required id="states" 
-                                label="State/Province" 
-                                className={classes.formDetails} 
-                            />
+                            <div className={classes.FooderForm_HalfField}>
+                                <TextField 
+                                    required id="cities" 
+                                    label="City" 
+                                    className={classes.formDetails} 
+                                />
+                            </div>
+                            <div className={classes.FooderForm_HalfField}>
+                                <TextField 
+                                    required id="states" 
+                                    label="State/Province" 
+                                    className={classes.formDetails} 
+                                />
+                            </div>
                             <TextField 
                                 required id="postcode" 
                                 label="Postcode" 

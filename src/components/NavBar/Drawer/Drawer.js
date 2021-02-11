@@ -41,11 +41,6 @@ const DrawerIcon = (props) => {
         <div className={classes.DrawerStylesFull}>
             <Logo />
             <List className={classes.DrawerStylesList} onClick={toggleDrawer(anchor, false)} onKeyDown={toggleDrawer(anchor, false)}>
-                {/* {['Cart', 'Help', 'Contact Us'].map((text, index) => (
-                <ListItem button key={text}>
-                    <ListItemText primary={text} />
-                </ListItem>
-                ))} */}
                 <ListItem button key='Home'>
                     <Link to="/">
                         <ListItemText primary='Home' />
