@@ -69,7 +69,7 @@ class FooderType extends Component {
         
 
         var sorttest = foodertype_info.map((ftype)=>
-            <div className={classes.cardTypeItem}>
+            <div key={ftype._id} className={classes.cardTypeItem}>
                 <img src={NasiLemakImg} alt="NasiLemak" className={classes.cardTypeImage}/>
                 <h3>{ftype.maindish}</h3>
                 <p>{ftype.type}</p>

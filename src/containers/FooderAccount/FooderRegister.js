@@ -3,12 +3,16 @@ import NavBar from '../../components/NavBar/NavBar';
 import classes from '../../containers/FooderAccount/FooderAccount.module.css';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
+import MuiAlert from '@material-ui/lab/Alert';
+import Button from '@material-ui/core/Button';
+import Footer from '../../components/Footer/Footer';
 
 class FooderRegister extends Component {
     constructor(props) {
         super(props);
         this.state = {
             fooder_checkout:[],
+            message_status:"",
             first_name:"",
             last_name:"",
             email:"",
@@ -28,7 +32,7 @@ class FooderRegister extends Component {
             }).catch(error=>{
                 this.setState({error:true})
         });
-    }
+    }   
 
     handleChange = (event) => {
         this.setState({
@@ -38,7 +42,6 @@ class FooderRegister extends Component {
 
     handleSubmit = (event) => {
         const {first_name, last_name, email,password,password_confirmation} = this.state;
-
         const food_register = ({
             first_name: first_name,
             last_name: last_name,
@@ -46,6 +49,10 @@ class FooderRegister extends Component {
             password: password,
             password_confirmation: password_confirmation
         })
+
+        const sleep = (milliseconds) => {
+            return new Promise(resolve => setTimeout(resolve, milliseconds))
+        }
         
 
         axios.post('/api/fooder_register/add',
@@ -53,7 +60,14 @@ class FooderRegister extends Component {
         ,
             {withCredentials: true}
         )
-        .then(response => {console.log(response.data)})
+        .then(response => {
+            if(response.status === 200) {
+                this.setState({message_status:response.data})
+                if(response.data["success"] === true){
+                    sleep(1500).then(() => this.props.history.push('/login'))
+                }
+            }
+        })
         .catch(error => {console.log('Registration Error', error)});
         event.preventDefault();
     }
@@ -61,10 +75,17 @@ class FooderRegister extends Component {
 
     render() {
         const _gettotalcheckoutdata = this.state.fooder_checkout.length; 
+        const messageBox = this.state.message_status["success"] === true ?
+            <MuiAlert elevation={6} variant="filled" severity="success">Registration Successfully</MuiAlert> :
+            this.state.message_status["success"] === false ?
+            <MuiAlert elevation={6} variant="filled" severity="error">Registration Failure</MuiAlert> :
+            null;   
+
         return (
             <div>
                 <NavBar countCheckoutItem={_gettotalcheckoutdata}/>
                 <div className={classes.FooderAccountContent}>
+                    {messageBox}
                     <h2>REGISTER</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className={classes.FooderForm_Group}>
@@ -139,10 +160,13 @@ class FooderRegister extends Component {
                                  </div>        
                             </div>      
 
-                            <button type="submit">Submit</button>      
+                            <div className={classes.FooderAccountLogin}>
+                                <Button variant="contained" color="primary" type="submit">Submit</Button>  
+                            </div>    
                             
                         </form>
                     </div>
+                    <Footer />
                 </div>
             
         );

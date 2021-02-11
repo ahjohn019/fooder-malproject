@@ -47,7 +47,7 @@ class FooderLogin extends Component {
             if(response.status === 200){
                 this.setState({message_status:response.data})
                 if(response.data["isAuth"] === true){
-                    sleep(2000).then(() => this.props.history.push('/'))
+                    sleep(1000).then(() => this.props.history.push('/'))
                 }
             }
         })

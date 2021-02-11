@@ -33,7 +33,7 @@ fooder_registerouter.route('/add').post((req,res)=>{
             if(err) {console.log(err);
                 return res.status(400).json({ success : false});}
             res.status(200).json({
-                succes:true,
+                success:true,
                 user : doc
             });
         });
