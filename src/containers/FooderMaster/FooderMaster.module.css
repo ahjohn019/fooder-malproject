@@ -8,34 +8,8 @@ h2 {
   padding-top: 20px;
 }
 
-.FoodMasterBlockSelector {
-  border: 0;
-  margin-top: 20px;
-  height: 650px;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  padding: 16px 14px;
-  margin-bottom: 20px;
-  border-radius: 2%;
-  box-shadow: 3px 3px 3px 3px #ccc;
-  height: auto;
-  width: auto;
-}
-
-.FoodMasterBlockSelector .FoodMasterRecommendation {
-  border: 0;
-  margin-top: 30px;
-  margin: 10px;
-  border-radius: 2%;
-  box-shadow: 3px 3px 3px 3px #ccc;
-}
-
 .FoodMasterBlockSelectorTwo {
   background-color: #f7f7f7;
-  height: 400px;
 }
 
 .FoodMasterBlockSelectorTwo .FoodMasterBlockPosition {
@@ -51,42 +25,35 @@ h2 {
   margin-top: 1.5%;
 }
 
-.FoodMasterDisplayImage {
-  height: 250px;
-  width: 250px;
-  z-index: 99;
-}
-
 .FoodMasterDisplayContent {
   position: relative;
-  top: 15%;
-  left: 20%;
-  line-height: 2.5;
-  width: 50%;
+  top: 10%;
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
 }
 
-.FoodMasterFaq {
-  background-color: white;
-  height: 700px;
-  width: 70%;
-  position: absolute;
-  left: 15%;
-  margin-top: 10px;
+.FoodFeaturesDesc {
+  margin: 40px auto 35px auto;
+}
+
+.FoodFeaturesDesc p {
+  text-align: center;
+  font-weight: 600;
+  margin: 30px;
+}
+
+.FoodMasterDisplayImage {
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  display: block;
+  z-index: 99;
 }
 
 /* Mobile One----------- */
 @media only screen and (max-width: 768px) {
   /* Styles */
-  .FoodMasterBlockSelector {
-    display: block;
-    height: 150vh;
-  }
-  .FoodMasterBlockSelector .FoodMasterRecommendation {
-    height: 15%;
-  }
-  .FoodMasterDisplayImage {
-    display: none;
-  }
   .FoodMasterBlockSelectorTwo .FoodMasterBlockPosition {
     border: 0;
     position: absolute;

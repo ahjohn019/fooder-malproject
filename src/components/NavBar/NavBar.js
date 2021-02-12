@@ -15,7 +15,9 @@ class navBar extends Component {
         super(props);
         this.state ={
             fooder_checkout: [],
-            fooder_profile:[]
+            fooder_profile:[],
+            fooder_navbarColor:"",
+            fooder_navbarItem:""
         }
     }
 
@@ -37,7 +39,22 @@ class navBar extends Component {
             }).catch(error=>{
                 this.setState({error:true})
             });
+        
+        window.addEventListener("scroll", this.handleScroll)
+        
+    }
 
+    handleScroll = () =>{
+        if (window.pageYOffset > 0) {
+            if(!this.state.fooder_navbarColor){
+              this.setState({ fooder_navbarColor: "lightseagreen"});   
+            } 
+
+        } else {
+            if(this.state.fooder_navbarColor){
+              this.setState({ fooder_navbarColor: "" });
+            }
+        }
     }
 
     handleLogout = () => {
@@ -53,10 +70,9 @@ class navBar extends Component {
     render(){
         const _gettotalcheckoutdata = this.state.fooder_checkout.length; 
 
-
         return(
-            <div className={classes.NavBar}>
-                <NavItem>
+            <div className={classes.NavBar} style={{backgroundColor: this.state.fooder_navbarColor}}>
+                <NavItem style={{marginTop:" 20px"}}>
                     <div className={classes.dropdown}>
                         <span><PersonIcon style={{fontSize:30}}></PersonIcon></span>
                         <div className={classes.dropdown_content}>

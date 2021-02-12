@@ -69,7 +69,6 @@ class FooderLogin extends Component {
         return (
             <div>
                 <NavBar />
-                <span className={classes.success_message}>Login suceessfully</span>
                 <div className={classes.FooderAccountContent}>
                     <form onSubmit={this.handleSubmit}>
                         {messageBox}

@@ -54,7 +54,6 @@ class FooderRegister extends Component {
             return new Promise(resolve => setTimeout(resolve, milliseconds))
         }
         
-
         axios.post('/api/fooder_register/add',
             food_register
         ,
@@ -89,7 +88,7 @@ class FooderRegister extends Component {
                     <h2>REGISTER</h2>
                         <form onSubmit={this.handleSubmit}>
                             <div className={classes.FooderForm_Group}>
-                                <div className={classes.FooderForm_HalfField}>
+                                <div className={classes.FooderForm_Field}>
                                     <TextField
                                         id="first_name"
                                         label="First Name"
@@ -97,12 +96,13 @@ class FooderRegister extends Component {
                                         multiline
                                         variant="outlined"
                                         style={{width:'240px'}}
+                                        
                                         name="first_name"
                                         value={this.state.first_name}
                                         onChange={this.handleChange}
                                         />
                                 </div>
-                                <div className={classes.FooderForm_HalfField}>
+                                <div className={classes.FooderForm_Field}>
                                     <TextField
                                         id="last_name"
                                         label="Last Name"
@@ -110,6 +110,7 @@ class FooderRegister extends Component {
                                         multiline
                                         variant="outlined"
                                         style={{width:'240px'}}
+                                        
                                         name="last_name"
                                         value={this.state.last_name}
                                         onChange={this.handleChange}
@@ -124,7 +125,7 @@ class FooderRegister extends Component {
                                         placeholder="Your Email"
                                         multiline
                                         variant="outlined"
-                                        fullWidth
+                                        className={classes.Fooder_TextField}
                                         name="email"
                                         value={this.state.email}
                                         onChange={this.handleChange}
@@ -138,7 +139,7 @@ class FooderRegister extends Component {
                                         placeholder="Your Password"
                                         variant="outlined"
                                         type="password"
-                                        fullWidth
+                                        className={classes.Fooder_TextField}
                                         name="password"
                                         value={this.state.password}
                                         onChange={this.handleChange} 
@@ -152,7 +153,7 @@ class FooderRegister extends Component {
                                     placeholder="Your Password Confirmation"
                                     variant="outlined"
                                     type="password"
-                                    fullWidth
+                                    className={classes.Fooder_TextField}
                                     name="password_confirmation"
                                     value={this.state.password_confirmation}
                                     onChange={this.handleChange}  

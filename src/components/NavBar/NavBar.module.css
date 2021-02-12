@@ -1,10 +1,11 @@
 .NavBar {
   height: 90px;
   width: 100%;
-  background-color: lightseagreen;
+  background-color: transparent;
   position: fixed;
   top: 0;
   z-index: 99;
+  transition: 0.3s ease-out;
 }
 
 .NavBar .NotificationIcons {
