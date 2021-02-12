@@ -1,6 +1,6 @@
 .BlockContent {
   height: 100%;
-  padding-top: 100px;
+  padding: 100px;
 }
 
 .BlockTitle {
@@ -15,28 +15,21 @@
 }
 
 .BlockImage {
-  width: 38%;
-  height: 50%;
-  text-align: center;
+  width: 30%;
   display: block;
   margin: auto;
-  border: 0;
   box-shadow: 3px 3px 3px 3px #ccc;
   border-radius: 2%;
+  position: relative;
 }
 
 .BlockSelector {
-  border: 0;
   width: 38%;
-  margin-top: 40px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 10px auto;
   box-shadow: 3px 3px 3px 3px #ccc;
-  padding: 14px 12px;
-  padding-bottom: 10px;
+  padding: 5px 10px;
   border-radius: 2%;
-  margin-bottom: 20px;
 }
 
 .BlockSelector h3 {
@@ -154,8 +147,17 @@
 }
 
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 1025px) {
   /* Styles */
+  .BlockImage {
+    float: left;
+    left: 10%;
+  }
+
+  .BlockSelector {
+    position: relative;
+    right: -20%;
+  }
 
   .BlockSelector .ButtonQuantityText {
     display: inline-block;
@@ -174,10 +176,19 @@
   } /*adjust on mobile*/
 }
 
-/* Desktops and laptops Two ----------- */
+/* Mobile Responsive ----------- */
 @media only screen and (max-width: 1024px) {
   /* Styles */
+  .BlockImage {
+    right: 0;
+  }
+
+  #qty {
+    display: block;
+  }
+
   .BlockSelector {
     width: 75%;
+    margin-top: 40px;
   }
 }

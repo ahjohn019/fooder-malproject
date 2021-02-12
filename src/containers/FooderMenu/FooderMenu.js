@@ -108,8 +108,9 @@ class NasiBuilder extends Component {
         });
 
         return (
-            <div className={classes.BlockContent}>
+            <div>
                 <NavBar />  
+                <div className={classes.BlockContent}>
                 <div className={classes.BlockImagePosition}>
                     <img src={NasiLemakImg} alt="NasiLemak" className={classes.BlockImage}/>
                 </div>
@@ -118,9 +119,27 @@ class NasiBuilder extends Component {
                     <h3>{this.state.fooder_maindish["maindish"]}</h3>
                     <p>{this.state.fooder_maindish["description"]}</p>
                 </div>     
+                
+                {/* Reusable Component */}       
+                <div className={classes.BlockSelector} >
+                    <h3>Quantity</h3>
+                    <div className={classes.BlockAdjustSelector}>
+                        <div className={classes.ButtonQuantityLeft}>
+                            <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
+                                <FaMinus size={24}/>
+                            </button>
+                        </div>
+                        <div className={classes.ButtonQuantityText}>
+                            {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
+                        </div>
+                        <div className={classes.ButtonQuantityRight}>
+                            <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
+                        </div>
+                    </div>
+                </div>
 
                 <div className={classes.BlockSelector}>
-                    <h3 className={classes.addontitle}>Add-On Sides</h3>
+                    <h3 className={classes.addontitle}>Side Dishes</h3>
                     
                     {
                         this.state.fooder_menu.map(fmenu =>
@@ -143,27 +162,11 @@ class NasiBuilder extends Component {
                             </div>
                         )
                     }
+                    
                 </div>
 
-                {/* Reusable Component */}
-                <div className={classes.BlockSelector}>
-                    <h3>Quantity</h3>
-                    <div className={classes.BlockAdjustSelector}>
-                        <div className={classes.ButtonQuantityLeft}>
-                            <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
-                                <FaMinus size={24}/>
-                            </button>
-                        </div>
-                        <div className={classes.ButtonQuantityText}>
-                            {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
-                        </div>
-                        <div className={classes.ButtonQuantityRight}>
-                            <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div className={classes.BlockSelector}>
+                {/* Reusable Component */}            
+                <div className={classes.BlockSelector} >
                     <h3>Remarks</h3>
                     <br />
                         <TextField
@@ -197,6 +200,7 @@ class NasiBuilder extends Component {
                         RM {totalPrice} 
                     </Button> 
                 </Footer>
+                </div>
             </div>
         );
     }

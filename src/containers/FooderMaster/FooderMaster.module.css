@@ -61,14 +61,14 @@ h2 {
     margin-top: 15%;
   }
   .FoodMasterDisplayContent {
-    border: 0;
     left: 20%;
     padding: 6px 2px;
-    top: 5%;
-    display: flex;
-    align-items: left;
     flex-direction: column;
-    width: 70%;
+    width: 60%;
+  }
+  .FoodMasterDisplayImage {
+    height: 100px;
+    width: 100px;
   }
 }
 
