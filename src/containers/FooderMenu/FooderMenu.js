@@ -3,12 +3,13 @@ import classes from './FooderMenu.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Button from '../../components/UI/Button/ButtonCheckout';
 import Footer from '../../components/Footer/Footer';
-import { FaMinus, FaPlus } from "react-icons/fa";
 import axios from "axios";
 import {TextField} from '@material-ui/core';
 import {Checkbox, FormControlLabel} from '@material-ui/core';
 import NasiLemakImg from '../../assets/images/nasi_lemak_sample.jpg';
-
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 class NasiBuilder extends Component {
 
@@ -118,7 +119,7 @@ class NasiBuilder extends Component {
                 </div>
 
                 <div className={classes.BlockSelector}>
-                    <h3>{this.state.fooder_maindish["maindish"]}</h3>
+                    <h5>{this.state.fooder_maindish["maindish"]}</h5>
 
                     {this.state.fooder_maindish["description"] === "" ? 
                     <p className={classes.BlockWarningMessage}>No Message Available</p> :
@@ -128,24 +129,26 @@ class NasiBuilder extends Component {
                 
                 {/* Reusable Component */}       
                 <div className={classes.BlockSelector} >
-                    <h3>Quantity</h3>
+                    <h5>Quantity</h5>
                     <div className={classes.BlockAdjustSelector}>
                         <div className={classes.ButtonQuantityLeft}>
-                            <button onClick={this.handlequantityDecrement} className={classes.ButtonLeft}>
-                                <FaMinus size={24}/>
-                            </button>
+                            <Fab color="primary" aria-label="add" onClick={this.handlequantityDecrement} size="small">
+                                <RemoveIcon />
+                            </Fab>
                         </div>
                         <div className={classes.ButtonQuantityText}>
                             {this.state.showQuantity ? <h2>{this.state.quantity}</h2> : ""}
                         </div>
                         <div className={classes.ButtonQuantityRight}>
-                            <button onClick={this.handlequantityIncrement}><FaPlus size={24}/></button>
+                        <Fab color="primary" aria-label="add" onClick={this.handlequantityIncrement} size="small">
+                            <AddIcon />
+                        </Fab>
                         </div>
                     </div>
                 </div>
 
                 <div className={classes.BlockSelector}>
-                    <h3 className={classes.addontitle}>Side Dishes</h3>
+                    <h5>Side Dishes</h5>
                     
                     {
                         this.state.fooder_menu.length <= 0 ?
@@ -166,7 +169,8 @@ class NasiBuilder extends Component {
                                     }
                                     />
                                 </span>
-                                <label>{fmenu.addon} <p>+ {fmenu.price_addon}</p> </label>            
+                                <label>{fmenu.addon} </label>   
+                                <p className={classes.BlockLabelPrice}> {fmenu.price_addon}</p>         
                             </div>
                         )
                     }
@@ -175,8 +179,7 @@ class NasiBuilder extends Component {
 
                 {/* Reusable Component */}            
                 <div className={classes.BlockSelector} >
-                    <h3>Remarks</h3>
-                    <br />
+                    <h5>Remarks</h5>
                         <TextField
                             required
                             id="outlined-multiline-static"
