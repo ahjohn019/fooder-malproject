@@ -83,13 +83,15 @@ class navBar extends Component {
                                         <p onClick={this.handleLogout}>Logout</p>                                                                                   
                                     </div>
                                 :
-                                    <Link to="/login"> 
-                                        <p>Login</p>
-                                    </Link>
+                                    <div>
+                                        <Link to="/login"> 
+                                            <p>Login</p>
+                                        </Link>
+                                        <Link to="/register">
+                                            <p>Register</p>
+                                        </Link>
+                                    </div>
                             }
-                            <Link to="/register">
-                                <p>Register</p>
-                            </Link>
                         </div>
                     </div>
                 </NavItem>

@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Payment from '../Payment/Payment';
 import axios from "axios";
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 class Checkout extends Component {
     constructor(props){
@@ -45,47 +46,51 @@ class Checkout extends Component {
 
     render() {
         const _gettotalprice = this.state.foodercheckout.map(fcheckout => fcheckout.totalprice).reduce((sum,index)=>sum+index,0);
+        
         return (
-            <div className={classes.CheckoutBody}>
+            <div>
                 <NavBar />  
+                <div className={classes.CheckoutBody}>
                     <div className={classes.CheckoutBlockSelector}>    
                         <h2>Your Order</h2>
-                        <hr />
-                        {this.state.foodercheckout.map((fcheckout) =>
-                            <div key={fcheckout._id}>
-                                <h3 className={classes.CheckoutTitle}>x{fcheckout.quantity}</h3>
-                                <h3 className={classes.CheckoutTitle}>{fcheckout.maindish}</h3>
-                                <p className={classes.CheckoutPrice}>RM {fcheckout.totalprice}</p>
-                                <p>{fcheckout.type} - RM {fcheckout.baseprice}</p>
+                        {
+                            this.state.foodercheckout.length <= 0 ?
+                               <p className={classes.CheckoutNoOrder}><ErrorOutlineIcon />You Have No Place Order</p> :
+                            this.state.foodercheckout.map((fcheckout) =>
+                                <div key={fcheckout._id}>
+                                    <h3 className={classes.CheckoutTitle}>x{fcheckout.quantity}</h3>
+                                    <h3 className={classes.CheckoutTitle}>{fcheckout.maindish}</h3>
+                                    <p className={classes.CheckoutPrice}>RM {fcheckout.totalprice}</p>
+                                    <p>{fcheckout.type} - RM {fcheckout.baseprice}</p>
 
-                                <div style={{marginLeft:"50px"}} key={fcheckout._id}>
-                                    {
-                                        fcheckout.addon.map((fadd) => 
-                                            <div key={fadd} className={classes.checkoutEditColumn}>
-                                                <span value={fadd} className={classes.checkoutaddOn}>
-                                                    {fadd}                                     
-                                                </span>
-                                            </div>)
-                                    }        
-                                </div>
+                                    <div style={{marginLeft:"50px"}} key={fcheckout._id}>
+                                        {
+                                            fcheckout.addon.map((fadd) => 
+                                                <div key={fadd} className={classes.checkoutEditColumn}>
+                                                    <span value={fadd} className={classes.checkoutaddOn}>
+                                                        {fadd}                                     
+                                                    </span>
+                                                </div>)
+                                        }        
+                                    </div>
+                                        
+                                    <p>Remarks: {fcheckout.remarks}</p>
+                                    {/* Delete The Data */}
+                                    <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        className={classes.CheckoutDeleteButton}
+                                        startIcon={<DeleteIcon />}
+                                        type="submit"
+                                        onClick={this.deleteCheckoutHandler}
+                                        value={fcheckout._id}
+                                    >
+                                        Delete
+                                    </Button>
                                     
-                                <p>Remarks: {fcheckout.remarks}</p>
-                                {/* Delete The Data */}
-                                <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    className={classes.CheckoutDeleteButton}
-                                    startIcon={<DeleteIcon />}
-                                    type="submit"
-                                    onClick={this.deleteCheckoutHandler}
-                                    value={fcheckout._id}
-                                >
-                                    Delete
-                                </Button>
-                                
-                                <hr />
-                                
-                            </div>
+                                    <hr />
+                                    
+                                </div>
                         )}
                         <br />
                         <h3 className={classes.CheckoutTitle}>Subtotal : </h3>
@@ -93,7 +98,7 @@ class Checkout extends Component {
                     </div>  
                     <Payment />     
                 <Footer />
-               
+                </div>
             </div>
         );
     }

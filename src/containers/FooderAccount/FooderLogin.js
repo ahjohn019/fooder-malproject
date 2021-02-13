@@ -81,7 +81,7 @@ class FooderLogin extends Component {
                                             placeholder="Your Email"
                                             multiline
                                             variant="outlined"
-                                            fullWidth
+                                            className={classes.Fooder_TextField}
                                             name="email"
                                             value={this.state.email}
                                             onChange={this.handleChange}
@@ -95,7 +95,7 @@ class FooderLogin extends Component {
                                             placeholder="Your Password"
                                             variant="outlined"
                                             type="password"
-                                            fullWidth
+                                            className={classes.Fooder_TextField}
                                             name="password"
                                             value={this.state.password}
                                             onChange={this.handleChange} 

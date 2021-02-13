@@ -38,7 +38,11 @@
 }
 
 .BlockSelector p {
-  padding-left: 10px;
+  padding-left: 5px;
+}
+
+.BlockWarningMessage {
+  text-align: center;
 }
 
 .BlockSubselector {

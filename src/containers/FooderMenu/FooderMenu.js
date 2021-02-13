@@ -9,6 +9,7 @@ import {TextField} from '@material-ui/core';
 import {Checkbox, FormControlLabel} from '@material-ui/core';
 import NasiLemakImg from '../../assets/images/nasi_lemak_sample.jpg';
 
+
 class NasiBuilder extends Component {
 
     constructor(props) {
@@ -107,6 +108,7 @@ class NasiBuilder extends Component {
             return {label:key, price:checkoutPrice[index]}
         });
 
+
         return (
             <div>
                 <NavBar />  
@@ -117,7 +119,11 @@ class NasiBuilder extends Component {
 
                 <div className={classes.BlockSelector}>
                     <h3>{this.state.fooder_maindish["maindish"]}</h3>
-                    <p>{this.state.fooder_maindish["description"]}</p>
+
+                    {this.state.fooder_maindish["description"] === "" ? 
+                    <p className={classes.BlockWarningMessage}>No Message Available</p> :
+                    <p>{this.state.fooder_maindish["description"]}</p>}
+
                 </div>     
                 
                 {/* Reusable Component */}       
@@ -142,6 +148,8 @@ class NasiBuilder extends Component {
                     <h3 className={classes.addontitle}>Side Dishes</h3>
                     
                     {
+                        this.state.fooder_menu.length <= 0 ?
+                        <p className={classes.BlockWarningMessage}>Not Available</p> :                           
                         this.state.fooder_menu.map(fmenu =>
                             <div key={fmenu.addon} className={classes.checkboxOne}>
                                 <span>
