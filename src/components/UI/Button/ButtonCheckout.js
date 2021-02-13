@@ -4,6 +4,7 @@ import {Modal, Button} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { FaTimes, FaCheck, FaPlus } from "react-icons/fa";
 import axios from 'axios';
+import PurchaseButton from '@material-ui/core/Button';
 
 const ButtonConfirmation = (props) => {
         const [show, setShow] = useState(false);
@@ -60,10 +61,19 @@ const ButtonConfirmation = (props) => {
         
         return(
             <>
-                <button className={classes.ButtonConfirmation} type="submit" value="Submit" onClick={handleShow}>
+                {/* <button className={classes.ButtonConfirmation} type="submit" value="Submit" onClick={handleShow}>
                     <p>{props.children}</p>
-                </button>                
-                
+                </button>  */}
+                <div className={classes.ButtonPurchase}>
+                    <PurchaseButton
+                        variant="contained"
+                        color="primary"
+                        style={{fontSize:"24px"}}
+                        onClick={handleShow}
+                    >
+                        {props.children}
+                    </PurchaseButton>
+                </div>
                 <Modal show={show} 
                     onHide={handleClose} 
                     aria-labelledby="contained-modal-title-vcenter"

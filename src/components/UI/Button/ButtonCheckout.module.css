@@ -1,84 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 
-.ButtonConfirmation {
-    border:0;
-    border-radius: 5%;
-    background-color: #87CEFA;
-    width:25%;
-    margin:0 auto;
-    color:white;
-    display: flex;
-    padding: 0 15px;
-    box-shadow: 0 7px #999;
-    justify-content: center;
+.ButtonPurchase {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0;
 }
 
-.ButtonConfirmation p {
-    font-size: 24px;
-}
-
-.ButtonConfirmation:hover{
-    background-color:#6CA5C8;
-    cursor: pointer;
-}
-
-.ButtonConfirmation:active {
-    background-color:#6CA5C8;
-    box-shadow: 0 4px #666;
-    transform: translateY(4px);
-}
-
-.ButtonConfirmation:focus{
-    outline: none;
+.ButtonPurchase:focus {
+  outline: none;
 }
 
 .PriceList {
-    display: inline;
-    font-weight: bold;
+  display: inline;
+  font-weight: bold;
 }
 
 .ModalHeader {
-    background-color: lightseagreen;
+  background-color: lightseagreen;
 }
 
-.ModalContent p{
-    font-size: 18px;
-    font-weight: 500;
-    font-family: 'Itim', cursive;
+.ModalContent p {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Itim", cursive;
 }
 
-.ModalContent li{
-    font-size: 18px;
-    font-weight: 500;
-    font-family: 'Itim', cursive;
+.ModalContent li {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Itim", cursive;
 }
 
 .ModalFooter {
-    background-color: lightseagreen;
+  background-color: lightseagreen;
 }
 
 .ModalTitle {
-    font-size: xx-large;
-    color:white;
-    font-family: 'Itim', cursive;
+  font-size: xx-large;
+  color: white;
+  font-family: "Itim", cursive;
 }
 
 @media only screen and (max-width: 600px) {
-    .ButtonConfirmation{
-        padding-top: 5px;
-        width:15%;
-    }
+  .ButtonConfirmation {
+    padding-top: 5px;
+    width: 15%;
+  }
 }
 
 @media only screen and (min-width: 600px) {
-    .ButtonConfirmation{
-        width:15%;
-    }
+  .ButtonConfirmation {
+    width: 15%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .ButtonConfirmation{
-        width:20%;
-    }
+  .ButtonConfirmation {
+    width: 20%;
+  }
 }
-

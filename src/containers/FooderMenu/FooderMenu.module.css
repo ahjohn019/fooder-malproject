@@ -28,8 +28,12 @@
   display: block;
   margin: 0 auto 10px auto;
   border: 1px solid lightgray;
-  padding: 5px 10px;
+  padding: 16px 14px;
   border-radius: 2%;
+}
+
+.BlockSelector .ButtonQuantityText h2 {
+  padding: 0;
 }
 
 .BlockSelector p {
@@ -48,6 +52,11 @@
   outline: none;
 }
 
+.BlockSelector .ButtonQuantityText {
+  display: inline-block;
+  margin: 0 40px;
+}
+
 .BlockSelector .SpecialInstructions {
   border: 0;
   border-radius: 2%;
@@ -56,9 +65,8 @@
 }
 
 .BlockSelector .BlockAdjustSelector {
-  width: 180px;
-  display: block;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .BlockLabelPrice {
@@ -103,19 +111,6 @@
     position: relative;
     right: -20%;
   }
-
-  .BlockSelector .ButtonQuantityText {
-    display: inline-block;
-    margin: 0 40px;
-  } /*adjust on mobile*/
-
-  .BlockSelector .ButtonQuantityLeft {
-    display: inline-block;
-  } /*adjust on mobile*/
-
-  .BlockSelector .ButtonQuantityRight {
-    display: inline-block;
-  } /*adjust on mobile*/
 }
 
 /* Mobile Responsive ----------- */
@@ -123,29 +118,11 @@
   /* Styles */
   .BlockImage {
     right: 0;
-  }
-
-  #qty {
-    display: block;
+    width: 100%;
   }
 
   .BlockSelector {
     width: 100%;
     margin-top: 40px;
   }
-
-  /* Styles */
-  .BlockSelector .ButtonQuantityText {
-    padding-left: 10px;
-  } /*adjust on mobile*/
-
-  .BlockSelector .ButtonQuantityLeft {
-    display: flex;
-    justify-content: center;
-  } /*adjust on mobile*/
-
-  .BlockSelector .ButtonQuantityRight {
-    display: flex;
-    justify-content: center;
-  } /*adjust on mobile*/
 }
