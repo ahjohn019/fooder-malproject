@@ -3,8 +3,13 @@ import classes from '../../containers/Payment/Payment.module.css';
 import {TextField, FormControl, Radio, RadioGroup, FormControlLabel} from '@material-ui/core';
 import {FaDollarSign}  from "react-icons/fa";
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 class Payment extends Component {
+
+    componentDidMount() {
+
+    }
 
     paymentSuccess = () => {
         alert("Payout Success");
@@ -16,12 +21,20 @@ class Payment extends Component {
                     <form>
                         <div className={classes.CustomerDetailsBlockSelector}>
                             <h2>Billing Details</h2>
-                            <TextField 
-                                required id="full-name" 
-                                label="Full Name" 
-                                className={classes.formDetails} 
-                                fullWidth
-                            />
+                            <div className={classes.FooderForm_HalfField}>
+                                <TextField 
+                                    required id="first-name" 
+                                    label="First Name" 
+                                    className={classes.formDetails} 
+                                />
+                            </div>
+                            <div className={classes.FooderForm_HalfField}>
+                                <TextField 
+                                    required id="last-name" 
+                                    label="Last Name" 
+                                    className={classes.formDetails} 
+                                />
+                            </div>
                             <TextField
                                 required
                                 id="outlined-multiline-static"

@@ -93,8 +93,13 @@ class Checkout extends Component {
                                 </div>
                         )}
                         <br />
-                        <h3 className={classes.CheckoutTitle}>Subtotal : </h3>
-                        <h3 className={classes.CheckoutPrice}>RM {_gettotalprice}</h3>
+                        {
+                            this.state.foodercheckout.length <= 0 ? null : 
+                                <div>
+                                    <h3 className={classes.CheckoutTitle}>Subtotal : </h3>
+                                    <h3 className={classes.CheckoutPrice}>RM {_gettotalprice}</h3>
+                                </div>
+                        }
                     </div>  
                     <Payment />     
                 <Footer />

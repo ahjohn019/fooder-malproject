@@ -2,16 +2,20 @@
 
 .CheckoutBody {
   height: 100%;
-  margin: 100px auto 90px auto;
+  margin: 100px auto 100px auto;
 }
 
 .CheckoutBlockSelector {
   border: 1px solid lightgray;
-  width: 30%;
+  width: 25%;
   position: relative;
   display: block;
+  overflow: hidden;
+  height: 70%;
+}
+
+.CheckoutBlockSelector:hover {
   overflow-y: scroll;
-  height: 50%;
 }
 
 .CheckoutBlockSelector .CheckoutTitle {
