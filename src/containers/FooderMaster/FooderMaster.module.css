@@ -1,6 +1,7 @@
 .FoodMasterBody {
   height: 100%;
   margin-bottom: 60px;
+  overflow: hidden;
 }
 
 h2 {
