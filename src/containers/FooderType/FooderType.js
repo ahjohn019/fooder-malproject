@@ -124,8 +124,8 @@ class FooderType extends Component {
                                         </IconButton>
                                     </Link> :
                                     <Link to="/login">
-                                        <IconButton color="primary" aria-label="redirectfoodurl" style={{float:"right"}}>
-                                            <LockIcon />
+                                        <IconButton color="primary" aria-label="redirectfoodurl" className={classes.FooderTypeIcon}>
+                                            <LockIcon/>
                                         </IconButton>
                                     </Link>
                                 }
