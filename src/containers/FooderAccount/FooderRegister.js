@@ -12,12 +12,14 @@ class FooderRegister extends Component {
         super(props);
         this.state = {
             fooder_checkout:[],
-            message_status:"",
+            message_status:[],
+            message_validateError:"",
+            message_passwordMismatch:"",
             first_name:"",
             last_name:"",
             email:"",
             password:"",
-            password_confirmation:""};
+            password_confirmation:"" };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -28,7 +30,7 @@ class FooderRegister extends Component {
             .then(response => {
                 this.setState({
                     fooder_checkout:response.data
-                })            
+                })          
             }).catch(error=>{
                 this.setState({error:true})
         });
@@ -60,25 +62,28 @@ class FooderRegister extends Component {
             {withCredentials: true}
         )
         .then(response => {
-            if(response.status === 200) {
-                this.setState({message_status:response.data})
-                if(response.data["success"] === true){
-                    sleep(1500).then(() => this.props.history.push('/login'))
-                }
+            this.setState({message_status:response.data,message_validateError:response.status})
+            if(response.data["success"] === true){
+                sleep(1500).then(() => this.props.history.push('/login'))
             }
         })
-        .catch(error => {console.log('Registration Error', error)});
+        .catch(error => {   
+            this.setState({message_status:error.response.data.errors, message_validateError:error.response.status, message_passwordMismatch:error.response.data})
+        });
         event.preventDefault();
     }
 
 
     render() {
         const _gettotalcheckoutdata = this.state.fooder_checkout.length; 
-        const messageBox = this.state.message_status["success"] === true ?
+        const messageBox = 
+            this.state.message_validateError === 200 ?
             <MuiAlert elevation={6} variant="filled" severity="success">Registration Successfully</MuiAlert> :
-            this.state.message_status["success"] === false ?
-            <MuiAlert elevation={6} variant="filled" severity="error">Registration Failure</MuiAlert> :
-            null;   
+            this.state.message_validateError === 422 ?
+            <MuiAlert elevation={6} variant="filled" severity="error">{this.state.message_status.map(err=><p key={err.param}>{err.msg}</p>)}</MuiAlert> :
+            this.state.message_validateError === 400 ?
+            <MuiAlert elevation={6} variant="filled" severity="error">{this.state.message_passwordMismatch["message"]}</MuiAlert> : 
+            null;  
 
         return (
             <div>

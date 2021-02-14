@@ -61,9 +61,6 @@ const ButtonConfirmation = (props) => {
         
         return(
             <>
-                {/* <button className={classes.ButtonConfirmation} type="submit" value="Submit" onClick={handleShow}>
-                    <p>{props.children}</p>
-                </button>  */}
                 <div className={classes.ButtonPurchase}>
                     <PurchaseButton
                         variant="contained"

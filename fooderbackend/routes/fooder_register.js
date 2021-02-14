@@ -1,6 +1,7 @@
 const fooder_registerouter = require('express').Router();
 const FooderRegister = require('../models/fooder_register.model');
 const {auth} = require('../models/fooder_auth');
+const { check, validationResult } = require('express-validator');
 
 fooder_registerouter.route('/').get((req,res)=>{
     FooderRegister.find()
@@ -9,35 +10,47 @@ fooder_registerouter.route('/').get((req,res)=>{
 })
 
 //fooder register authenticcation
-fooder_registerouter.route('/add').post((req,res)=>{
-    const first_name = req.body.first_name;
-    const last_name = req.body.last_name;
-    const email = req.body.email;
-    const password = req.body.password;
-    const password_confirmation = req.body.password_confirmation;
- 
-    const newFoodRegister = new FooderRegister({
-        first_name,
-        last_name,
-        email,
-        password,
-        password_confirmation
-    });
-
-    if(newFoodRegister.password!=newFoodRegister.password_confirmation)return res.status(400).json({message: "password not match"});
+fooder_registerouter.route('/add').post([
+    check('first_name').trim().isLength({min:2, max:8}).withMessage('First Name Must Have Between 2 to 8'),
+    check('last_name').trim().isLength({min:2, max:8}).withMessage('Last Name Must Have Between 2 to 8'),
+    check('email').trim().isEmail().withMessage('Wrong Email Format'),
+    check('password').trim().isLength({min: 6}).withMessage('Passwword Must Have At Least 6 Character'),
+    check('password_confirmation').trim().isLength({min: 6}).withMessage('Passwword Must Have At Least 6 Character'),
+    ],(req,res)=>
+    {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array() })
+        }
+        const first_name = req.body.first_name;
+        const last_name = req.body.last_name;
+        const email = req.body.email;
+        const password = req.body.password;
+        const password_confirmation = req.body.password_confirmation;
     
-    FooderRegister.findOne({email:newFoodRegister.email},function(err,user){
-        if(user) return res.status(400).json({ auth : false, message :"email exits"});
- 
-        newFoodRegister.save((err,doc)=>{
-            if(err) {console.log(err);
-                return res.status(400).json({ success : false});}
-            res.status(200).json({
-                success:true,
-                user : doc
+        const newFoodRegister = new FooderRegister({
+            first_name,
+            last_name,
+            email,
+            password,
+            password_confirmation
+        });
+
+        if(newFoodRegister.password!=newFoodRegister.password_confirmation) return res.status(400).json({message: "Password Mismatch, Please Try Again"});
+        
+        FooderRegister.findOne({email:newFoodRegister.email},function(err,user){
+            if(user) return res.status(400).json({ auth : false, message :"email exits"});
+            newFoodRegister.save((err,doc)=>{
+                if(err) {
+                    console.log(err);
+                    return res.status(400).json({ success : false});
+                }
+                res.status(200).json({
+                    success:true,
+                    user : doc
+                });
             });
         });
-    });
 })
 
 //fooder login authentication
