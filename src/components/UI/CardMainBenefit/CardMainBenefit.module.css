@@ -1,0 +1,26 @@
+.FoodMasterBlockSelectorTwo {
+  background-color: #f7f7f7;
+}
+
+.FoodMasterDisplayContent {
+  position: relative;
+  line-height: 1.5;
+}
+
+.FoodFeaturesDesc {
+  margin: 40px auto 35px auto;
+}
+
+.FoodFeaturesDesc p {
+  text-align: center;
+  font-weight: 600;
+  margin: 30px;
+}
+
+.FoodMasterDisplayImage {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  display: block;
+  z-index: 99;
+}

@@ -53,7 +53,6 @@ class FooderLogin extends Component {
         })
         .catch(error => {
             this.setState({message_status:error.message})
-            console.log('Login Error', error)
         });
 
         event.preventDefault();
@@ -63,7 +62,7 @@ class FooderLogin extends Component {
         const messageBox = this.state.message_status["isAuth"] === true ? 
             <MuiAlert elevation={6} variant="filled" severity="success">Login Successfully</MuiAlert> :
             this.state.message_status["isAuth"] === false ?
-            <MuiAlert elevation={6} variant="filled" severity="error">Login Failed</MuiAlert> :
+            <MuiAlert elevation={6} variant="filled" severity="error">{this.state.message_status['message']}</MuiAlert> :
             null;
 
         return (

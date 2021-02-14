@@ -66,7 +66,7 @@ fooder_registerouter.route('/login').post((req,res)=>{
 
         else {
             FooderRegister.findOne({'email':req.body.email},function(err,user){
-                if(!user) return res.json({isAuth : false, message : ' Auth failed ,email not found'});
+                if(!user) return res.json({isAuth : false, message : 'Auth failed ,email not found'});
                 user.comparepassword(req.body.password,(err,isMatch)=>{
                     if(!isMatch) return res.json({ isAuth : false, message : "password doesn't match"});
                     user.generateToken((err,user)=>{
