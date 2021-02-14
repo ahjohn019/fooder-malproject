@@ -58,8 +58,8 @@
 /* Mobile ----------- */
 @media only screen and (max-width: 768px) {
   .cardTypeItem {
-    width: 150px;
-    height: 250px;
+    width: 45%;
+    height: 50%;
   }
 
   .cardTypeItem h3 {

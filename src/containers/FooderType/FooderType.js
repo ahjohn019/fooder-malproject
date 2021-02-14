@@ -119,7 +119,7 @@ class FooderType extends Component {
                                 {
                                     this.state.fooder_profile["isAuth"] === true ?
                                     <Link to={{ pathname: "/foodlist/" + ftype._id }}>
-                                        <IconButton color="primary" aria-label="redirectfoodurl" style={{float:"right"}}>
+                                        <IconButton color="primary" aria-label="redirectfoodurl" className={classes.FooderTypeIcon}>
                                             <FaPlus />
                                         </IconButton>
                                     </Link> :
