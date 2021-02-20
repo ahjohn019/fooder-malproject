@@ -1,16 +1,18 @@
 
 const express = require('express');
 const app = express();
-const port = 6000;
+const port = 8000;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser =require('cookie-parser');
 const path = require('path');
+var cors = require('cors');
 
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 require("dotenv").config();
+app.use(cors());
 
 const uri = "mongodb+srv://ahrui123:ahrui123@myprojectcluster.9c5nh.mongodb.net/fooder-maindb?retryWrites=true&w=majority"
  
@@ -18,6 +20,7 @@ const uri = "mongodb+srv://ahrui123:ahrui123@myprojectcluster.9c5nh.mongodb.net/
 // the __dirname is the current directory from where the script is running
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));//build
+
 
 
 //connect to mongoose db
@@ -45,9 +48,11 @@ app.get('*', function (req, res){
 })
 
 
+
 app.listen((process.env.PORT || port), function(){
     console.log(`Example app listening at http://localhost:${port}`)
 });
+
 
 
 //sample to get foodmenu list api

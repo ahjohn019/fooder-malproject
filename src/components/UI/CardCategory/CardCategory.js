@@ -22,22 +22,24 @@ class cardCategory extends Component {
     }
 
     render() {
-
+        const {fooder_type} = this.state;
+        
         return (
             <div>
                 <div className={classes.cardCategoryGrid}>  
-
-                    {this.state.fooder_type.map(ftype=>
-                        <div key={ftype._id} className={classes.cardCategoryList}>
-                            <img src={process.env.PUBLIC_URL + `/img/${ftype.foodimgname}`} alt="MalaysiaFood" className={classes.categoriesImg}></img>
-                            <div className={classes.FoodCategory}>
-                                <Link to={{ pathname: "/foodertype/type",
-                                            search:"?type=" + ftype.foodalias }}>
-                                    <p>{ftype.foodtype}</p>
-                                </Link>
+                    {
+                        fooder_type.map(ftype=>
+                            <div key={ftype._id} className={classes.cardCategoryList}>
+                                <img src={process.env.PUBLIC_URL + `/img/${ftype.foodimgname}`} alt="MalaysiaFood" className={classes.categoriesImg}></img>
+                                <div className={classes.FoodCategory}>
+                                    <Link to={{ pathname: "/foodertype/type",
+                                                search:"?type=" + ftype.foodalias }}>
+                                        <p>{ftype.foodtype}</p>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )
+                    }
                 </div>
         </div>
     );

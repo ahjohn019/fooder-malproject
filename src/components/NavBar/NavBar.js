@@ -79,7 +79,9 @@ class navBar extends Component {
                             { 
                                 this.state.fooder_profile['isAuth'] === true ?
                                     <div>
-                                        <p>{this.state.fooder_profile['name']}</p>                                        
+                                        <Link to="/profile">
+                                            <p>{this.state.fooder_profile['name']}</p>   
+                                        </Link>                                     
                                         <p onClick={this.handleLogout}>Logout</p>                                                                                   
                                     </div>
                                 :

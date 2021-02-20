@@ -7,8 +7,20 @@ import axios from 'axios';
 
 class Payment extends Component {
 
-    componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fooder_profile: []
+        }
+    }
 
+    componentDidMount() {
+        axios.get('/api/fooder_register/profile')
+        .then(response=>{
+            this.setState({fooder_profile: response.data})
+        }).catch(error=>{
+            this.setState({error:true})
+        });
     }
 
     paymentSuccess = () => {
@@ -21,20 +33,18 @@ class Payment extends Component {
                     <form>
                         <div className={classes.CustomerDetailsBlockSelector}>
                             <h2>Billing Details</h2>
-                            <div className={classes.FooderForm_HalfField}>
+                            {this.state.fooder_profile["isAuth"] === true ? 
+                                <div>
+                                    <p>Your Name : {this.state.fooder_profile["name"]}</p> 
+                                    <p>Your Email : {this.state.fooder_profile["email"]}</p>
+                                </div> :
                                 <TextField 
-                                    required id="first-name" 
-                                    label="First Name" 
+                                    required id="full-name" 
+                                    label="Full Name" 
                                     className={classes.formDetails} 
+                                    fullWidth
                                 />
-                            </div>
-                            <div className={classes.FooderForm_HalfField}>
-                                <TextField 
-                                    required id="last-name" 
-                                    label="Last Name" 
-                                    className={classes.formDetails} 
-                                />
-                            </div>
+                            }
                             <TextField
                                 required
                                 id="outlined-multiline-static"

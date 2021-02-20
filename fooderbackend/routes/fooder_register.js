@@ -3,6 +3,7 @@ const FooderRegister = require('../models/fooder_register.model');
 const {auth} = require('../models/fooder_auth');
 const { check, validationResult } = require('express-validator');
 
+
 fooder_registerouter.route('/').get((req,res)=>{
     FooderRegister.find()
         .then(FooderRegister => res.json(FooderRegister))
@@ -25,6 +26,10 @@ fooder_registerouter.route('/add').post([
         const first_name = req.body.first_name;
         const last_name = req.body.last_name;
         const email = req.body.email;
+        const dob = req.body.dob;
+        const address = req.body.address;
+        const state = req.body.state;
+        const country = req.body.country;
         const password = req.body.password;
         const password_confirmation = req.body.password_confirmation;
     
@@ -32,6 +37,10 @@ fooder_registerouter.route('/add').post([
             first_name,
             last_name,
             email,
+            dob,
+            address,
+            state,
+            country,
             password,
             password_confirmation
         });
@@ -52,6 +61,7 @@ fooder_registerouter.route('/add').post([
             });
         });
 })
+
 
 //fooder login authentication
 fooder_registerouter.route('/login').post((req,res)=>{
@@ -89,9 +99,32 @@ fooder_registerouter.route('/profile').get(auth,(req,res)=>{
         isAuth:true,
         id:req.user._id,
         email:req.user.email,
-        name:req.user.first_name+req.user.last_name
+        name:req.user.first_name+req.user.last_name,
+        dob:req.user.dob,
+        address:req.user.address,
+        state: req.user.state,
+        country:req.user.country
     })
 });
+
+
+//fooder profile update with authentication
+fooder_registerouter.route('/profile/update').post(auth,(req,res)=>{
+    const {id, email, first_name, last_name, address,dob, state, country} = req.body;
+    FooderRegister.findOne({email:email},function(err,user){
+        user.first_name = first_name;
+        user.last_name = last_name;
+        user.address = address;
+        user.dob = dob;
+        user.state = state;
+        user.country = country;
+        user.save()
+            .then(()=>res.json('Profile Updated'))
+            .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 //fooder profile logout
 fooder_registerouter.route('/logout').get(auth,(req,res)=>{

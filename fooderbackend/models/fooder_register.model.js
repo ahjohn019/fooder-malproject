@@ -9,6 +9,10 @@ let foodRegisterSchema = new Schema({
     first_name:{type:String},
     last_name:{type:String},
     email:{type:String},
+    dob:{type:String},
+    address:{type: [String] },
+    state:{type:String},
+    country:{type:String},
     password:{type:String},
     password_confirmation:{type:String},
     token:{type:String}

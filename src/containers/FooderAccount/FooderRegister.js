@@ -18,6 +18,10 @@ class FooderRegister extends Component {
             first_name:"",
             last_name:"",
             email:"",
+            dob:"",
+            address:"",
+            state:"",
+            country:"",
             password:"",
             password_confirmation:"" };
 
@@ -43,11 +47,15 @@ class FooderRegister extends Component {
     }
 
     handleSubmit = (event) => {
-        const {first_name, last_name, email,password,password_confirmation} = this.state;
+        const {first_name, last_name, email,dob,address, state, country, password,password_confirmation} = this.state;
         const food_register = ({
             first_name: first_name,
             last_name: last_name,
             email: email,
+            dob: dob,
+            address:address,
+            states:state,
+            country: country,
             password: password,
             password_confirmation: password_confirmation
         })
@@ -115,7 +123,6 @@ class FooderRegister extends Component {
                                         multiline
                                         variant="outlined"
                                         style={{width:'240px'}}
-                                        
                                         name="last_name"
                                         value={this.state.last_name}
                                         onChange={this.handleChange}
@@ -131,12 +138,72 @@ class FooderRegister extends Component {
                                         multiline
                                         variant="outlined"
                                         className={classes.Fooder_TextField}
+                                        style={{width:'240px'}}
                                         name="email"
                                         value={this.state.email}
                                         onChange={this.handleChange}
                                     />
                                 </div>
+                                <div className={classes.FooderForm_Field}>
+                                    <TextField
+                                        id="dob"
+                                        label="Dob"
+                                        placeholder="Date Of Birth"
+                                        multiline
+                                        variant="outlined"
+                                        className={classes.Fooder_TextField}
+                                        style={{width:'240px'}}
+                                        name="dob"
+                                        value={this.state.dob}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
                             </div> 
+                            <div className={classes.FooderForm_Group}>
+                                <div className={classes.FooderForm_Field}>
+                                    <TextField
+                                        id="address"
+                                        label="Address"
+                                        placeholder="Your Address"
+                                        multiline
+                                        variant="outlined"
+                                        className={classes.Fooder_TextField}
+                                        name="address"
+                                        value={this.state.address}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
+                            </div> 
+                            <div className={classes.FooderForm_Group}>
+                                <div className={classes.FooderForm_Field}>
+                                    <TextField
+                                        id="state"
+                                        label="State"
+                                        placeholder="Your State"
+                                        multiline
+                                        variant="outlined"
+                                        className={classes.Fooder_TextField}
+                                        style={{width:'240px'}}
+                                        name="state"
+                                        value={this.state.states}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
+                                <div className={classes.FooderForm_Field}>
+                                    <TextField
+                                        id="country"
+                                        label="Country"
+                                        placeholder="Your Country"
+                                        multiline
+                                        variant="outlined"
+                                        className={classes.Fooder_TextField}
+                                        style={{width:'240px'}}
+                                        name="country"
+                                        value={this.state.country}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
+                            </div>
                             <div className={classes.FooderForm_Group}>
                                 <div className={classes.FooderForm_Field}>
                                     <TextField ref='password'

@@ -136,14 +136,17 @@ class cardSlider extends Component {
                     }
                     
                 `
-
+        
+        const {foodermaindish} = this.state;
+         
         return(
             <div className={classes.cardBestSellerGrid}>
                 <div>
                     <h2>Best Seller</h2>
 
                     <StyledSlider {...settings}>
-                        {this.state.foodermaindish.map(f=>
+                        {
+                            foodermaindish.map(f=>
                             <div key={f._id} className={classes.cardBestSellerItem}>  
                                 <img src={NasiLemakImg} alt="NasiLemak" className={classes.cardBestSellerImage}/>
                                 <h3>{f.maindish}</h3>

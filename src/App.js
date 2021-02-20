@@ -7,8 +7,10 @@ import FooderCheckout from './containers/FooderCheckout/FooderCheckout';
 import FooderType from './containers/FooderType/FooderType';
 import FooderRegister from './containers/FooderAccount/FooderRegister';
 import FooderLogin from './containers/FooderAccount/FooderLogin';
+import FooderProfile from './containers/FooderAccount/FooderProfile';
 
 class App extends Component {
+
 
   render (){
     return (
@@ -19,6 +21,7 @@ class App extends Component {
             <Route path="/checkout" component={FooderCheckout}/>
             <Route path="/register" component={FooderRegister} />
             <Route path="/login" component={FooderLogin} />
+            <Route path="/profile" component={FooderProfile} />
         </Switch>   
     );
   }; 

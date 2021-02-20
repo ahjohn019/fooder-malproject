@@ -34,6 +34,41 @@
   width: 540px;
 }
 
+.Fooder_SidebarBody {
+  max-width: 60%;
+  margin: 100px auto 100px auto;
+}
+
+.Fooder_ProfileBar {
+  border: 1px solid lightgray;
+  display: flex;
+  padding: 5px 12px;
+  justify-content: center;
+}
+
+.Fooder_ProfileBar h3 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.Fooder_AvatarProfile {
+  margin: 20px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Fooder_AvatarImg {
+  width: 40%;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.Fooder_AccountBlock {
+  border: 1px solid lightgray;
+  padding: 30px 20px;
+}
 /* Mobile One----------- */
 @media only screen and (max-width: 768px) {
   /* Styles */
@@ -45,5 +80,11 @@
   }
   .Fooder_TextField {
     width: 240px;
+  }
+  .Fooder_AvatarProfile {
+    flex-direction: column;
+  }
+  .Fooder_SidebarBody {
+    max-width: 80%;
   }
 }
