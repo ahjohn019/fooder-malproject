@@ -110,7 +110,7 @@ fooder_registerouter.route('/profile').get(auth,(req,res)=>{
 
 //fooder profile update with authentication
 fooder_registerouter.route('/profile/update').post(auth,(req,res)=>{
-    const {id, email, first_name, last_name, address,dob, state, country} = req.body;
+    const {email, first_name, last_name, address,dob, state, country} = req.body;
     FooderRegister.findOne({email:email},function(err,user){
         user.first_name = first_name;
         user.last_name = last_name;

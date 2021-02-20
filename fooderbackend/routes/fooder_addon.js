@@ -21,7 +21,6 @@ fooder_menurouter.route('/add').post((req,res) => {
         price_addon
     });
 
-    //2nd method test
     FooderMainDish.find({}, function(err,result){
         if(err){
             console.log(err);

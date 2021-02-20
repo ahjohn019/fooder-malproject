@@ -36,12 +36,14 @@ const FooderCheckoutRouter = require('./fooderbackend/routes/fooder_checkout');
 const FooderAddOnRouter = require('./fooderbackend/routes/fooder_addon');
 const FooderTypeRouter = require('./fooderbackend/routes/fooder_type');
 const FooderRegisterRouter = require('./fooderbackend/routes/fooder_register');
+const FooderOrderRouter = require('./fooderbackend/routes/fooder_order');
 
 app.use('/api/fooder_maindish', FooderMainDishRouter)
 app.use('/api/fooder_checkout', FooderCheckoutRouter);
 app.use('/api/fooder_addon',FooderAddOnRouter);
 app.use('/api/fooder_type',FooderTypeRouter);
 app.use('/api/fooder_register',FooderRegisterRouter);
+app.use('/api/fooder_order/',FooderOrderRouter);
 
 app.get('*', function (req, res){
   res.sendFile(path.join(__dirname+'/build/index.html'));//'/build/index.html'
