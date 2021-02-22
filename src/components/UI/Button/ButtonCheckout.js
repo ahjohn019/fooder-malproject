@@ -21,22 +21,22 @@ const ButtonConfirmation = (props) => {
             const btnValue = event.currentTarget.value;
 
             const foodCheckoutList = ({
-                maindish:props.fooderMaindish,
-                type:props.fooderType,
-                addon: _addon,
-                quantity: props.quantity,
-                totalprice:props.totalPrice,
-                baseprice:props.fooderbasePrice,
-                remarks:props.specialInstruction
+                order_title:props.fooderMaindish,
+                order_type:props.fooderType,
+                order_addon: _addon,
+                order_qty: props.quantity,
+                order_price:props.totalPrice,
+                order_baseprice:props.fooderbasePrice,
+                order_remarks:props.specialInstruction,
+                order_status: "Awaiting Payment"
             });
 
-            if(foodCheckoutList.remarks === "" ){
-                foodCheckoutList.remarks = "None"
+            if(foodCheckoutList.order_remarks === "" ){
+                foodCheckoutList.order_remarks = "None"
             }
 
-            
             if(btnValue === "btnCheckout"){
-                axios.post('/api/fooder_checkout/add', foodCheckoutList).then(function (response) {
+                axios.post('/api/fooder_order/order/add', foodCheckoutList).then(function (response) {
                     console.log(response);
                   })
                   .catch(function (error) {
@@ -50,8 +50,8 @@ const ButtonConfirmation = (props) => {
 
             if(btnValue === "btnGoBack"){
                 history.push('/');
-                axios.post('/api/fooder_checkout/add', foodCheckoutList).then(function (response) {
-                    console.log(response);
+                axios.post('/api/fooder_order/order/add', foodCheckoutList).then(function (response) {
+                    console.log(response.data);
                   })
                   .catch(function (error) {
                     console.log(error);

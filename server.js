@@ -43,7 +43,7 @@ app.use('/api/fooder_checkout', FooderCheckoutRouter);
 app.use('/api/fooder_addon',FooderAddOnRouter);
 app.use('/api/fooder_type',FooderTypeRouter);
 app.use('/api/fooder_register',FooderRegisterRouter);
-app.use('/api/fooder_order/',FooderOrderRouter);
+app.use('/api/fooder_order',FooderOrderRouter);
 
 app.get('*', function (req, res){
   res.sendFile(path.join(__dirname+'/build/index.html'));//'/build/index.html'
@@ -55,16 +55,3 @@ app.listen((process.env.PORT || port), function(){
     console.log(`Example app listening at http://localhost:${port}`)
 });
 
-
-
-//sample to get foodmenu list api
-// app.get('/api/foodmenu',(req, res) => {
-//     const foodmenu = [
-//         {label: 'Peanut', type:'peanut', price:1},
-//         {label: 'Fried Chicken', type: 'fried_chicken', price:2},
-//         {label: 'Salty Egg', type: 'salty_egg', price:3},
-//         {label: 'Rice', type: 'rice', price:1}
-//     ];
-
-//     res.json(foodmenu);
-// });

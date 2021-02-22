@@ -13,6 +13,7 @@ let foodRegisterSchema = new Schema({
     address:{type: [String] },
     state:{type:String},
     country:{type:String},
+    phonenumber:{type:String},
     password:{type:String},
     password_confirmation:{type:String},
     token:{type:String}

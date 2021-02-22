@@ -10,14 +10,16 @@ fooder_orderrouter.route('/').get((req,res)=>{
 
 //user profile with order
 fooder_orderrouter.route('/order/add').post((req,res)=>{
-    const {order_name,order_desc,order_addon,order_qty,order_price,order_status} = req.body;
+    const {order_title,order_type,order_addon,order_qty,order_price,order_baseprice,order_remarks,order_status} = req.body;
 
     const newOrderMenu = new FooderOrder({
-        order_name,
-        order_desc,
+        order_title,
+        order_type,
         order_addon,
         order_qty,
         order_price,
+        order_baseprice,
+        order_remarks,
         order_status
     })
 
@@ -44,6 +46,42 @@ fooder_orderrouter.route('/:_refprofile').get((req,res)=>{
         res.json(order);
     });
 });
+
+fooder_orderrouter.route('/:id').put((req,res) => {
+    const {order_title,order_type,order_addon,order_qty,order_price,order_baseprice,order_remarks,order_status} = req.body;
+    
+    FooderOrder.findById(req.params.id)
+        .then(FooderOrder => {
+            FooderOrder.order_title = order_title;
+            FooderOrder.order_type = order_type;
+            FooderOrder.order_addon = order_addon;
+            FooderOrder.order_qty = order_qty;
+            FooderOrder.order_price = order_price;
+            FooderOrder.order_baseprice = order_baseprice;
+            FooderOrder.order_remarks = order_remarks;
+            FooderOrder.order_status = order_status;
+            
+            FooderOrder.save()
+                .then(() => res.json('Food Checkout Updated'))
+                .catch(err => res.status(400).json('Error: ' + err));
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
+fooder_orderrouter.route('/:id').get((req,res)=>{
+    FooderOrder.findById(req.params.id)
+        .then(FooderOrder => res.json(FooderOrder))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+fooder_orderrouter.route('/:id').delete((req,res) => {
+    FooderOrder.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Food Checkout Deleted'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
 
 
 module.exports = fooder_orderrouter;

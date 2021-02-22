@@ -10,9 +10,7 @@ fooder_menurouter.route('/').get((req,res)=>{
 });
 
 fooder_menurouter.route('/add').post((req,res) => {
-    const addon_maindish = req.body.addon_maindish;
-    const addon = req.body.addon;
-    const price_addon = req.body.price_addon;
+    const {addon_maindish ,addon ,price_addon} = req.body;
 
     //create new food__addon
     const newFooderMenu = new FooderAddOn({
@@ -66,16 +64,18 @@ fooder_menurouter.route('/:id').delete((req,res) => {
 
 fooder_menurouter.route('/update/:id').put(function(req,res) {
 
+    const {maindish,type,description,baseprice,addon,price_addon} = req.body 
+
     FooderAddOn.findById(req.params.id, function(err,foodupdate){
         if(!foodupdate)
             res.status(404).send("data is not found");
         else
-            foodupdate.maindish = req.body.maindish;
-            foodupdate.type = req.body.type;
-            foodupdate.description = req.body.description;
-            foodupdate.baseprice = req.body.baseprice; //base price
-            foodupdate.addon = req.body.addon; //label
-            foodupdate.price_addon = req.body.price_addon; //price addon
+            foodupdate.maindish = maindish;
+            foodupdate.type = type;
+            foodupdate.description = description;
+            foodupdate.baseprice = baseprice; //base price
+            foodupdate.addon = addon; //label
+            foodupdate.price_addon = price_addon; //price addon
 
             foodupdate.save().then(foodupdate => {
                 res.json('Food Menu Updated');

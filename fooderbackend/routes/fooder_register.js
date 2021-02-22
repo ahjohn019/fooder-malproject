@@ -1,5 +1,6 @@
 const fooder_registerouter = require('express').Router();
 const FooderRegister = require('../models/fooder_register.model');
+const FooderOrder = require('../models/fooder_order.model');
 const {auth} = require('../models/fooder_auth');
 const { check, validationResult } = require('express-validator');
 
@@ -30,6 +31,7 @@ fooder_registerouter.route('/add').post([
         const address = req.body.address;
         const state = req.body.state;
         const country = req.body.country;
+        const phonenumber = req.body.phonenumber;
         const password = req.body.password;
         const password_confirmation = req.body.password_confirmation;
     
@@ -41,6 +43,7 @@ fooder_registerouter.route('/add').post([
             address,
             state,
             country,
+            phonenumber,
             password,
             password_confirmation
         });
@@ -103,14 +106,15 @@ fooder_registerouter.route('/profile').get(auth,(req,res)=>{
         dob:req.user.dob,
         address:req.user.address,
         state: req.user.state,
-        country:req.user.country
+        country:req.user.country,
+        phonenumber:req.user.phonenumber
     })
 });
 
 
 //fooder profile update with authentication
 fooder_registerouter.route('/profile/update').post(auth,(req,res)=>{
-    const {email, first_name, last_name, address,dob, state, country} = req.body;
+    const {email, first_name, last_name, address,dob, state, country,phonenumber} = req.body;
     FooderRegister.findOne({email:email},function(err,user){
         user.first_name = first_name;
         user.last_name = last_name;
@@ -118,6 +122,7 @@ fooder_registerouter.route('/profile/update').post(auth,(req,res)=>{
         user.dob = dob;
         user.state = state;
         user.country = country;
+        user.phonenumber = phonenumber;
         user.save()
             .then(()=>res.json('Profile Updated'))
             .catch(err => res.status(400).json('Error: ' + err));

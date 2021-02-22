@@ -170,7 +170,7 @@ class NasiBuilder extends Component {
                                     />
                                 </span>
                                 <label>{fmenu.addon} </label>   
-                                <p className={classes.BlockLabelPrice}> {fmenu.price_addon}</p>         
+                                <p className={classes.BlockLabelPrice}>RM {fmenu.price_addon}</p>         
                             </div>
                         )
                     }

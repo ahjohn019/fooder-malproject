@@ -14,7 +14,7 @@ class navBar extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            fooder_checkout: [],
+            fooder_order: [],
             fooder_profile:[],
             fooder_navbarColor:"",
             fooder_navbarItem:""
@@ -22,10 +22,10 @@ class navBar extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/fooder_checkout')
+        axios.get('/api/fooder_order')
             .then(response => {
                 this.setState({
-                    fooder_checkout:response.data
+                    fooder_order:response.data
                 })            
             }).catch(error=>{
                 this.setState({error:true})
@@ -68,7 +68,7 @@ class navBar extends Component {
     }
 
     render(){
-        const _gettotalcheckoutdata = this.state.fooder_checkout.length; 
+        const _gettotalcheckoutdata = this.state.fooder_order.length; 
 
         return(
             <div className={classes.NavBar} style={{backgroundColor: this.state.fooder_navbarColor}}>
@@ -97,7 +97,7 @@ class navBar extends Component {
                         </div>
                     </div>
                 </NavItem>
-                <Link to="/checkout">       
+                <Link to={{ pathname : "/checkout"}}>       
                     <NavItem>
                         <ShoppingCartIcon style={{ fontSize: 30 }}/>
                         <span className={classes.NotificationIcons} value={_gettotalcheckoutdata}>{_gettotalcheckoutdata}</span>
