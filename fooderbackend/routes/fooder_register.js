@@ -107,27 +107,33 @@ fooder_registerouter.route('/profile').get(auth,(req,res)=>{
         address:req.user.address,
         state: req.user.state,
         country:req.user.country,
-        phonenumber:req.user.phonenumber
+        phonenumber:req.user.phonenumber,
+        _reforder:req.user._reforder,
+        token:req.user.token
     })
 });
 
 
 //fooder profile update with authentication
-fooder_registerouter.route('/profile/update').post(auth,(req,res)=>{
+fooder_registerouter.route('/profile/:id').put(auth,(req,res)=>{
     const {email, first_name, last_name, address,dob, state, country,phonenumber} = req.body;
-    FooderRegister.findOne({email:email},function(err,user){
-        user.first_name = first_name;
-        user.last_name = last_name;
-        user.address = address;
-        user.dob = dob;
-        user.state = state;
-        user.country = country;
-        user.phonenumber = phonenumber;
-        user.save()
-            .then(()=>res.json('Profile Updated'))
-            .catch(err => res.status(400).json('Error: ' + err));
-    })
-    .catch(err => res.status(400).json('Error: ' + err));
+    
+    FooderRegister.findById(req.params.id)
+        .then(FooderRegister =>{
+            FooderRegister.email = email;
+            FooderRegister.first_name = first_name;
+            FooderRegister.last_name = last_name;
+            FooderRegister.address = address;
+            FooderRegister.dob = dob;
+            FooderRegister.state = state;
+            FooderRegister.country = country;
+            FooderRegister.phonenumber = phonenumber;
+
+            FooderRegister.save()
+                .then(() => res.json('Profile Updated'))
+                .catch(err => res.status(400).json('Error: ' + err));
+        })
+
 });
 
 

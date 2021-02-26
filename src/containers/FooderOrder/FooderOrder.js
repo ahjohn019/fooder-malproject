@@ -19,6 +19,7 @@ class Checkout extends Component {
             fooder_profileOrder:"",
             display_edit:false
         }    
+        this.paymentSuccess = this.paymentSuccess.bind(this);
     }
 
     componentDidMount(){
@@ -38,25 +39,33 @@ class Checkout extends Component {
             });
     }
 
-    paymentSuccess = () => {
-        axios.get('/api/fooder_order')
-            .then(response => response.json())
-            .then((json) => {this.setState({fooder_order: json})})
-            .catch(error=>{this.setState({error:true})
-        });
+    paymentSuccess() {
+        const token = this.state.fooder_profile.token
+        const orderlist = this.state.fooder_order
+        const fooder_profileid = this.state.fooder_profile.id
 
-        for(var i in this.state.fooder_order){
-            axios.put(`/api/fooder_order/${this.state.fooder_order[i]._id}`,{
-                order_title:this.state.fooder_order[i].order_title,
-                order_type:this.state.fooder_order[i].order_type,
-                order_addon:this.state.fooder_order[i].order_addon,
-                order_qty:this.state.fooder_order[i].order_qty,
-                order_price:this.state.fooder_order[i].order_price,
-                order_baseprice:this.state.fooder_order[i].order_baseprice,
-                order_remarks:this.state.fooder_order[i].order_remarks,
-                order_status:"Pending"
-            }).then(()=>console.log('Payment Updated'))
-              .catch(err => console.log('Error: ' + err))
+        if(token)
+        {
+            for(var i in orderlist){
+                const fooder_orderid = this.state.fooder_order[i]["_refprofile"].toString()
+                if(fooder_orderid === fooder_profileid){
+                    // const _gettotalprice = this.state.fooder_order.map(forder => forder.order_price).reduce((sum,index)=>sum+index,0);
+                    axios.put(`/api/fooder_order/${this.state.fooder_order[i]._id}`,{
+                        order_title:this.state.fooder_order[i].order_title,
+                        order_type:this.state.fooder_order[i].order_type,
+                        order_addon:this.state.fooder_order[i].order_addon,
+                        order_qty:this.state.fooder_order[i].order_qty,
+                        order_price:this.state.fooder_order[i].order_price,
+                        order_baseprice:this.state.fooder_order[i].order_baseprice,
+                        order_subtotal:"",
+                        order_remarks:this.state.fooder_order[i].order_remarks,
+                        order_status:"Pending"
+                    }).then(()=>console.log('Payment Updated'))
+                    .catch(err => console.log('Error: ' + err))
+                }
+            }
+        } else {
+            console.log("Not authorized to update other order.")
         }
     }
 
@@ -126,7 +135,7 @@ class Checkout extends Component {
                             this.state.fooder_order.length <= 0 ? null : 
                                 <div>
                                     <h3 className={classes.CheckoutTitle}>Subtotal : </h3>
-                                    <h3 className={classes.CheckoutPrice}>RM {_gettotalprice}</h3>
+                                    <h3 className={classes.CheckoutPrice} value={_gettotalprice} >RM {_gettotalprice}</h3>
                                 </div>
                         }
                     </div>  

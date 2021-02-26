@@ -98,9 +98,11 @@ class navBar extends Component {
                     </div>
                 </NavItem>
                 <Link to={{ pathname : "/checkout"}}>       
-                    <NavItem>
-                        <ShoppingCartIcon style={{ fontSize: 30 }}/>
-                        <span className={classes.NotificationIcons} value={_gettotalcheckoutdata}>{_gettotalcheckoutdata}</span>
+                    <NavItem>                                                                
+                        <div>
+                            <ShoppingCartIcon style={{ fontSize: 30 }}/>
+                            <span className={classes.NotificationIcons} value={_gettotalcheckoutdata}>{_gettotalcheckoutdata}</span>
+                        </div>                                
                     </NavItem>
                 </Link>
                 <Link to="/">

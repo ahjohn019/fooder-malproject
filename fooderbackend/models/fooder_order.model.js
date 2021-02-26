@@ -9,6 +9,7 @@ let foodorderSchema = new Schema({
     order_qty:{type:Number}, 
     order_price:{type:Number},
     order_baseprice:{type:Number},
+    order_subtotal:{type:Number},
     order_remarks:{type:String},
     order_status:{type:String},
     _refprofile:[{type:Schema.Types.ObjectId, ref:'FooderRegister'}]

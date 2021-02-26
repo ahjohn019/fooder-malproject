@@ -16,7 +16,8 @@ let foodRegisterSchema = new Schema({
     phonenumber:{type:String},
     password:{type:String},
     password_confirmation:{type:String},
-    token:{type:String}
+    token:{type:String},
+    _reforder:[{type:Schema.Types.ObjectId, ref:'FooderOrder'}]
 });
 
 foodRegisterSchema.set('timestamps',true);

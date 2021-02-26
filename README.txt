@@ -23,6 +23,12 @@
 23. Food Master UI [done]
 
 Problem:
+Auth Problem :
+- 1) User can see other people order, when payment it affect other order status account.
+
+Plan:
+- 1) Set Auth on order express api
+- 2) Rebuild structure of order database
 
 Fixed:
 1) Checkout Incomplete List [done for label & price]

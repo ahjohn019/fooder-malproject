@@ -15,13 +15,15 @@ class FooderProfile extends Component {
     }
     
     componentDidMount() {
+
         axios.get('/api/fooder_register/profile')
             .then(response => {
                 this.setState({fooder_profile:response.data, fooder_profileaddr:response.data.address})
-            
             }).catch(error=>{
                 this.setState({error:true})
         });
+
+
     }
 
     render() {
