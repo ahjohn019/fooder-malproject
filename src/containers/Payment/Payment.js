@@ -80,6 +80,7 @@ class Payment extends Component {
                                     size="large"
                                     startIcon={<FaDollarSign />}
                                     onClick={this.props.paymentSuccess}
+                                    value={this.props.orderSubtotal}
                                 >
                                     ORDER
                                 </Button>

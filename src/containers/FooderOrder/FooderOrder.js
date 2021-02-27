@@ -39,17 +39,17 @@ class Checkout extends Component {
             });
     }
 
-    paymentSuccess() {
-        const token = this.state.fooder_profile.token
-        const orderlist = this.state.fooder_order
-        const fooder_profileid = this.state.fooder_profile.id
+    paymentSuccess(event) {
+        const token = this.state.fooder_profile.token;
+        const orderList = this.state.fooder_order;
+        const fooder_profileid = this.state.fooder_profile.id;
+        const orderSubtotal = event.currentTarget.value;
 
         if(token)
         {
-            for(var i in orderlist){
+            for(var i in orderList){
                 const fooder_orderid = this.state.fooder_order[i]["_refprofile"].toString()
                 if(fooder_orderid === fooder_profileid){
-                    // const _gettotalprice = this.state.fooder_order.map(forder => forder.order_price).reduce((sum,index)=>sum+index,0);
                     axios.put(`/api/fooder_order/${this.state.fooder_order[i]._id}`,{
                         order_title:this.state.fooder_order[i].order_title,
                         order_type:this.state.fooder_order[i].order_type,
@@ -57,13 +57,14 @@ class Checkout extends Component {
                         order_qty:this.state.fooder_order[i].order_qty,
                         order_price:this.state.fooder_order[i].order_price,
                         order_baseprice:this.state.fooder_order[i].order_baseprice,
-                        order_subtotal:"",
+                        order_subtotal:orderSubtotal,
                         order_remarks:this.state.fooder_order[i].order_remarks,
                         order_status:"Pending"
                     }).then(()=>console.log('Payment Updated'))
                     .catch(err => console.log('Error: ' + err))
                 }
             }
+            console.log(this.state.fooder_orderSubtotal)
         } else {
             console.log("Not authorized to update other order.")
         }
@@ -84,9 +85,15 @@ class Checkout extends Component {
     }
 
     render() {
-        const _gettotalprice = this.state.fooder_order.map(forder => forder.order_price).reduce((sum,index)=>sum+index,0);
-        console.log("FooderProfileID",this.state.fooder_profile.id)
-        console.log("FooderOrder",this.state.fooder_order.map(forder=>forder._refprofile[0]))
+        let token = this.state.fooder_profile.token
+        let fooder_profileid = this.state.fooder_profile.id
+        let _gettotalprice;
+
+        if(token){
+            _gettotalprice = this.state.fooder_order.map(forder => fooder_profileid === forder._refprofile[0] ? forder.order_price : null).reduce((sum,index)=>sum+index,0);
+        } else {
+            _gettotalprice = 0
+        } 
         return (
             <div>
                 <NavBar />  
@@ -134,7 +141,7 @@ class Checkout extends Component {
                             this.state.fooder_order.length <= 0 ? null : 
                                 <div>
                                     <h3 className={classes.CheckoutTitle}>Subtotal : </h3>
-                                    <h3 className={classes.CheckoutPrice} value={_gettotalprice} >RM {_gettotalprice}</h3>
+                                    <span className={classes.CheckoutPrice} > RM {_gettotalprice}</span>
                                 </div>
                         }
                     </div>  
@@ -148,6 +155,7 @@ class Checkout extends Component {
                         state = {this.state.fooder_profile["state"]}
                         country = {this.state.fooder_profile["country"]}
                         phonenumber = {this.state.fooder_profile["phonenumber"]}
+                        orderSubtotal = {_gettotalprice}
                         paymentSuccess = {this.paymentSuccess}
                     />     
                 <Footer />
