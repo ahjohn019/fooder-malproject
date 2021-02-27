@@ -85,6 +85,8 @@ class Checkout extends Component {
 
     render() {
         const _gettotalprice = this.state.fooder_order.map(forder => forder.order_price).reduce((sum,index)=>sum+index,0);
+        console.log("FooderProfileID",this.state.fooder_profile.id)
+        console.log("FooderOrder",this.state.fooder_order.map(forder=>forder._refprofile[0]))
         return (
             <div>
                 <NavBar />  
@@ -93,9 +95,10 @@ class Checkout extends Component {
                         <h2>Your Order</h2>
                         {
                             this.state.fooder_order.length <= 0 ?
-                               <p className={classes.CheckoutNoOrder}><ErrorOutlineIcon />You Have No Place Order</p> :
+                               <p className={classes.CheckoutNoOrder}><ErrorOutlineIcon />You Have No Place Order</p> : 
                             this.state.fooder_order.map((forder) =>
-                                <div key={forder._id} >
+                                <div key={forder._id} style={this.state.fooder_profile.token ? this.state.fooder_profile.id === forder._refprofile[0] ? 
+                                                        {display:"block"} : {display:"none"} : {display:"none"}}>
                                     <h3 className={classes.CheckoutTitle}>x{forder.order_qty}</h3>
                                     <h3 className={classes.CheckoutTitle}>{forder.order_title}</h3>
                                     <p className={classes.CheckoutPrice}>RM {forder.order_price}</p>
@@ -111,8 +114,6 @@ class Checkout extends Component {
                                                 </div>)
                                         }        
                                     </div>
-                                        
-                    
                                     {/* Delete The Data */}
                                     <Button
                                         variant="contained"
@@ -125,9 +126,7 @@ class Checkout extends Component {
                                     >
                                         Delete
                                     </Button>
-                                    
-                                    <hr />
-                                    
+                                    <hr />                               
                                 </div>
                         )}
                         <br />
