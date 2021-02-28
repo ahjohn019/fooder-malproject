@@ -81,11 +81,9 @@ class navBar extends Component {
                 if(fooder_orderid === fooder_profileid){
                     fooderOrder_count++
                     fooderOrder_init.push(fooderOrder_count)
-                    console.log(fooderOrder_init)
                     _gettotalcheckoutdata = fooderOrder_init.length
                 }
             }
-            console.log(_gettotalcheckoutdata)
         }
 
         return(

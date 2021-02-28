@@ -79,6 +79,7 @@ class Checkout extends Component {
                 console.log(res.data);
             });
         const deleteCheckout = this.state.fooder_order.filter(fdelete => fdelete._id !== _checkoutDeleteButtonId);
+        window.location.reload(false);
 
         this.setState({fooder_order: deleteCheckout})
     }
