@@ -16,8 +16,7 @@ class Checkout extends Component {
             fooderorder_addon: [],
             fooder_profile:[],
             fooder_profileAddr: [],
-            fooder_profileOrder:"",
-            display_edit:false
+            fooder_profileOrder:""
         }    
         this.paymentSuccess = this.paymentSuccess.bind(this);
     }

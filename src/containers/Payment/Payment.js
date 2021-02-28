@@ -3,9 +3,9 @@ import classes from '../../containers/Payment/Payment.module.css';
 import {TextField, FormControl, Radio, RadioGroup, FormControlLabel} from '@material-ui/core';
 import {FaDollarSign}  from "react-icons/fa";
 import Button from '@material-ui/core/Button';
+// import ButtonOrder from '../../components/UI/Button/ButtonOrder';
 
 class Payment extends Component {
-
     render() {
         return (
             <div className={classes.CustomerDetailsBlockSelector }>

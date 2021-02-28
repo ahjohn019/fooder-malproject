@@ -17,7 +17,8 @@ class navBar extends Component {
             fooder_order: [],
             fooder_profile:[],
             fooder_navbarColor:"",
-            fooder_navbarItem:""
+            fooder_navbarItem:"",
+            fooder_orderLength:[]
         }
     }
 
@@ -26,7 +27,7 @@ class navBar extends Component {
             .then(response => {
                 this.setState({
                     fooder_order:response.data
-                })            
+                })       
             }).catch(error=>{
                 this.setState({error:true})
         });
@@ -68,7 +69,22 @@ class navBar extends Component {
     }
 
     render(){
-        const _gettotalcheckoutdata = this.state.fooder_order.length; 
+        let token = this.state.fooder_profile.token;
+        let fooder_profileid = this.state.fooder_profile.id;
+        let fooder_order = this.state.fooder_order;
+        let _gettotalcheckoutdata;
+        if(token){
+            var fooderOrder_count = 0;
+            var fooderOrder_init = [];
+            for(var i in fooder_order){
+                let fooder_orderid = fooder_order[i]._refprofile.toString();
+                if(fooder_orderid === fooder_profileid){
+                    fooderOrder_count++
+                    fooderOrder_init.push(fooderOrder_count)
+                    _gettotalcheckoutdata = fooderOrder_init.length
+                }
+            }
+        }
 
         return(
             <div className={classes.NavBar} style={{backgroundColor: this.state.fooder_navbarColor}}>
@@ -99,10 +115,10 @@ class navBar extends Component {
                 </NavItem>
                 <Link to={{ pathname : "/checkout"}}>       
                     <NavItem>                                                                
-                        <div>
-                            <ShoppingCartIcon style={{ fontSize: 30 }}/>
-                            <span className={classes.NotificationIcons} value={_gettotalcheckoutdata}>{_gettotalcheckoutdata}</span>
-                        </div>                                
+                    <div>
+                        <ShoppingCartIcon style={{ fontSize: 30 }}/>
+                        <span className={classes.NotificationIcons} value={_gettotalcheckoutdata} style={_gettotalcheckoutdata ? {display:"block"} : {display:"none"}}>{_gettotalcheckoutdata}</span>
+                    </div>                               
                     </NavItem>
                 </Link>
                 <Link to="/">
