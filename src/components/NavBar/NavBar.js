@@ -81,9 +81,11 @@ class navBar extends Component {
                 if(fooder_orderid === fooder_profileid){
                     fooderOrder_count++
                     fooderOrder_init.push(fooderOrder_count)
+                    console.log(fooderOrder_init)
                     _gettotalcheckoutdata = fooderOrder_init.length
                 }
             }
+            console.log(_gettotalcheckoutdata)
         }
 
         return(
@@ -93,7 +95,7 @@ class navBar extends Component {
                         <span><PersonIcon style={{fontSize:30}}></PersonIcon></span>
                         <div className={classes.dropdown_content}>
                             { 
-                                this.state.fooder_profile['isAuth'] === true ?
+                                this.state.fooder_profile.token ?
                                     <div>
                                         <Link to="/profile">
                                             <p>{this.state.fooder_profile['name']}</p>   

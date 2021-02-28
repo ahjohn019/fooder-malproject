@@ -37,7 +37,7 @@ const ButtonConfirmation = (props) => {
 
             if(btnValue === "btnCheckout"){
                 axios.post('/api/fooder_order/order/add', foodCheckoutList).then(function (response) {
-                    console.log(response);
+                    console.log(response.data);
                   })
                   .catch(function (error) {
                     console.log(error);
@@ -45,11 +45,12 @@ const ButtonConfirmation = (props) => {
                 history.push({
                     pathname: '/checkout'
                 });
-
+                window.location.reload(false);
             }
 
             if(btnValue === "btnGoBack"){
                 history.push('/');
+                window.location.reload(false);
                 axios.post('/api/fooder_order/order/add', foodCheckoutList).then(function (response) {
                     console.log(response.data);
                   })
