@@ -38,9 +38,7 @@ class FooderLogin extends Component {
             return new Promise(resolve => setTimeout(resolve, milliseconds))
         }
 
-        axios.post('api/fooder_register/login',
-            food_login
-            ,
+        axios.post('api/fooder_register/login',food_login,
             {withCredentials: true}
         )
         .then(response => {
@@ -48,6 +46,7 @@ class FooderLogin extends Component {
                 this.setState({message_status:response.data})
                 if(response.data["isAuth"] === true){
                     sleep(1000).then(() => this.props.history.push('/'))
+                    
                 }
             }
         })

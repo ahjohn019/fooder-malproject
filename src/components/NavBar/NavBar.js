@@ -62,7 +62,7 @@ class navBar extends Component {
         axios.get('/api/fooder_register/logout')
             .then(response => {
                 console.log(response.data)
-                localStorage.clear();
+                
                 window.location.href = '/';
             })
             .catch(error=>{this.setState({error:true})});

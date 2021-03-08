@@ -21,8 +21,12 @@
 21. Track Order
 22. Deploy To Heroku [done]
 23. Food Master UI [done]
+24. Payment API (Stripe/PayPal)
+25. LocalStorage Cart Storage
 
 Problem:
+1) LocalStorage Cart Storage
+
 
 Fixed:
 1) Checkout Incomplete List [done for label & price]

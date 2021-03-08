@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import classes from './ButtonCheckout.module.css';
 import {Modal, Button} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
@@ -8,6 +8,7 @@ import PurchaseButton from '@material-ui/core/Button';
 
 const ButtonConfirmation = (props) => {
         const [show, setShow] = useState(false);
+        const [profile, setProfile] = React.useState(true);
 
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
@@ -15,6 +16,13 @@ const ButtonConfirmation = (props) => {
         const listCheckoutDict = props.listCheckoutDict;
 
         let history = useHistory(); 
+
+        useEffect(() => {
+            axios.get('/api/fooder_register/profile')
+                .then(response => {
+                    setProfile(response.data);
+                });
+            }, []);
 
         const handlecheckout = (event) => {
             var _addon = listCheckoutDict.map(list => list.label);
@@ -28,14 +36,21 @@ const ButtonConfirmation = (props) => {
                 order_price:props.totalPrice,
                 order_baseprice:props.fooderbasePrice,
                 order_remarks:props.specialInstruction,
-                order_status: "Awaiting Payment"
+                order_status: "Awaiting Payment",
+                _refprofile: profile.id
             });
 
             if(foodCheckoutList.order_remarks === "" ){
                 foodCheckoutList.order_remarks = "None"
             }
 
-            if(btnValue === "btnCheckout"){
+
+            if(btnValue === "btnCheckout"){     
+                //localstorage shopcart test
+                let cartCopy = JSON.parse(localStorage.getItem("foodCheckoutList")) || []  
+                cartCopy.push(foodCheckoutList)
+                localStorage.setItem('foodCheckoutList', JSON.stringify(cartCopy))
+                
                 axios.post('/api/fooder_order/order/add', foodCheckoutList).then(function (response) {
                     console.log(response.data);
                   })
@@ -45,7 +60,7 @@ const ButtonConfirmation = (props) => {
                 history.push({
                     pathname: '/checkout'
                 });
-                window.location.reload(false);
+                
             }
 
             if(btnValue === "btnGoBack"){

@@ -44,6 +44,7 @@ class Checkout extends Component {
         const fooder_profileid = this.state.fooder_profile.id;
         const orderSubtotal = event.currentTarget.value;
 
+        //add payment order to db after user select order
         if(token)
         {
             for(var i in orderList){
@@ -58,12 +59,12 @@ class Checkout extends Component {
                         order_baseprice:this.state.fooder_order[i].order_baseprice,
                         order_subtotal:orderSubtotal,
                         order_remarks:this.state.fooder_order[i].order_remarks,
-                        order_status:"Pending"
+                        order_status:"Success"
                     }).then(()=>console.log('Payment Updated'))
                     .catch(err => console.log('Error: ' + err))
                 }
             }
-            console.log(this.state.fooder_orderSubtotal)
+            alert("Payment Success")
         } else {
             console.log("Not authorized to update other order.")
         }
@@ -72,7 +73,7 @@ class Checkout extends Component {
     deleteCheckoutHandler = (event) => {
         event.preventDefault();
         let _checkoutDeleteButtonId = event.currentTarget.value
-
+        
         axios.delete(`/api/fooder_order/${_checkoutDeleteButtonId}`)
             .then(res => {
                 console.log(res);
@@ -88,12 +89,16 @@ class Checkout extends Component {
         let token = this.state.fooder_profile.token
         let fooder_profileid = this.state.fooder_profile.id
         let _gettotalprice;
+        // localstorage test
+        let foodcheckout = JSON.parse(localStorage.getItem('foodCheckoutList'));
 
         if(token){
             _gettotalprice = this.state.fooder_order.map(forder => fooder_profileid === forder._refprofile[0] ? forder.order_price : null).reduce((sum,index)=>sum+index,0);
         } else {
             _gettotalprice = 0
         } 
+
+
         return (
             <div>
                 <NavBar />  
