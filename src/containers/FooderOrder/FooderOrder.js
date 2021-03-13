@@ -16,7 +16,7 @@ class Checkout extends Component {
             fooderorder_addon: [],
             fooder_profile:[],
             fooder_profileAddr: [],
-            fooder_profileOrder:""
+            fooder_delete:""
         }    
         this.paymentSuccess = this.paymentSuccess.bind(this);
     }
@@ -73,26 +73,36 @@ class Checkout extends Component {
     deleteCheckoutHandler = (event) => {
         event.preventDefault();
         let _checkoutDeleteButtonId = event.currentTarget.value
-        
-        axios.delete(`/api/fooder_order/${_checkoutDeleteButtonId}`)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            });
-        const deleteCheckout = this.state.fooder_order.filter(fdelete => fdelete._id !== _checkoutDeleteButtonId);
-        window.location.reload(false);
 
-        this.setState({fooder_order: deleteCheckout})
+        // localstorage foodcheckout(test)
+        let foodcheckout = JSON.parse(localStorage.getItem('foodCheckoutList'));
+        const deleteCheckout = foodcheckout.filter(fdelete => fdelete._id !== _checkoutDeleteButtonId);
+        localStorage.setItem('foodCheckoutList', JSON.stringify(deleteCheckout));
+        this.setState({fooder_delete: deleteCheckout})
+
+        //delete data from db
+        // axios.delete(`/api/fooder_order/${_checkoutDeleteButtonId}`)
+        //     .then(res => {
+        //         console.log(res);
+        //         console.log(res.data);
+        //     });
+        // const deleteCheckout = foodcheckout.filter(fdelete => fdelete._id !== _checkoutDeleteButtonId);
+        //this.setState({fooder_order: deleteCheckout})
     }
 
     render() {
         let token = this.state.fooder_profile.token
         let fooder_profileid = this.state.fooder_profile.id
         let _gettotalprice;
-        // localstorage test
+        
+        // localstorage foodcheckout(test)
+        let _localtotalprice;
         let foodcheckout = JSON.parse(localStorage.getItem('foodCheckoutList'));
 
         if(token){
+            //localstorage pricetest
+            _localtotalprice = foodcheckout ? foodcheckout.map(forder => fooder_profileid === forder._refprofile ? forder.order_price : null).reduce((sum,index)=>sum+index,0) : 0;
+            //db get total pricetest
             _gettotalprice = this.state.fooder_order.map(forder => fooder_profileid === forder._refprofile[0] ? forder.order_price : null).reduce((sum,index)=>sum+index,0);
         } else {
             _gettotalprice = 0
@@ -106,10 +116,10 @@ class Checkout extends Component {
                     <div className={classes.CheckoutBlockSelector}>    
                         <h2>Your Order</h2>
                         {
-                            this.state.fooder_order.length <= 0 ?
+                            foodcheckout === null || foodcheckout.length <= 0 ?
                                <p className={classes.CheckoutNoOrder}><ErrorOutlineIcon />You Have No Place Order</p> : 
-                            this.state.fooder_order.map((forder) =>
-                                <div key={forder._id} style={this.state.fooder_profile.token ? this.state.fooder_profile.id === forder._refprofile[0] ? 
+                            foodcheckout.map((forder) =>
+                                <div key={forder._id} style={this.state.fooder_profile.token ? this.state.fooder_profile.id === forder._refprofile ? 
                                                         {display:"block"} : {display:"none"} : {display:"none"}}>
                                     <h3 className={classes.CheckoutTitle}>x{forder.order_qty}</h3>
                                     <h3 className={classes.CheckoutTitle}>{forder.order_title}</h3>
@@ -143,10 +153,10 @@ class Checkout extends Component {
                         )}
                         <br />
                         {
-                            this.state.fooder_order.length <= 0 ? null : 
+                            foodcheckout === null || foodcheckout.length <= 0 ? null : 
                                 <div>
                                     <h3 className={classes.CheckoutTitle}>Subtotal : </h3>
-                                    <span className={classes.CheckoutPrice} > RM {_gettotalprice}</span>
+                                    <span className={classes.CheckoutPrice} > RM {_localtotalprice}</span>
                                 </div>
                         }
                     </div>  

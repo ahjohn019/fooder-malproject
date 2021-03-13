@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { FaTimes, FaCheck, FaPlus } from "react-icons/fa";
 import axios from 'axios';
 import PurchaseButton from '@material-ui/core/Button';
+import { v1 as uuidv1 } from 'uuid';
+
 
 const ButtonConfirmation = (props) => {
         const [show, setShow] = useState(false);
@@ -27,8 +29,10 @@ const ButtonConfirmation = (props) => {
         const handlecheckout = (event) => {
             var _addon = listCheckoutDict.map(list => list.label);
             const btnValue = event.currentTarget.value;
+            const id = uuidv1();
 
             const foodCheckoutList = ({
+                _id:id,
                 order_title:props.fooderMaindish,
                 order_type:props.fooderType,
                 order_addon: _addon,
@@ -51,12 +55,13 @@ const ButtonConfirmation = (props) => {
                 cartCopy.push(foodCheckoutList)
                 localStorage.setItem('foodCheckoutList', JSON.stringify(cartCopy))
                 
-                axios.post('/api/fooder_order/order/add', foodCheckoutList).then(function (response) {
-                    console.log(response.data);
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
+                //save order to db
+                // axios.post('/api/fooder_order/order/add', foodCheckoutList).then(function (response) {
+                //     console.log(response.data);
+                //   })
+                //   .catch(function (error) {
+                //     console.log(error);
+                //   });
                 history.push({
                     pathname: '/checkout'
                 });
